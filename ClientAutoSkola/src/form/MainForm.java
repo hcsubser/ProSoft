@@ -26,57 +26,128 @@ public class MainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        PolaznikPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        DodajPolaznikaButton = new javax.swing.JButton();
+        PromeniPolaznikaButton = new javax.swing.JButton();
+        ObrisiPolaznikaButton = new javax.swing.JButton();
+        KursPanel = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        DodajPolaznikaButton.setText("Додај Полазника");
+        DodajPolaznikaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DodajPolaznikaButtonActionPerformed(evt);
+            }
+        });
+
+        PromeniPolaznikaButton.setText("Промени Полазника");
+        PromeniPolaznikaButton.setEnabled(false);
+
+        ObrisiPolaznikaButton.setText("Обриши Полазника");
+        ObrisiPolaznikaButton.setEnabled(false);
+        ObrisiPolaznikaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ObrisiPolaznikaButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PolaznikPanelLayout = new javax.swing.GroupLayout(PolaznikPanel);
+        PolaznikPanel.setLayout(PolaznikPanelLayout);
+        PolaznikPanelLayout.setHorizontalGroup(
+            PolaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PolaznikPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addGroup(PolaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DodajPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PromeniPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ObrisiPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
+        );
+        PolaznikPanelLayout.setVerticalGroup(
+            PolaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PolaznikPanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(PolaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PolaznikPanelLayout.createSequentialGroup()
+                        .addComponent(DodajPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(PromeniPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ObrisiPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(144, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Polaznik", PolaznikPanel);
+
+        javax.swing.GroupLayout KursPanelLayout = new javax.swing.GroupLayout(KursPanel);
+        KursPanel.setLayout(KursPanelLayout);
+        KursPanelLayout.setHorizontalGroup(
+            KursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 646, Short.MAX_VALUE)
+        );
+        KursPanelLayout.setVerticalGroup(
+            KursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Kurs", KursPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1))
         );
+
+        jTabbedPane1.getAccessibleContext().setAccessibleName("Polaznik");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void ObrisiPolaznikaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObrisiPolaznikaButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ObrisiPolaznikaButtonActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainForm().setVisible(true);
-            }
-        });
-    }
+    private void DodajPolaznikaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodajPolaznikaButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DodajPolaznikaButtonActionPerformed
+
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DodajPolaznikaButton;
+    private javax.swing.JPanel KursPanel;
+    private javax.swing.JButton ObrisiPolaznikaButton;
+    private javax.swing.JPanel PolaznikPanel;
+    private javax.swing.JButton PromeniPolaznikaButton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
