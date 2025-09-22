@@ -6,6 +6,7 @@ package threads;
 
 import communication.Operation;
 import communication.CommPackage;
+import controller.ServerController;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -35,7 +36,8 @@ public class HandleClientThread extends Thread{
                 System.out.println(request.toString());
                 System.out.println((String)request.getArgument());
                 
-                CommPackage response = new CommPackage(Operation.STRING_MESSAGE, "test");
+                Object obj = ServerController.getInstance().handlePackage(request);
+                CommPackage response = new CommPackage(Operation.VRATI_MESTA, obj);
                 ObjectOutputStream out= new ObjectOutputStream(socket.getOutputStream());
                 out.writeObject(response);
                 System.out.println("threads.HandleClientThread.run()");

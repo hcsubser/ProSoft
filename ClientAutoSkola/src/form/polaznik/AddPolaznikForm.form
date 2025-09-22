@@ -35,13 +35,11 @@
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jButton1" pref="161" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jTextField1" max="32767" attributes="0"/>
-                      <Component id="jTextField2" max="32767" attributes="0"/>
-                      <Component id="jTextField3" max="32767" attributes="0"/>
-                      <Component id="jTextField4" max="32767" attributes="0"/>
-                      <Component id="jComboBox1" pref="161" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jTextField1" max="32767" attributes="0"/>
+                  <Component id="jTextField2" max="32767" attributes="0"/>
+                  <Component id="jTextField3" max="32767" attributes="0"/>
+                  <Component id="jTextField4" max="32767" attributes="0"/>
+                  <Component id="jComboBox1" pref="161" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="41" max="32767" attributes="0"/>
           </Group>
@@ -129,7 +127,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;domain.Mesto&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">

@@ -6,6 +6,7 @@ package domain;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,13 @@ public class Mesto implements AbstractDomainObject{
     int id;
     String naziv;
     int zipcode;
+
+    public Mesto(int id, String naziv, int zipcode) {
+        this.id = id;
+        this.naziv = naziv;
+        this.zipcode = zipcode;
+    }
+
 
     //getters and setters
     public String getNaziv() {
@@ -40,7 +48,7 @@ public class Mesto implements AbstractDomainObject{
     //overrides:
     @Override
     public String getTableName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "Mesto";
     }
 
     @Override
@@ -65,23 +73,38 @@ public class Mesto implements AbstractDomainObject{
 
     @Override
     public String alias() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "";
     }
 
     @Override
     public String join() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "";
     }
 
     @Override
     public String condition() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "";
     }
 
     @Override
     public List<AbstractDomainObject> getAll(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<AbstractDomainObject> lista = new ArrayList<>();
+
+        while (rs.next()) {
+            
+            Mesto mesto = new Mesto(rs.getInt("idMesto"), rs.getString("naziv"), rs.getInt("postalCode"));
+            lista.add(mesto);
+        }
+
+        rs.close();
+        return lista;
     }
+
+    @Override
+    public String toString() {
+        return naziv;
+    }
+    
     
     
 }

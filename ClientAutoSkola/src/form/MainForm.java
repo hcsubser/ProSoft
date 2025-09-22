@@ -7,6 +7,7 @@ package form;
 import communication.Communication;
 import communication.Operation;
 import controller.Controller;
+import form.polaznik.AddPolaznikForm;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -142,12 +143,14 @@ public class MainForm extends javax.swing.JFrame {
 
     private void DodajPolaznikaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodajPolaznikaButtonActionPerformed
         // TODO add your handling code here:
-        Controller controller = new Controller();
+        AddPolaznikForm apf;
         try {
-            controller.sendRequest(Operation.ADD_POLAZNIK, new String("TestClient"));
+            apf = new AddPolaznikForm();
+            apf.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_DodajPolaznikaButtonActionPerformed
 
  

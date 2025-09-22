@@ -6,6 +6,12 @@ package controller;
 
 import communication.Operation;
 import communication.CommPackage;
+import dbbroker.DBBroker;
+import domain.AbstractDomainObject;
+import domain.Mesto;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author mmmdeb
@@ -19,7 +25,7 @@ public class ServerController {
         return serverController;
     }
     
-    Object handlePackage(CommPackage pkg){
+    public Object handlePackage(CommPackage pkg){
         Object obj = new Object();
         switch (pkg.getOperation()) {
                 case Operation.ADD_POLAZNIK:
@@ -40,7 +46,14 @@ public class ServerController {
     }
     
     Object vratiSvaMesta(){
-    
-        return new Object();
+        try {
+            Mesto mesto = new Mesto(0,null,0);
+            Object array;
+            array = DBBroker.getInstance().select(mesto);
+            return array;
+        } catch (SQLException ex) {
+            Logger.getLogger(ServerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

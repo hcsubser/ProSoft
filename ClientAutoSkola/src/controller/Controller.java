@@ -16,6 +16,18 @@ import java.io.ObjectOutputStream;
  */
 public class Controller {
     
+    private static Controller controller;
+
+    public Controller() {
+    }
+    
+    public static Controller getInstance() {
+        if(controller==null){
+            controller=new Controller();
+        }
+        return controller;
+    }
+    
     public Object sendRequest(Operation operation, Object data) throws Exception {
         CommPackage request=new CommPackage(operation, data);
         System.out.println("controller.Controller.sendRequest()");
@@ -27,7 +39,7 @@ public class Controller {
         ObjectInputStream in= new ObjectInputStream(Communication.getInstance().getSocket().getInputStream());
         CommPackage response= (CommPackage) in.readObject();
         System.out.println("controller.Controller.sendRequest()");
-        System.out.println((String)response.getArgument());
+        //System.out.println((String)response.getArgument());
         
         /*if(response.getResponseType().equals(ResponseType.ERROR)){
             throw response.getException();
