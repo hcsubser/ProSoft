@@ -7,6 +7,8 @@ package form;
 import communication.Communication;
 import communication.Operation;
 import controller.Controller;
+import form.components.MestaTableModel;
+import form.mesto.AddMesto;
 import form.polaznik.AddPolaznikForm;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,6 +24,9 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
+        
+        mestoTable.setModel(new MestaTableModel());
+        ((MestaTableModel)mestoTable.getModel()).refreshTable();
     }
 
     /**
@@ -34,15 +39,34 @@ public class MainForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        PolaznikPanel = new javax.swing.JPanel();
+        kursPanel = new javax.swing.JPanel();
+        polaznikPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         DodajPolaznikaButton = new javax.swing.JButton();
         PromeniPolaznikaButton = new javax.swing.JButton();
         ObrisiPolaznikaButton = new javax.swing.JButton();
-        KursPanel = new javax.swing.JPanel();
+        mestaPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        mestoTable = new javax.swing.JTable();
+        dodajMestoButton = new javax.swing.JButton();
+        promeniMestoButton = new javax.swing.JButton();
+        obrisiMestoButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout kursPanelLayout = new javax.swing.GroupLayout(kursPanel);
+        kursPanel.setLayout(kursPanelLayout);
+        kursPanelLayout.setHorizontalGroup(
+            kursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 646, Short.MAX_VALUE)
+        );
+        kursPanelLayout.setVerticalGroup(
+            kursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Kursevi", kursPanel);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,27 +99,27 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout PolaznikPanelLayout = new javax.swing.GroupLayout(PolaznikPanel);
-        PolaznikPanel.setLayout(PolaznikPanelLayout);
-        PolaznikPanelLayout.setHorizontalGroup(
-            PolaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PolaznikPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout polaznikPanelLayout = new javax.swing.GroupLayout(polaznikPanel);
+        polaznikPanel.setLayout(polaznikPanelLayout);
+        polaznikPanelLayout.setHorizontalGroup(
+            polaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(polaznikPanelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
-                .addGroup(PolaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(polaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DodajPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PromeniPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ObrisiPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
-        PolaznikPanelLayout.setVerticalGroup(
-            PolaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PolaznikPanelLayout.createSequentialGroup()
+        polaznikPanelLayout.setVerticalGroup(
+            polaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(polaznikPanelLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(PolaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(polaznikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PolaznikPanelLayout.createSequentialGroup()
+                    .addGroup(polaznikPanelLayout.createSequentialGroup()
                         .addComponent(DodajPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(PromeniPolaznikaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,20 +128,84 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap(144, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Polaznik", PolaznikPanel);
+        jTabbedPane1.addTab("Polaznici", polaznikPanel);
 
-        javax.swing.GroupLayout KursPanelLayout = new javax.swing.GroupLayout(KursPanel);
-        KursPanel.setLayout(KursPanelLayout);
-        KursPanelLayout.setHorizontalGroup(
-            KursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 646, Short.MAX_VALUE)
+        mestoTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Редни Број", "Назив", "Поштански број"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(mestoTable);
+
+        dodajMestoButton.setText("Додај Место");
+        dodajMestoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dodajMestoButtonActionPerformed(evt);
+            }
+        });
+
+        promeniMestoButton.setText("Промени Место");
+        promeniMestoButton.setEnabled(false);
+
+        obrisiMestoButton.setText("Обриши Место");
+        obrisiMestoButton.setEnabled(false);
+        obrisiMestoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                obrisiMestoButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout mestaPanelLayout = new javax.swing.GroupLayout(mestaPanel);
+        mestaPanel.setLayout(mestaPanelLayout);
+        mestaPanelLayout.setHorizontalGroup(
+            mestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mestaPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addGroup(mestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dodajMestoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(promeniMestoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(obrisiMestoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
-        KursPanelLayout.setVerticalGroup(
-            KursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 458, Short.MAX_VALUE)
+        mestaPanelLayout.setVerticalGroup(
+            mestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mestaPanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(mestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(mestaPanelLayout.createSequentialGroup()
+                        .addComponent(dodajMestoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(promeniMestoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(obrisiMestoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Kurs", KursPanel);
+        jTabbedPane1.addTab("Mesta", mestaPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,6 +225,19 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void obrisiMestoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obrisiMestoButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_obrisiMestoButtonActionPerformed
+
+    private void dodajMestoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dodajMestoButtonActionPerformed
+        try {
+            AddMesto am = new AddMesto();
+            am.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dodajMestoButtonActionPerformed
+
     private void ObrisiPolaznikaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObrisiPolaznikaButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ObrisiPolaznikaButtonActionPerformed
@@ -150,19 +251,25 @@ public class MainForm extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_DodajPolaznikaButtonActionPerformed
 
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DodajPolaznikaButton;
-    private javax.swing.JPanel KursPanel;
     private javax.swing.JButton ObrisiPolaznikaButton;
-    private javax.swing.JPanel PolaznikPanel;
     private javax.swing.JButton PromeniPolaznikaButton;
+    private javax.swing.JButton dodajMestoButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JPanel kursPanel;
+    private javax.swing.JPanel mestaPanel;
+    private javax.swing.JTable mestoTable;
+    private javax.swing.JButton obrisiMestoButton;
+    private javax.swing.JPanel polaznikPanel;
+    private javax.swing.JButton promeniMestoButton;
     // End of variables declaration//GEN-END:variables
 }

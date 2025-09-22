@@ -12,5 +12,8 @@ public enum Operation {
     ADD_POLAZNIK,
     REMOVE_POLAZNIK,
     STRING_MESSAGE,
-    VRATI_MESTA
+    VRATI_MESTA,
+    DODAJ_MESTO,
+    OBRISI_MESTO,
+    SUCCESS
 }

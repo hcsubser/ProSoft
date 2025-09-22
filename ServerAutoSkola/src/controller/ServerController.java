@@ -12,6 +12,8 @@ import domain.Mesto;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import so.mesto.AddMesto;
+import so.mesto.GetAllMesto;
 /**
  *
  * @author mmmdeb
@@ -25,7 +27,7 @@ public class ServerController {
         return serverController;
     }
     
-    public Object handlePackage(CommPackage pkg){
+    public Object handlePackage(CommPackage pkg) throws Exception{
         Object obj = new Object();
         switch (pkg.getOperation()) {
                 case Operation.ADD_POLAZNIK:
@@ -33,6 +35,9 @@ public class ServerController {
                     break;
                 case Operation.VRATI_MESTA:
                     obj = vratiSvaMesta();
+                    break;
+                case Operation.DODAJ_MESTO:
+                    dodajMesto((AbstractDomainObject)pkg.getArgument());
                     break;
                 case Operation.REMOVE_POLAZNIK:
                     break;
@@ -42,18 +47,23 @@ public class ServerController {
                     System.out.println("controller.ServerController.handlePackage()");
                     return null;
         }
-        return obj;
+        return new CommPackage(Operation.SUCCESS,obj);
     }
     
-    Object vratiSvaMesta(){
+    Object vratiSvaMesta() throws Exception{
+            GetAllMesto mesta = new GetAllMesto();
+            mesta.templateExecute(new Mesto(0,null,0));
+           // mesta.
+            return mesta.vratiSvaMesta();
+    }
+    
+    void dodajMesto(AbstractDomainObject ado) {
         try {
-            Mesto mesto = new Mesto(0,null,0);
-            Object array;
-            array = DBBroker.getInstance().select(mesto);
-            return array;
-        } catch (SQLException ex) {
+            AddMesto addm = new AddMesto();
+            addm.templateExecute(ado);
+            
+        } catch (Exception ex) {
             Logger.getLogger(ServerController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
     }
 }

@@ -27,6 +27,14 @@ public class Mesto implements AbstractDomainObject{
 
 
     //getters and setters
+    public int getID(){
+        return id;
+    }
+    
+    public void setID(int id){
+        this.id=id;
+    }
+    
     public String getNaziv() {
         return naziv;
     }
@@ -53,12 +61,12 @@ public class Mesto implements AbstractDomainObject{
 
     @Override
     public String getColumnNamesForInsert() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return " ( naziv, postalCode)";
     }
 
     @Override
     public String getInsertValues() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return  "'"+naziv + "', "+ zipcode + " ";
     }
 
     @Override

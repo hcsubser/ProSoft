@@ -33,19 +33,20 @@ public class HandleClientThread extends Thread{
             while(!socket.isClosed()){
                 in = new ObjectInputStream(socket.getInputStream());
                 CommPackage request = (CommPackage)in.readObject();
-                System.out.println(request.toString());
-                System.out.println((String)request.getArgument());
+                //System.out.println(request.toString());
+                //System.out.println((String)request.getArgument());
+                
                 
                 Object obj = ServerController.getInstance().handlePackage(request);
-                CommPackage response = new CommPackage(Operation.VRATI_MESTA, obj);
+                if(obj==null)
+                    obj = new CommPackage(Operation.SUCCESS,null);
                 ObjectOutputStream out= new ObjectOutputStream(socket.getOutputStream());
-                out.writeObject(response);
+                out.writeObject(obj);
+                
                 System.out.println("threads.HandleClientThread.run()");
             }
 
-        } catch (IOException ex) {
-            Logger.getLogger(HandleClientThread.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(HandleClientThread.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
