@@ -6,7 +6,7 @@ package controller;
 
 import communication.Communication;
 import communication.Operation;
-import communication.Package;
+import communication.CommPackage;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -17,7 +17,7 @@ import java.io.ObjectOutputStream;
 public class Controller {
     
     public Object sendRequest(Operation operation, Object data) throws Exception {
-        Package request=new Package(operation, data);
+        CommPackage request=new CommPackage(operation, data);
         System.out.println("controller.Controller.sendRequest()");
         ObjectOutputStream out= new ObjectOutputStream(Communication.getInstance().getSocket().getOutputStream());
         out.writeObject(request);
@@ -25,7 +25,7 @@ public class Controller {
         System.out.println("controller.Controller.sendRequest()");
         
         ObjectInputStream in= new ObjectInputStream(Communication.getInstance().getSocket().getInputStream());
-        Package response= (Package) in.readObject();
+        CommPackage response= (CommPackage) in.readObject();
         System.out.println("controller.Controller.sendRequest()");
         System.out.println((String)response.getArgument());
         
@@ -34,7 +34,7 @@ public class Controller {
         }else{
             return response.getResult();
         }*/
-        return response;
+        return response.getArgument();
     }
     
 }

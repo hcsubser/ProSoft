@@ -10,12 +10,12 @@ import java.io.Serializable;
  *
  * @author mmmdeb
  */
-public class Package implements Serializable{
+public class CommPackage implements Serializable{
     
     private Operation operation;
     private Object argument;
 
-    public Package(Operation operation, Object argument) {
+    public CommPackage(Operation operation, Object argument) {
         this.operation = operation;
         this.argument = argument;
     }

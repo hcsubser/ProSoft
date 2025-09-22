@@ -5,7 +5,7 @@
 package threads;
 
 import communication.Operation;
-import communication.Package;
+import communication.CommPackage;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -31,11 +31,11 @@ public class HandleClientThread extends Thread{
         try {
             while(!socket.isClosed()){
                 in = new ObjectInputStream(socket.getInputStream());
-                Package request = (Package)in.readObject();
+                CommPackage request = (CommPackage)in.readObject();
                 System.out.println(request.toString());
                 System.out.println((String)request.getArgument());
                 
-                Package response = new Package(Operation.STRING_MESSAGE, "test");
+                CommPackage response = new CommPackage(Operation.STRING_MESSAGE, "test");
                 ObjectOutputStream out= new ObjectOutputStream(socket.getOutputStream());
                 out.writeObject(response);
                 System.out.println("threads.HandleClientThread.run()");
