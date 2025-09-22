@@ -10,5 +10,6 @@ package communication;
  */
 public enum Operation {
     ADD_POLAZNIK,
-    REMOVE_POLAZNIK
+    REMOVE_POLAZNIK,
+    STRING_MESSAGE
 }

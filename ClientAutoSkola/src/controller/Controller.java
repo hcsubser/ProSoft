@@ -6,9 +6,7 @@ package controller;
 
 import communication.Communication;
 import communication.Operation;
-import communication.Request;
-import communication.Response;
-import communication.ResponseType;
+import communication.Package;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -18,21 +16,25 @@ import java.io.ObjectOutputStream;
  */
 public class Controller {
     
-    private Object sendRequest(Operation operation, Object data) throws Exception {
-        Request request=new Request(operation, data);
-        
+    public Object sendRequest(Operation operation, Object data) throws Exception {
+        Package request=new Package(operation, data);
+        System.out.println("controller.Controller.sendRequest()");
         ObjectOutputStream out= new ObjectOutputStream(Communication.getInstance().getSocket().getOutputStream());
         out.writeObject(request);
+        out.flush();
+        System.out.println("controller.Controller.sendRequest()");
         
         ObjectInputStream in= new ObjectInputStream(Communication.getInstance().getSocket().getInputStream());
-        Response response= (Response) in.readObject();
+        Package response= (Package) in.readObject();
+        System.out.println("controller.Controller.sendRequest()");
+        System.out.println((String)response.getArgument());
         
-        if(response.getResponseType().equals(ResponseType.ERROR)){
+        /*if(response.getResponseType().equals(ResponseType.ERROR)){
             throw response.getException();
         }else{
             return response.getResult();
-        }
-        
+        }*/
+        return response;
     }
     
 }

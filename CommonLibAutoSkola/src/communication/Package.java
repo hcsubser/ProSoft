@@ -10,12 +10,12 @@ import java.io.Serializable;
  *
  * @author mmmdeb
  */
-public class Request implements Serializable{
+public class Package implements Serializable{
     
     private Operation operation;
     private Object argument;
 
-    public Request(Operation operation, Object argument) {
+    public Package(Operation operation, Object argument) {
         this.operation = operation;
         this.argument = argument;
     }
