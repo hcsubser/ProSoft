@@ -16,7 +16,7 @@ import java.util.Properties;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class DatabaseBroker {
 

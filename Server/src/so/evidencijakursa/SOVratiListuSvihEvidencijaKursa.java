@@ -12,7 +12,7 @@ import so.OpstaSistemskaOperacija;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class SOVratiListuSvihEvidencijaKursa extends OpstaSistemskaOperacija{
 private ArrayList<EvidencijaKursa> list;

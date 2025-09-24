@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class TableModelPolaznik extends AbstractTableModel {
 

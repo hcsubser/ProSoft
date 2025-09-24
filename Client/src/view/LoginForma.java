@@ -15,7 +15,7 @@ import session.Session;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class LoginForma extends javax.swing.JFrame {
 

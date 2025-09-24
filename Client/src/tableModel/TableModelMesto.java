@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class TableModelMesto  extends AbstractTableModel{
     private ArrayList<Mesto> listaMesta;

@@ -16,7 +16,7 @@ import tableModel.TableModelTipCasa;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class KreirajTipCasaForma extends javax.swing.JFrame {
     

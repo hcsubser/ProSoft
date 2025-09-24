@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class TipCasa extends OpstiDomenskiObjekat {
 

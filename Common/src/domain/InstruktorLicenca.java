@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class InstruktorLicenca extends OpstiDomenskiObjekat{
     private Instruktor instruktor;

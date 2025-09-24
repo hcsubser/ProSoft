@@ -17,7 +17,7 @@ import tableModel.TableModelMesto;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class PregledMestaForma extends javax.swing.JFrame {
 

@@ -17,7 +17,7 @@ import javax.swing.JComboBox;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class KreirajPolaznikaForma extends javax.swing.JFrame {
     Polaznik polaznik;

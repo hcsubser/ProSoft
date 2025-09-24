@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class KonfiguracijaBaze extends javax.swing.JDialog {
 

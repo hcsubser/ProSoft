@@ -12,7 +12,7 @@ import so.OpstaSistemskaOperacija;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class SOVratiListuSviMesto extends OpstaSistemskaOperacija{
 private ArrayList<Mesto> list;

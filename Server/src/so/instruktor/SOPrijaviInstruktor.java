@@ -12,7 +12,7 @@ import so.OpstaSistemskaOperacija;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class SOPrijaviInstruktor extends OpstaSistemskaOperacija{
     private Instruktor prijavljenInstruktor;

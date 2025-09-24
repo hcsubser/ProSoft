@@ -17,7 +17,7 @@ import tableModel.TableModelInstruktor;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class UpravljajInstruktorimaForma extends javax.swing.JFrame {
 

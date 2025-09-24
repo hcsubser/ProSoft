@@ -11,7 +11,7 @@ import validator.PasswordHash;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class ValidationForm extends javax.swing.JDialog {
 

@@ -6,7 +6,7 @@ package transfer.util;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public enum ResponseStatus {
     Success, Error

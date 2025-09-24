@@ -18,7 +18,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class UpravljajLicencamaForma extends javax.swing.JFrame {
 

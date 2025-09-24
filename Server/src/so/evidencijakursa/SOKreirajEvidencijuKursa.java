@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class SOKreirajEvidencijuKursa extends OpstaSistemskaOperacija {
 

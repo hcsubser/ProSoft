@@ -11,7 +11,7 @@ import so.OpstaSistemskaOperacija;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class SOPromeniPolaznik extends OpstaSistemskaOperacija{
 

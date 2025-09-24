@@ -13,7 +13,7 @@ import session.Session;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class GlavnaForma extends javax.swing.JFrame {
 

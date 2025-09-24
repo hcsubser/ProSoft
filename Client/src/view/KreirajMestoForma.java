@@ -15,7 +15,7 @@ import tableModel.TableModelMesto;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class KreirajMestoForma extends javax.swing.JFrame {
 

@@ -6,7 +6,7 @@ package validator;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

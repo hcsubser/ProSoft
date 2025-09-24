@@ -10,7 +10,7 @@ import view.ServerForm;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class Main {
 

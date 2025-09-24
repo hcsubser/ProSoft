@@ -9,7 +9,7 @@ import domain.OpstiDomenskiObjekat;
 import java.sql.*;
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public abstract class OpstaSistemskaOperacija {
 

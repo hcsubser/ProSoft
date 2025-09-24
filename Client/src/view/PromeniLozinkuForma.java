@@ -18,7 +18,7 @@ import validator.Validator;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class PromeniLozinkuForma extends javax.swing.JDialog {
 

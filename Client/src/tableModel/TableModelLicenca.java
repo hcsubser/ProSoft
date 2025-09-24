@@ -13,7 +13,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class TableModelLicenca extends AbstractTableModel {
 

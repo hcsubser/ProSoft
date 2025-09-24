@@ -8,7 +8,7 @@ import view.LoginForma;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class Main {
 

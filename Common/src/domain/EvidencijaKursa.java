@@ -13,7 +13,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class EvidencijaKursa extends OpstiDomenskiObjekat {
 

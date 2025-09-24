@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class TableModelInstruktor extends AbstractTableModel {
     private ArrayList<Instruktor> listaInstruktora;

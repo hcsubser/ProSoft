@@ -20,7 +20,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
 

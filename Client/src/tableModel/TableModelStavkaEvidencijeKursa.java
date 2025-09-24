@@ -16,7 +16,7 @@ import view.KreirajEvidencijuKursaForma;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
 

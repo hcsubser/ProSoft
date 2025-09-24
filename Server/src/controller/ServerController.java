@@ -47,7 +47,7 @@ import so.licenca.SOVratiListuSviLicenca;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class ServerController {
 

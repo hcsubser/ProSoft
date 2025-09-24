@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public abstract class OpstiDomenskiObjekat implements Serializable {
 

@@ -13,7 +13,7 @@ import thread.ThreadServer;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class ServerForm extends javax.swing.JFrame {
 

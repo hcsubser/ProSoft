@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class Licenca extends OpstiDomenskiObjekat {
     private int id;

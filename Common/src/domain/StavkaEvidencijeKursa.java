@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
     private int rb;

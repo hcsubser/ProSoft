@@ -8,7 +8,7 @@ import domain.Instruktor;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class Validator {
 

@@ -15,7 +15,7 @@ import tableModel.TableModelInstruktor;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class KreirajInstruktoraForma extends javax.swing.JFrame {
 

@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class ThreadServer extends Thread {
 

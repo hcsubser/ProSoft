@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class Instruktor extends OpstiDomenskiObjekat{
 

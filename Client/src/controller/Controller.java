@@ -24,7 +24,7 @@ import transfer.util.ResponseStatus;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class Controller {
 

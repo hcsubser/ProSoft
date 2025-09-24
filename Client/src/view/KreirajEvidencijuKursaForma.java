@@ -25,7 +25,7 @@ import validator.Validator;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
 

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class PoreskaStopa extends OpstiDomenskiObjekat {
 

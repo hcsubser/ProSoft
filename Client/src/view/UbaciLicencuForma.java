@@ -14,7 +14,7 @@ import tableModel.TableModelLicenca;
 
 /**
  *
- * @author Saki
+ * @author Milan
  */
 public class UbaciLicencuForma extends javax.swing.JFrame {
 
