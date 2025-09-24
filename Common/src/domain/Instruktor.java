@@ -96,7 +96,7 @@ public class Instruktor extends OpstiDomenskiObjekat{
 
     @Override
     public String alijas() {
-        return "c";
+        return "i";
     }
 
     @Override
@@ -109,11 +109,11 @@ public class Instruktor extends OpstiDomenskiObjekat{
         ArrayList<OpstiDomenskiObjekat> lista = new ArrayList<>();
         while (rs.next()) {
             Instruktor c = new Instruktor(
-                    rs.getInt("c.id"),
-                    rs.getString("c.ime"),
-                    rs.getString("c.prezime"),
-                    rs.getString("c.korisnickoIme"),
-                    rs.getString("c.lozinka")
+                    rs.getInt("i.id"),
+                    rs.getString("i.ime"),
+                    rs.getString("i.prezime"),
+                    rs.getString("i.korisnickoIme"),
+                    rs.getString("i.lozinka")
             );
             lista.add(c);
         }

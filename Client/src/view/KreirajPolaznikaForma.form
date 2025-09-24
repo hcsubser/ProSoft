@@ -34,8 +34,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
                                   <Component id="comboBoxMesto" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtNaziv" min="-2" pref="280" max="-2" attributes="0"/>
-                                  <Component id="txtPIB" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtIme" min="-2" pref="280" max="-2" attributes="0"/>
+                                  <Component id="txtPrezime" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtTelefon" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -74,11 +74,11 @@
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNaziv" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIme" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtPIB" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPrezime" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -114,10 +114,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Naziv"/>
+        <Property name="text" type="java.lang.String" value="Ime"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNaziv">
+    <Component class="javax.swing.JTextField" name="txtIme">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -129,10 +129,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="PIB"/>
+        <Property name="text" type="java.lang.String" value="Prezime"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPIB">
+    <Component class="javax.swing.JTextField" name="txtPrezime">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>

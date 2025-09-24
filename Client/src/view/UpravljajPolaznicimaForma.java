@@ -262,12 +262,12 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
             if (mesto.getGrad().equals("Bilo koji")) {
                 mesto = null;
             }
-            if (polaznik.getNaziv().equals("Bilo koji")) {
+            if (polaznik.getIme().equals("Bilo koji")) {
                 polaznik = null;
             }
             filter.setMesto(mesto);
             if (polaznik != null) {
-                filter.setNaziv(polaznik.getNaziv());
+                filter.setIme(polaznik.getIme());
             }
             ArrayList<Polaznik> filtriraniKupci = Controller.getInstance().pretraziKupce(filter);
             TableModelPolaznik model = new TableModelPolaznik(filtriraniKupci);
@@ -302,7 +302,7 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
         try {
             comboPolaznik.removeAllItems();
             Polaznik defaultPolaznik = new Polaznik();
-            defaultPolaznik.setNaziv("Bilo koji");
+            defaultPolaznik.setIme("Bilo koji");
             comboPolaznik.addItem(defaultPolaznik);
             ArrayList<Polaznik> polaznici = Controller.getInstance().ucitajKupceIzBaze();
             for (Polaznik k : polaznici) {

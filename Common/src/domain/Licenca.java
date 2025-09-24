@@ -14,22 +14,19 @@ import java.sql.SQLException;
 public class Licenca extends OpstiDomenskiObjekat {
     private int id;
     private String naziv;
-    private String nivo;
-    private boolean sertifikat;
+    private String kategorija;
 
     public Licenca() {
     }
 
-    public Licenca(int id, String naziv, String nivo, boolean sertifikat) {
+    public Licenca(int id, String naziv, String kategorija) {
         this.id = id;
         this.naziv= naziv;
-        this.nivo= nivo;
-        this.sertifikat = sertifikat;
+        this.kategorija= kategorija;
     }
-    public Licenca(String naziv, String nivo, boolean sertifikat) {
+    public Licenca(String naziv, String kategorija) {
         this.naziv= naziv;
-        this.nivo= nivo;
-        this.sertifikat = sertifikat;
+        this.kategorija= kategorija;
     }
 
     public int getId() {
@@ -48,21 +45,14 @@ public class Licenca extends OpstiDomenskiObjekat {
         this.naziv = naziv;
     }
 
-    public String getNivo() {
-        return nivo;
+    public String getKategorija() {
+        return kategorija;
     }
 
-    public void setNivo(String nivo) {
-        this.nivo = nivo;
+    public void setKategorija(String kategorija) {
+        this.kategorija = kategorija;
     }
 
-    public boolean isSertifikat() {
-        return sertifikat;
-    }
-
-    public void setSertifikat(boolean sertifikat) {
-        this.sertifikat = sertifikat;
-    }
 
     @Override
     public String toString() {
@@ -71,12 +61,12 @@ public class Licenca extends OpstiDomenskiObjekat {
 
      @Override
     public String nazivTabele() {
-        return "";
+        return "licenca";
     }
 
     @Override
     public String alijas() {
-        return "ss";
+        return "l";
     }
 
     @Override
@@ -89,13 +79,12 @@ public class Licenca extends OpstiDomenskiObjekat {
         ArrayList<OpstiDomenskiObjekat> lista = new ArrayList<>();
 
         while (rs.next()) {
-            Licenca ss = new Licenca(
-                rs.getInt("ss.id"),
-                rs.getString("ss.naziv"),
-                rs.getString("ss.nivo"),
-                rs.getBoolean("ss.sertifikat")
+            Licenca l = new Licenca(
+                rs.getInt("l.id"),
+                rs.getString("l.naziv"),
+                rs.getString("l.kategorija")
             );
-            lista.add(ss);
+            lista.add(l);
         }
 
         rs.close();
@@ -104,17 +93,17 @@ public class Licenca extends OpstiDomenskiObjekat {
 
     @Override
     public String koloneZaInsert() {
-        return "(naziv, nivo, sertifikat)";
+        return "(naziv, kategorija)";
     }
 
     @Override
     public String vrednostiZaInsert() {
-        return "'"+ naziv + "', '" + nivo + "', " + (sertifikat ? 1 : 0);
+        return "'"+ naziv + "', '" + kategorija + "'";
     }
 
     @Override
     public String vrednostiZaUpdate() {
-        return "naziv = '" + naziv + "', nivo = '" + nivo + "', sertifikat = " + (sertifikat ? 1 : 0);
+        return "naziv = '" + naziv + "', kategorija = '" + kategorija + "'";
     }
 
     @Override

@@ -163,9 +163,9 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
 
     @Override
     public String join() {
-        return " JOIN instruktor c ON (c.id = o.idInstruktor) "
-                + "JOIN polaznik k ON (k.id = o.idPolaznik)"
-                + "JOIN mesto m ON (k.idMesto = m.id)";
+        return " JOIN instruktor i ON (i.id = o.idInstruktor) "
+                + "JOIN polaznik k ON (p.id = o.idPolaznik)"
+                + "JOIN mesto m ON (p.idMesto = m.id)";
     }
 
     @Override
@@ -179,20 +179,21 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
                     rs.getInt("m.postanskiBroj"),
                     rs.getString("m.ulica"));
             Polaznik polaznik = new Polaznik(
-                    rs.getInt("k.id"),
-                    rs.getInt("k.pib"),
-                    rs.getString("k.telefon"),
-                    rs.getString("k.email"),
-                    m,
-                    rs.getString("k.naziv")
+                    rs.getInt("p.id"),
+                    rs.getString("p.ime"),
+                    rs.getString("p.prezime"),
+                    rs.getString("p.telefon"),
+                    rs.getString("p.email"),
+                    m
+                    
             );
 
             Instruktor instruktor = new Instruktor(
-                    rs.getInt("c.id"),
-                    rs.getString("c.ime"),
-                    rs.getString("c.prezime"),
-                    rs.getString("c.korisnickoIme"),
-                    rs.getString("c.lozinka")
+                    rs.getInt("i.id"),
+                    rs.getString("i.ime"),
+                    rs.getString("i.prezime"),
+                    rs.getString("i.korisnickoIme"),
+                    rs.getString("i.lozinka")
             );
 
             EvidencijaKursa o = new EvidencijaKursa(

@@ -312,7 +312,7 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
             if (instruktor.getIme().equals("Bilo") && instruktor.getPrezime().equals("koji")) {
                 instruktor = null;
             }
-            if (polaznik.getNaziv().equals("Bilo koji")) {
+            if (polaznik.getIme().equals("Bilo koji")) {
                 polaznik = null;
             }
             filter.setDatumIzdavanja(datum);
@@ -407,7 +407,7 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
 
         comboPolaznik.removeAllItems();
         Polaznik defaultPolaznik = new Polaznik();
-        defaultPolaznik.setNaziv("Bilo koji");
+        defaultPolaznik.setIme("Bilo koji");
         comboPolaznik.addItem(defaultPolaznik);
         ArrayList<Polaznik> polaznici = Controller.getInstance().ucitajKupceIzBaze();
         for (Polaznik k : polaznici) {

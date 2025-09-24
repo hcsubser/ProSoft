@@ -67,9 +67,9 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtNaziv = new javax.swing.JTextField();
+        txtIme = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtPIB = new javax.swing.JTextField();
+        txtPrezime = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtTelefon = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -83,14 +83,14 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Naziv");
+        jLabel1.setText("Ime");
 
-        txtNaziv.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtIme.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("PIB");
+        jLabel2.setText("Prezime");
 
-        txtPIB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPrezime.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Telefon");
@@ -149,8 +149,8 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtEmail)
                                     .addComponent(comboBoxMesto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPIB)
+                                    .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrezime)
                                     .addComponent(txtTelefon)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,10 +177,10 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPIB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -213,7 +213,7 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
 
     private void btnSacuvajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacuvajActionPerformed
         // TODO add your handling code here:
-        if(txtEmail.getText().isEmpty() || txtNaziv.getText().isEmpty() || txtPIB.getText().isEmpty() || txtTelefon.getText().isEmpty()){
+        if(txtEmail.getText().isEmpty() || txtIme.getText().isEmpty() || txtPrezime.getText().isEmpty() || txtTelefon.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Morate popuniti sva polja!","Greska",JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -229,17 +229,17 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
            return;
         }
         
-        int pib=Integer.parseInt(txtPIB.getText());
-        String naziv=txtNaziv.getText();
-        String email=txtEmail.getText();
-        String telefon=txtTelefon.getText();
+        String prezime=txtPrezime.getText().trim();
+        String ime=txtIme.getText().trim();
+        String email=txtEmail.getText().trim();
+        String telefon=txtTelefon.getText().trim();
         Mesto mesto=(Mesto) comboBoxMesto.getSelectedItem();
         
        
         if(polaznik==null){
             try {
                 //throw new RuntimeException("Simulacija greske");
-                Polaznik k=new Polaznik( -1,pib, telefon, email, mesto, naziv);
+                Polaznik k=new Polaznik( -1, ime, prezime, telefon, email, mesto);
                 Controller.getInstance().dodajKupca(k);
                 JOptionPane.showMessageDialog(this, "Sistem je uspesno sacuvao polaznika!","Obavestenje",JOptionPane.INFORMATION_MESSAGE);
                 this.dispose();
@@ -252,8 +252,8 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
                 //throw new RuntimeException("Simulacija greske");
                 polaznik.setEmail(txtEmail.getText());
                 polaznik.setMesto((Mesto) comboBoxMesto.getSelectedItem());
-                polaznik.setNaziv(txtNaziv.getText());
-                polaznik.setPib(Integer.parseInt(txtPIB.getText()));
+                polaznik.setIme(txtIme.getText());
+                polaznik.setPrezime(txtPrezime.getText().trim());
                 polaznik.setTelefon(txtTelefon.getText());
                 Controller.getInstance().izmeniKupca(polaznik);
                 JOptionPane.showMessageDialog(this, "Sistem je uspesno sacuvao polaznika!","Obavestenje",JOptionPane.INFORMATION_MESSAGE);
@@ -294,15 +294,15 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtNaziv;
-    private javax.swing.JTextField txtPIB;
+    private javax.swing.JTextField txtIme;
+    private javax.swing.JTextField txtPrezime;
     private javax.swing.JTextField txtTelefon;
     // End of variables declaration//GEN-END:variables
 
     private void popuniIzmenuPolaznik(Polaznik polaznik) {
-        txtNaziv.setText(polaznik.getNaziv());
+        txtIme.setText(polaznik.getIme());
         txtEmail.setText(polaznik.getEmail());
-        txtPIB.setText(polaznik.getPib()+"");
+        txtPrezime.setText(polaznik.getPrezime()+"");
         txtTelefon.setText(polaznik.getTelefon());
         comboBoxMesto.setSelectedItem(polaznik.getMesto());
     }

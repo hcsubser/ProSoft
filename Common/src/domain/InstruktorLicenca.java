@@ -63,13 +63,13 @@ public class InstruktorLicenca extends OpstiDomenskiObjekat{
 
     @Override
     public String alijas() {
-        return "instruktorLicenca";
+        return "il";
     }
 
     @Override
     public String join() {
-        return "JOIN instruktor c ON instruktorLicenca.idInstruktor = c.id "
-             + "JOIN licenca ss ON instruktorLicenca.idLicenca = ss.id";
+        return "JOIN instruktor i ON il.idInstruktor = i.id "
+             + "JOIN licenca l ON il.idLicenca = l.id";
     }
 
     @Override
@@ -78,15 +78,14 @@ public class InstruktorLicenca extends OpstiDomenskiObjekat{
 
         while (rs.next()) {
             Instruktor instruktor = new Instruktor();
-            instruktor.setId(rs.getInt("c.id"));
+            instruktor.setId(rs.getInt("i.id"));
 
-            Licenca ss = new Licenca();
-            ss.setId(rs.getInt("ss.id"));
-            ss.setNaziv(rs.getString("ss.naziv"));
-            ss.setNivo(rs.getString("ss.nivo"));
-            ss.setSertifikat(rs.getBoolean("ss.sertifikat"));
+            Licenca l = new Licenca();
+            l.setId(rs.getInt("l.id"));
+            l.setNaziv(rs.getString("l.naziv"));
+            l.setKategorija(rs.getString("l.kategorija"));
 
-            InstruktorLicenca instruktorLicenca = new InstruktorLicenca(instruktor, ss, rs.getDate("DatumObuke"));
+            InstruktorLicenca instruktorLicenca = new InstruktorLicenca(instruktor, l, rs.getDate("DatumObuke"));
 
             lista.add(instruktorLicenca);
         }

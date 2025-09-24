@@ -61,7 +61,6 @@ public class LoginForma extends javax.swing.JFrame {
         lblLoznika.setText("Lozinka");
 
         txtKorisnickoIme.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtKorisnickoIme.setText("ana3");
         txtKorisnickoIme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtKorisnickoImeActionPerformed(evt);
@@ -78,7 +77,6 @@ public class LoginForma extends javax.swing.JFrame {
         });
 
         txtLozinka.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtLozinka.setText("asdfghjkl");
         txtLozinka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLozinkaActionPerformed(evt);

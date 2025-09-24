@@ -15,30 +15,30 @@ import java.util.ArrayList;
  */
 public class Polaznik extends OpstiDomenskiObjekat{
     private int id;
-    private int pib;
+    private String ime;
+    private String prezime;
     private String telefon;
     private String email;
     private Mesto mesto;
-    private String naziv;
 
     public Polaznik() {
     }
 
-    public Polaznik(int id, int pib, String telefon, String email, Mesto mesto,String naziv) {
+    public Polaznik(int id, String ime, String prezime, String telefon, String email, Mesto mesto) {
         this.id = id;
-        this.pib= pib;
+        this.prezime= prezime;
         this.telefon = telefon;
         this.email = email;
         this.mesto = mesto;
-        this.naziv=naziv;
+        this.ime=ime;
     }
-     public Polaznik( int pib, String telefon, String email, Mesto mesto,String naziv) {
+     public Polaznik(String ime, String prezime, String telefon, String email, Mesto mesto) {
         
-        this.pib = pib;
+        this.prezime = prezime;
         this.telefon = telefon;
         this.email = email;
         this.mesto = mesto;
-        this.naziv=naziv;
+        this.ime=ime;
     }
 
 
@@ -58,20 +58,20 @@ public class Polaznik extends OpstiDomenskiObjekat{
         this.id = id;
     }
 
-    public int getPib() {
-        return pib;
+    public String getPrezime() {
+        return prezime;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public String getIme() {
+        return ime;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setIme(String ime) {
+        this.ime = ime;
     }
 
-    public void setPib (int pib) {
-        this.pib = pib;
+    public void setPrezime (String prezime) {
+        this.prezime = prezime;
     }
 
     public String getTelefon() {
@@ -92,7 +92,7 @@ public class Polaznik extends OpstiDomenskiObjekat{
 
     @Override
     public String toString() {
-        return naziv;
+        return ime + " " + prezime;
     }
 
    @Override
@@ -102,12 +102,12 @@ public class Polaznik extends OpstiDomenskiObjekat{
 
     @Override
     public String alijas() {
-        return "k";
+        return "p";
     }
 
     @Override
     public String join() {
-        return "JOIN mesto m ON k.idMesto = m.id";
+        return "JOIN mesto m ON p.idMesto = m.id";
     }
 
     @Override
@@ -121,12 +121,12 @@ public class Polaznik extends OpstiDomenskiObjekat{
             rs.getString("m.ulica")
         );
             Polaznik k = new Polaznik(
-                    rs.getInt("k.id"),
-                    rs.getInt("k.pib"),
-                    rs.getString("k.telefon"),
-                    rs.getString("k.email"),
-                    m,
-                    rs.getString("k.naziv")
+                    rs.getInt("p.id"),
+                    rs.getString("p.ime"),
+                    rs.getString("p.prezime"),
+                    rs.getString("p.telefon"),
+                    rs.getString("p.email"),
+                    m
             );
             lista.add(k);
         }
@@ -136,12 +136,12 @@ public class Polaznik extends OpstiDomenskiObjekat{
 
     @Override
     public String koloneZaInsert() {
-        return "(pib, telefon, email, idMesto, naziv)";
+        return "(ime, prezime, telefon, email, idMesto)";
     }
 
     @Override
     public String vrednostiZaInsert() {
-        return pib + ", '" + telefon + "', '" + email + "', " + mesto.getId() + ", '" + naziv + "'";
+        return "'" + ime + "', '" + prezime + "', '" + telefon + "', '" + email + "', " + mesto.getId();
     }
 
     @Override
@@ -151,7 +151,7 @@ public class Polaznik extends OpstiDomenskiObjekat{
 
     @Override
     public String vrednostiZaUpdate() {
-        return "pib = " + pib + ", telefon = '" + telefon + "', email = '" + email + "', idMesto = " + mesto.getId() + ", naziv = '" + naziv + "'";
+        return "ime = '" + ime + "', prezime = '" + prezime + "', telefon = '" + telefon + "', email = '" + email + "', idMesto = " + mesto.getId();
     }
 
     @Override
@@ -159,10 +159,10 @@ public class Polaznik extends OpstiDomenskiObjekat{
        ArrayList<String> uslovi = new ArrayList<>();
 
     if (mesto != null && mesto.getId() > 0) {
-        uslovi.add("k.idMesto = " + mesto.getId());
+        uslovi.add("p.idMesto = " + mesto.getId());
     }
-    if (this != null && this.getNaziv()!=null) {
-        uslovi.add("k.naziv = '" + this.getNaziv()+"'");
+    if (this != null && this.getIme()!=null) {
+        uslovi.add("p.ime = '" + this.getIme()+"'");
     }
    
     if (uslovi.isEmpty()) {

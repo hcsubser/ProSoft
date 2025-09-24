@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class TableModelPolaznik extends AbstractTableModel {
 
     private ArrayList<Polaznik> listaPolaznika;
-    private String[] kolone = {"ID", "Naziv", "PIB", "Telefon", "Email", "Mesto"};
+    private String[] kolone = {"ID", "Ime", "Prezime", "Telefon", "Email", "Mesto"};
 
     public TableModelPolaznik() {
         try {
@@ -50,9 +50,9 @@ public class TableModelPolaznik extends AbstractTableModel {
             case 0:
                 return k.getId();
             case 1:
-                return k.getNaziv();
+                return k.getIme();
             case 2:
-                return k.getPib();
+                return k.getPrezime();
             case 3:
                 return k.getTelefon();
             case 4:

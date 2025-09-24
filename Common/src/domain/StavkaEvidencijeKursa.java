@@ -167,9 +167,9 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
         return "JOIN tipCasa a ON (so.idTipCasa = a.id) "
                 + "JOIN evidencijakursa o ON (so.idEvidencijaKursa = o.id)"
                 +"JOIN poreskastopa ps ON(a.poreskaStopa = ps.id)"
-                +"JOIN instruktor c ON(c.id = o.idInstruktor)"
-                +"JOIN polaznik k ON (k.id = o.idPolaznik)"
-                +"JOIN mesto m ON (m.id = k.idMesto)";
+                +"JOIN instruktor i ON(i.id = o.idInstruktor)"
+                +"JOIN polaznik p ON (p.id = o.idPolaznik)"
+                +"JOIN mesto m ON (m.id = p.idMesto)";
     }
 
     @Override
@@ -193,11 +193,11 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
                     rs.getDouble("a.popust")
             );
             Instruktor instruktor = new Instruktor(
-                    rs.getInt("c.id"),
-                    rs.getString("c.ime"),
-                    rs.getString("c.prezime"),
-                    rs.getString("c.korisnickoIme"),
-                    rs.getString("c.lozinka")
+                    rs.getInt("i.id"),
+                    rs.getString("i.ime"),
+                    rs.getString("i.prezime"),
+                    rs.getString("i.korisnickoIme"),
+                    rs.getString("i.lozinka")
             );
             Mesto mesto = new Mesto(
                     rs.getInt("m.id"),
@@ -207,12 +207,13 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
             );
 
             Polaznik polaznik = new Polaznik(
-                    rs.getInt("k.id"),
-                    rs.getInt("k.pib"),
-                    rs.getString("k.telefon"),
-                    rs.getString("k.email"),
-                    mesto,
-                    rs.getString("k.naziv")
+                    rs.getInt("p.id"),
+                    rs.getString("p.ime"),
+                    rs.getString("p.prezime"),
+                    rs.getString("p.telefon"),
+                    rs.getString("p.email"),
+                    mesto
+                    
             );
 
             EvidencijaKursa evidencijakursa = new EvidencijaKursa(

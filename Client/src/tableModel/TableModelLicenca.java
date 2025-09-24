@@ -18,7 +18,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModelLicenca extends AbstractTableModel {
 
     private ArrayList<Licenca> listaSs;
-    private final String[] kolone = {"Naziv", "Nivo", "Sertifikat"};
+    private final String[] kolone = {"Naziv", "Kategorija"};
 
     public TableModelLicenca() {
         try {
@@ -40,20 +40,12 @@ public class TableModelLicenca extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Licenca ss = listaSs.get(rowIndex);
+        Licenca l = listaSs.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return ss.getNaziv();
+                return l.getNaziv();
             case 1:
-                return ss.getNivo();
-            case 2:
-                boolean sert = ss.isSertifikat();
-                if (sert==true) {
-                    return "DA";
-                } else {
-                   return "NE";
-                }
-
+                return l.getKategorija();
             default:
                 return null;
 

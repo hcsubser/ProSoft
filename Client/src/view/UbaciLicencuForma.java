@@ -18,8 +18,8 @@ import tableModel.TableModelLicenca;
  */
 public class UbaciLicencuForma extends javax.swing.JFrame {
 
-    Licenca ss;
-    UpravljajLicencamaForma ussf;
+    Licenca l;
+    UpravljajLicencamaForma ulf;
     /**
      * Creates new form UbaciStrucnuSpremuForma
      */
@@ -29,22 +29,17 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
         setTitle("Kreiraj strucnu spremu");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        comboSertifikat.addItem("NE");
-        comboSertifikat.addItem("DA");
-
     }
 
-    public UbaciLicencuForma(JFrame parent, Licenca strsprema) {
+    public UbaciLicencuForma(JFrame parent, Licenca licenca) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        comboSertifikat.addItem("NE");
-        comboSertifikat.addItem("DA");
-        if(strsprema!=null){
-            ss=strsprema;
-            ussf=(UpravljajLicencamaForma) parent;
-            popuniIzmenuLicenca(ss);
+        if(licenca!=null){
+            l=licenca;
+            ulf=(UpravljajLicencamaForma) parent;
+            popuniIzmenuLicenca(l);
         }
 
     }
@@ -58,19 +53,17 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
     private void initComponents() {
 
         txtNaziv = new javax.swing.JTextField();
-        txtNivo = new javax.swing.JTextField();
+        txtKategorija = new javax.swing.JTextField();
         btnInsert = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        comboSertifikat = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtNaziv.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        txtNivo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtKategorija.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         btnInsert.setBackground(new java.awt.Color(153, 255, 204));
         btnInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -94,50 +87,34 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
         jLabel1.setText("Naziv");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Nivo");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Sertifikat");
-
-        comboSertifikat.setBackground(new java.awt.Color(153, 255, 204));
-        comboSertifikat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        comboSertifikat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboSertifikatActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Kategorija");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNaziv)
-                        .addGap(18, 18, 18))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNaziv)
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)))
+                        .addGap(28, 28, 28))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67)
-                        .addComponent(jLabel3)
-                        .addGap(41, 41, 41))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtNivo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(comboSertifikat, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(btnCancel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnInsert)
-                .addGap(82, 82, 82))
+                        .addComponent(btnCancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnInsert)
+                    .addComponent(txtKategorija, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(106, 106, 106))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,13 +122,11 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboSertifikat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtKategorija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,43 +142,30 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void comboSertifikatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSertifikatActionPerformed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_comboSertifikatActionPerformed
-
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        if(txtNaziv.getText().isEmpty() || txtNivo.getText().isEmpty()){
+        if(txtNaziv.getText().isEmpty() || txtKategorija.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Morate popuniti sva polja!","Greska",JOptionPane.ERROR_MESSAGE);
             return;
         }
-        String sert = comboSertifikat.getSelectedItem() + "";
-        boolean sertifikat;
-        if (sert.equals("DA")) {
-            sertifikat = true;
-        } else {
-            sertifikat = false;
-        }
-        if(ss==null){
-        Licenca strs = new Licenca(-1,txtNaziv.getText(), txtNivo.getText(), sertifikat);
+
+        if(l==null){
+        Licenca licenca = new Licenca(-1,txtNaziv.getText(), txtKategorija.getText());
             try {
                // throw new RuntimeException("Simulacija greske");
-                Controller.getInstance().ubaciLicenca(strs);
+                Controller.getInstance().ubaciLicenca(licenca);
                 JOptionPane.showMessageDialog(this, "Sistem je sacuvao strucnu spremu!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
                 this.dispose();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva strucnu spremu!", "Greska", JOptionPane.ERROR_MESSAGE);
             }
         }else{
-            ss.setNaziv(txtNaziv.getText());
-            ss.setNivo(txtNivo.getText());
-            ss.setSertifikat(sertifikat);
+            l.setNaziv(txtNaziv.getText());
+            l.setKategorija(txtKategorija.getText());
             try {
-                Controller.getInstance().promeniLicencu(ss);
+                Controller.getInstance().promeniLicencu(l);
                 JOptionPane.showMessageDialog(this, "Sistem je uspenso izmenio strucnu spremu!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                ussf.getTblLicenca().setModel(new TableModelLicenca());
+                ulf.getTblLicenca().setModel(new TableModelLicenca());
                 this.dispose();
             } catch (Exception ex) {
                 Logger.getLogger(UbaciLicencuForma.class.getName()).log(Level.SEVERE, null, ex);
@@ -252,23 +214,16 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnInsert;
-    private javax.swing.JComboBox<String> comboSertifikat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtKategorija;
     private javax.swing.JTextField txtNaziv;
-    private javax.swing.JTextField txtNivo;
     // End of variables declaration//GEN-END:variables
 
     private void popuniIzmenuLicenca(Licenca ss) {
         txtNaziv.setText(ss.getNaziv());
-        txtNivo.setText(ss.getNivo());
-        boolean sert=ss.isSertifikat();
-        if(sert==true){
-             comboSertifikat.setSelectedItem("DA");
-        }else{
-            comboSertifikat.setSelectedItem("NE");
-        }
+        txtKategorija.setText(ss.getKategorija());
+
        
     }
 }
