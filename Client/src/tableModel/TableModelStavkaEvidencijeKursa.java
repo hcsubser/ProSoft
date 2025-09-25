@@ -23,8 +23,7 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
     private ArrayList<StavkaEvidencijeKursa> listaStavki;
     private KreirajEvidencijuKursaForma kof;
     private int rbrStavke = 0;
-    private final String[] kolone = {"RB", "Kolicina", "TipCasa", "Cena Bez PDV",
-        "Cena Sa PDV", "Iznos Bez PDV", "Iznos Sa PDV", "Napomena"};
+    private final String[] kolone = {"RB", "Datum", "Tip Casa", "Cena", "Napomena", "zavrsen"};
 
     public TableModelStavkaEvidencijeKursa() {
         listaStavki = new ArrayList<>();
@@ -32,7 +31,11 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
 
     public TableModelStavkaEvidencijeKursa(EvidencijaKursa evidencijakursa) {
         try {
+            System.out.println("MILAN11111");
+            System.out.println(""+ evidencijakursa.getId() + evidencijakursa.getStavkeEvidencijeKursa());
             listaStavki = Controller.getInstance().ucitajStavkeEvidencijeKursaIzBaze(evidencijakursa);
+                        System.out.println("MILAN2222");
+
         } catch (Exception ex) {
             Logger.getLogger(TableModelStavkaEvidencijeKursa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -71,19 +74,16 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
             case 0:
                 return rowIndex + 1;
             case 1:
-                return st.getKolicina();
+                return st.getDatumPrisustva();
             case 2:
                 return st.getTipCasa().getNaziv();
             case 3:
-                return st.getCenaBezPDV();
+                return st.getTipCasa().getCena();
             case 4:
-                return st.getCenaSaPDV();
-            case 5:
-                return st.getIznosBezPDV();
-            case 6:
-                return st.getIznosSaPDV();
-            case 7:
                 return st.getNapomena();
+            case 5:
+                return st.isZavrsen();
+
             default:
                 return null;
 
@@ -100,16 +100,12 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
         return columnIndex == 1;
     }
 
-    @Override
+    /*@Override
     public void setValueAt(Object value, int rowIndex, int columnIndex) {
         StavkaEvidencijeKursa st = listaStavki.get(rowIndex);
 
         if (columnIndex == 1) {
-            st.setKolicina(Integer.parseInt((String) value));
-            st.setCenaBezPDV(Math.floor(st.getTipCasa().getCenaBezPDV() * (1 - st.getTipCasa().getPopust() / 100) * 100.0) / 100.0);
-            st.setCenaSaPDV(Math.floor( (st.getTipCasa().getCenaBezPDV() * (1 - st.getTipCasa().getPopust() / 100)) * (1 + st.getTipCasa().getPoreskaStopa().getVrednost() / 100) * 100.0 ) / 100.0);
-            st.setIznosBezPDV(izracunajIznos(st.getKolicina(), st.getCenaBezPDV()));
-            st.setIznosSaPDV(izracunajIznos(st.getKolicina(), st.getCenaSaPDV()));
+
             kof.setUkupnaSa(getUkupnaCenaSaPDV());
             kof.setUkupnaBez(getUkupnaCenaBezPDV());
             kof.setUkupanPopust(getUkupanPopust());
@@ -118,7 +114,7 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
             kof.getTxtUkupnoSaPDV().setText(getUkupnaCenaSaPDV()+"");
             fireTableRowsUpdated(rowIndex, rowIndex);
         }
-    }
+    }*/
 
     public boolean unetTipCasa(TipCasa tipCasa) {
         for (StavkaEvidencijeKursa stavkaEvidencijeKursa : listaStavki) {
@@ -132,14 +128,12 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
     public void dodajStavkuEvidencijeKursa(StavkaEvidencijeKursa so) {
         rbrStavke = listaStavki.size();
         so.setRb(++rbrStavke);
-        so.setIznosBezPDV(izracunajIznos(so.getKolicina(), so.getCenaBezPDV()));
-        so.setIznosSaPDV(izracunajIznos(so.getKolicina(), so.getCenaSaPDV()));
         listaStavki.add(so);
         fireTableDataChanged();
     }
 
-    private double izracunajIznos(double kolicina, double cena) {
-        return  kolicina * cena;
+    private double izracunajIznos(double datumPrisustva, double cena) {
+        return  datumPrisustva * cena;
     }
 
     public void obrisiStavkuEvidencijeKursa(int selected) {
@@ -151,12 +145,13 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    public double getUkupnaCenaSaPDV() {
+    /*public double getUkupnaCena() {
         double ukupnaCenaSa = 0;
         for (StavkaEvidencijeKursa stavkaEvidencijeKursa : listaStavki) {
             ukupnaCenaSa += stavkaEvidencijeKursa.getIznosSaPDV();
         }
         return Math.round(ukupnaCenaSa * 100.0) / 100.0;
+        return StavkaEvidencijeKursa.
     }
 
     public double getUkupnaCenaBezPDV() {
@@ -173,5 +168,5 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
             ukupanPopust += (stavkaEvidencijeKursa.getKolicina() * (stavkaEvidencijeKursa.getTipCasa().getCenaSaPDV() - stavkaEvidencijeKursa.getCenaSaPDV()));
         }
         return Math.round(ukupanPopust * 100.0) / 100.0;
-    }
+    }*/
 }

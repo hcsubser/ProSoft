@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class TableModelEvidencijaKursa extends AbstractTableModel {
 
     private ArrayList<EvidencijaKursa> lista;
-    private final String[] kolone = {"ID", "Datum izdavanja", "Iznos bez PDV-a", "Iznos sa PDV-om", "Ukupan popust", "Instruktor", "Polaznik"};
+    private final String[] kolone = {"ID", "Iznos ", "Instruktor", "Polaznik"};
 
     public TableModelEvidencijaKursa() {
         try {
@@ -49,16 +49,10 @@ public class TableModelEvidencijaKursa extends AbstractTableModel {
             case 0:
                 return o.getId();
             case 1:
-                return o.getDatumIzdavanja();
+                return o.getUkupanIznos();
             case 2:
-                return o.getUkupanIznosBezPDv();
-            case 3:
-                return o.getUkupanIznosSaPDV();
-            case 4:
-                return o.getUkupanPopust();
-            case 5:
                 return o.getInstruktor().getIme() + " " + o.getInstruktor().getPrezime();
-            case 6:
+            case 3:
                 return o.getPolaznik().getIme();
 
             default:

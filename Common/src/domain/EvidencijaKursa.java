@@ -18,10 +18,7 @@ import java.util.Objects;
 public class EvidencijaKursa extends OpstiDomenskiObjekat {
 
     private int id;
-    private double ukupanIznosBezPDv;
-    private double ukupanIznosSaPDV;
-    private Date datumIzdavanja;
-    private double ukupanPopust;
+    private double ukupanIznos;
     private Instruktor instruktor;
     private Polaznik polaznik;
     private ArrayList<StavkaEvidencijeKursa> stavkeEvidencijeKursa;
@@ -29,24 +26,18 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
     public EvidencijaKursa() {
     }
 
-    public EvidencijaKursa(double ukupanIznosBezPDv, double ukupanIznosSaPDV,double ukupanPopust, Date datumIzdavanja, Instruktor instruktor, Polaznik polaznik,ArrayList<StavkaEvidencijeKursa> stavkeEvidencijeKursa ) {
+    public EvidencijaKursa(double ukupanIznos, Instruktor instruktor, Polaznik polaznik,ArrayList<StavkaEvidencijeKursa> stavkeEvidencijeKursa ) {
         this.stavkeEvidencijeKursa=stavkeEvidencijeKursa;
-        this.ukupanIznosBezPDv = ukupanIznosBezPDv;
-        this.ukupanIznosSaPDV = ukupanIznosSaPDV;
-        this.datumIzdavanja = datumIzdavanja;
+        this.ukupanIznos = ukupanIznos;
         this.instruktor = instruktor;
         this.polaznik = polaznik;
-        this.ukupanPopust=ukupanPopust;
     }
 
-    public EvidencijaKursa(int id, double ukupanIznosBezPDv, double ukupanIznosSaPDV,double ukupanPopust, Date datumIzdavanja, Instruktor instruktor, Polaznik polaznik, ArrayList<StavkaEvidencijeKursa> stavkeEvidencijeKursa) {
+    public EvidencijaKursa(int id, double ukupanIznos, Instruktor instruktor, Polaznik polaznik, ArrayList<StavkaEvidencijeKursa> stavkeEvidencijeKursa) {
         this.id = id;
-        this.ukupanIznosBezPDv = ukupanIznosBezPDv;
-        this.ukupanIznosSaPDV = ukupanIznosSaPDV;
-        this.datumIzdavanja = datumIzdavanja;
+        this.ukupanIznos = ukupanIznos;
         this.instruktor = instruktor;
         this.polaznik = polaznik;
-        this.ukupanPopust=ukupanPopust;
         this.stavkeEvidencijeKursa = stavkeEvidencijeKursa;
     }
 
@@ -58,15 +49,7 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
         this.stavkeEvidencijeKursa = stavkeEvidencijeKursa;
     }
 
-    public double getUkupanPopust() {
-        return ukupanPopust;
-    }
-
-    public void setUkupanPopust(double ukupanPopust) {
-        this.ukupanPopust = ukupanPopust;
-    }
-
-   
+  
 
     public int getId() {
         return id;
@@ -76,32 +59,13 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
         this.id = id;
     }
 
-    public double getUkupanIznosBezPDv() {
-        return ukupanIznosBezPDv;
+    public double getUkupanIznos() {
+        return ukupanIznos;
     }
 
-    public void setUkupanIznosBezPDv(double ukupanIznosBezPDv) {
-        this.ukupanIznosBezPDv = ukupanIznosBezPDv;
+    public void setUkupanIznos(double ukupanIznos) {
+        this.ukupanIznos = ukupanIznos;
     }
-
-    public double getUkupanIznosSaPDV() {
-        return ukupanIznosSaPDV;
-    }
-
-    public void setUkupanIznosSaPDV(double ukupanIznosSaPDV) {
-        this.ukupanIznosSaPDV = ukupanIznosSaPDV;
-    }
-
-   
-
-    public Date getDatumIzdavanja() {
-        return datumIzdavanja;
-    }
-
-    public void setDatumIzdavanja(Date datumIzdavanja) {
-        this.datumIzdavanja = datumIzdavanja;
-    }
-
 
     public Instruktor getInstruktor() {
         return instruktor;
@@ -121,7 +85,7 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
 
     @Override
     public String toString() {
-        return "EvidencijaKursa{" + "id=" + id + ", ukupanIznosBezPDv=" + ukupanIznosBezPDv + ", ukupanIznosSaPDV=" + ukupanIznosSaPDV + ", datumIzdavanja=" + datumIzdavanja + ", instruktor=" + instruktor + ", polaznik=" + polaznik + '}';
+        return "EvidencijaKursa{" + "id=" + id + ", ukupanIznos=" + ukupanIznos + ", instruktor=" + instruktor + ", polaznik=" + polaznik + '}';
     }
 
     @Override
@@ -164,7 +128,7 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
     @Override
     public String join() {
         return " JOIN instruktor i ON (i.id = o.idInstruktor) "
-                + "JOIN polaznik k ON (p.id = o.idPolaznik)"
+                + "JOIN polaznik p ON (p.id = o.idPolaznik)"
                 + "JOIN mesto m ON (p.idMesto = m.id)";
     }
 
@@ -198,10 +162,7 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
 
             EvidencijaKursa o = new EvidencijaKursa(
                     rs.getInt("o.id"),
-                    rs.getDouble("o.ukupanIznosBezPDv"),
-                    rs.getDouble("o.ukupanIznosSaPDV"),
-                    rs.getDouble("o.ukupanPopust"),
-                    rs.getDate("o.datumIzdavanja"),
+                    rs.getDouble("o.ukupanIznos"),
                     instruktor,
                     polaznik,
                     null
@@ -216,7 +177,7 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
 
     @Override
     public String koloneZaInsert() {
-        return "(ukupanIznosBezPDv, ukupanIznosSaPDV,ukupanPopust, datumIzdavanja, idInstruktor, idPolaznik)";
+        return "(ukupanIznos, idInstruktor, idPolaznik)";
     }
 
     @Override
@@ -226,22 +187,15 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
 
     @Override
     public String vrednostiZaInsert() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String datumStr = (datumIzdavanja != null) ? "'" + sdf.format(datumIzdavanja) + "'" : "NULL";
-
-        return ukupanIznosBezPDv + ", " + ukupanIznosSaPDV +  ", "+ukupanPopust+", "
-                + datumStr + ", " + instruktor.getId() + ", " + polaznik.getId();
+        
+        return ukupanIznos +  ", " + instruktor.getId() + ", " + polaznik.getId();
     }
 
     @Override
     public String vrednostiZaUpdate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String datumStr = (datumIzdavanja != null) ? "'" + sdf.format(datumIzdavanja) + "'" : "NULL";
 
-        return "ukupanIznosBezPDv = " + ukupanIznosBezPDv
-                + ", ukupanIznosSaPDV = " + ukupanIznosSaPDV
-                +", ukupanPopust = "+ukupanPopust
-                + ", datumIzdavanja = " + datumStr
+
+        return "ukupanIznos = " + ukupanIznos
                 + ", idInstruktor = " + instruktor.getId()
                 + ", idPolaznik = " + polaznik.getId();
     }
@@ -256,11 +210,6 @@ public class EvidencijaKursa extends OpstiDomenskiObjekat {
     if (polaznik != null && polaznik.getId() > 0) {
         uslovi.add("o.idPolaznik = " + polaznik.getId());
     }
-    if (datumIzdavanja != null) {
-        java.sql.Date sqlDatum = new java.sql.Date(datumIzdavanja.getTime());
-        uslovi.add("o.datumIzdavanja = '" + sqlDatum + "'");
-    }
-
     if (uslovi.isEmpty()) {
         return ""; 
     }

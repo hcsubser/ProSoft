@@ -32,56 +32,14 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
     private UpravljajEvidencijamaKursaForma uof;
     private EvidencijaKursa evidencijakursaInsert;
     private EvidencijaKursa evidencijakursaChange;
-    private double ukupnaSa = 0;
-    private double ukupnaBez = 0;
-    private double ukupanPopust = 0;
+    private double ukupna = 0;
 
-    public double getUkupnaSa() {
-        return ukupnaSa;
+    public double getUkupna() {
+        return ukupna;
     }
 
-    public void setUkupnaSa(double ukupnaSa) {
-        this.ukupnaSa = ukupnaSa;
-    }
-
-    public double getUkupnaBez() {
-        return ukupnaBez;
-    }
-
-    public void setUkupnaBez(double ukupnaBez) {
-        this.ukupnaBez = ukupnaBez;
-    }
-
-    public double getUkupanPopust() {
-        return ukupanPopust;
-    }
-
-    public void setUkupanPopust(double ukupanPopust) {
-        this.ukupanPopust = ukupanPopust;
-    }
-
-    public JTextField getTxtUkupanPopust() {
-        return txtUkupanPopust;
-    }
-
-    public void setTxtUkupanPopust(JTextField txtUkupanPopust) {
-        this.txtUkupanPopust = txtUkupanPopust;
-    }
-
-    public JTextField getTxtUkupnoBez() {
-        return txtUkupnoBez;
-    }
-
-    public void setTxtUkupnoBez(JTextField txtUkupnoBez) {
-        this.txtUkupnoBez = txtUkupnoBez;
-    }
-
-    public JTextField getTxtUkupnoSaPDV() {
-        return txtUkupnoSaPDV;
-    }
-
-    public void setTxtUkupnoSaPDV(JTextField txtUkupnoSaPDV) {
-        this.txtUkupnoSaPDV = txtUkupnoSaPDV;
+    public void setUkupna(double ukupna) {
+        this.ukupna= ukupna;
     }
 
     /**
@@ -130,8 +88,6 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtDatumIzdavanja = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         comboBoxInstruktor = new javax.swing.JComboBox<>();
@@ -141,41 +97,24 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableStavke = new javax.swing.JTable();
         btnDodajStavku = new javax.swing.JToggleButton();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtUkupnoBez = new javax.swing.JTextField();
-        txtUkupnoSaPDV = new javax.swing.JTextField();
-        txtUkupanPopust = new javax.swing.JTextField();
+        txtUkupno = new javax.swing.JTextField();
         comboTipCasai = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        txtCenaBezPDVPopust = new javax.swing.JTextField();
-        txtCenaSaPDVPopust = new javax.swing.JTextField();
-        txtKolicina = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtNapomena = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         btnUkloniStavku = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        txtPopust = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        txtCenaBezPDVBezPopusta = new javax.swing.JTextField();
-        txtCenaSaPDVBezPopusta = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        txtCena = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        chkZavrsen = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Datum izdavanja:");
-
-        txtDatumIzdavanja.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Instruktor");
@@ -235,30 +174,15 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Ukupan iznos bez PDV-a");
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Ukupan iznos sa PDV-om");
+        jLabel6.setText("Ukupan iznos");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Ukupan popust");
-
-        txtUkupnoBez.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtUkupnoBez.addActionListener(new java.awt.event.ActionListener() {
+        txtUkupno.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtUkupno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUkupnoBezActionPerformed(evt);
+                txtUkupnoActionPerformed(evt);
             }
         });
-
-        txtUkupnoSaPDV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtUkupnoSaPDV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUkupnoSaPDVActionPerformed(evt);
-            }
-        });
-
-        txtUkupanPopust.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         comboTipCasai.setBackground(new java.awt.Color(153, 255, 204));
         comboTipCasai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -271,20 +195,15 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("TipCasa");
 
-        txtCenaBezPDVPopust.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        txtCenaSaPDVPopust.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        txtKolicina.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Cena bez PDV-a");
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setText("Cena sa PDV-om");
+        txtDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel11.setText("Kolicina");
+        jLabel11.setText("Datum");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setText("Napomena");
@@ -305,34 +224,15 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Popust tipCasaa");
-
-        txtPopust.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPopust.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPopustActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("Cena bez PDV-a");
-
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setText("Cena sa PDV-om");
+        jLabel15.setText("Cena");
 
-        txtCenaBezPDVBezPopusta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        txtCenaSaPDVBezPopusta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setText("sa popustom");
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel17.setText("sa popustom");
+        txtCena.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel18.setText("EvidencijaKursa");
+
+        jLabel2.setText("Zavrsen");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -347,44 +247,24 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(63, 63, 63)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(78, 78, 78))
+                                    .addGap(232, 232, 232))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtPopust, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(txtKolicina, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(136, 136, 136))
-                                        .addComponent(comboTipCasai, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel2)))
-                                    .addGap(31, 31, 31)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(49, 49, 49))
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2)
+                                    .addGap(198, 198, 198))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCenaBezPDVBezPopusta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(txtCenaBezPDVPopust, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(comboTipCasai, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGap(15, 15, 15)
-                                            .addComponent(jLabel16)))
-                                    .addGap(28, 28, 28)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(15, 15, 15)
-                                    .addComponent(jLabel17))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(txtCenaSaPDVBezPopusta, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10))
-                                .addComponent(txtCenaSaPDVPopust, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(44, 44, 44)
+                                            .addComponent(chkZavrsen)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(88, 88, 88)
@@ -401,16 +281,12 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(91, 91, 91)
-                                    .addComponent(jLabel1)
-                                    .addGap(165, 165, 165)
+                                    .addGap(361, 361, 361)
                                     .addComponent(jLabel3)
                                     .addGap(206, 206, 206)
                                     .addComponent(jLabel4))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(51, 51, 51)
-                                    .addComponent(txtDatumIzdavanja, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(43, 43, 43)
+                                    .addGap(278, 278, 278)
                                     .addComponent(comboBoxInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(32, 32, 32)
                                     .addComponent(comboBoxPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -420,21 +296,10 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                             .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(34, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(224, 224, 224)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtUkupnoBez, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
+                .addGap(402, 402, 402)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUkupnoSaPDV, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUkupno, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtUkupanPopust, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel7)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -446,54 +311,33 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                         .addGap(26, 26, 26)
                         .addComponent(comboBoxPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDatumIzdavanja, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(comboBoxInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel15)
-                        .addComponent(jLabel12)))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCenaBezPDVBezPopusta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboTipCasai, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCenaSaPDVBezPopusta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCenaBezPDVPopust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtKolicina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPopust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCenaSaPDVPopust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkZavrsen)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDodajStavku, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -504,15 +348,9 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUkupnoBez, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUkupnoSaPDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUkupanPopust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtUkupno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -534,7 +372,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Nije moguce sacuvati evidencijukursa bez ijedne stavke!", "Greska", JOptionPane.ERROR_MESSAGE);
             return;
         }*/
-        Date datumIzdavanja = new Date();
+       /* Date datumIzdavanja = new Date();
         try {
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -550,7 +388,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(this, "Pogresan format datuma!\nDatum treba da bude u formatu YYYY-MM-DD", "Greska", JOptionPane.ERROR_MESSAGE);
             return;
-        }
+        }*/
         Instruktor c = (Instruktor) comboBoxInstruktor.getSelectedItem();
         Polaznik k = (Polaznik) comboBoxPolaznik.getSelectedItem();
         if (evidencijakursaChange == null) {
@@ -559,7 +397,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                 TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
                 tmodel.setKof(this);
                 ArrayList<StavkaEvidencijeKursa> stavke = tmodel.getListaStavki();
-                evidencijakursaInsert = new EvidencijaKursa(-1, ukupnaBez, ukupnaSa, ukupanPopust, datumIzdavanja, c, k, stavke);
+                evidencijakursaInsert = new EvidencijaKursa(-1, 9876,  c, k, stavke);
                 System.out.println("otp:"+evidencijakursaInsert);
                        
                 Controller.getInstance().dodajEvidencijuKursa(evidencijakursaInsert);
@@ -577,11 +415,8 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                 tmodel.setKof(this);
                 ArrayList<StavkaEvidencijeKursa> stavke = tmodel.getListaStavki();
                 evidencijakursaChange.setInstruktor(c);
-                evidencijakursaChange.setDatumIzdavanja(datumIzdavanja);
                 evidencijakursaChange.setPolaznik(k);
-                evidencijakursaChange.setUkupanIznosBezPDv(ukupnaBez);
-                evidencijakursaChange.setUkupanIznosSaPDV(ukupnaSa);
-                evidencijakursaChange.setUkupanPopust(ukupanPopust);
+                evidencijakursaChange.setUkupanIznos(ukupna);
                 evidencijakursaChange.setStavkeEvidencijeKursa(stavke);
                 Controller.getInstance().promeniEvidencijuKursa(evidencijakursaChange);
                 JOptionPane.showMessageDialog(this, "Sistem je izmenio evidencijukursa!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
@@ -596,53 +431,59 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
 
     private void btnDodajStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajStavkuActionPerformed
         // TODO add your handling code here:
-        if (txtKolicina.getText().isEmpty()) {
+        if (txtDate.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nisu sva polja popunjena za tipCasa!", "Greska", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        TipCasa a = (TipCasa) comboTipCasai.getSelectedItem();
-        int kolicina = Integer.parseInt(txtKolicina.getText());
-        if (!Validator.isValidNumber(txtCenaBezPDVPopust.getText()) || !Validator.isValidNumber(txtCenaSaPDVPopust.getText())) {
-            JOptionPane.showMessageDialog(this, "Pogresan format cene!", "Greska", JOptionPane.ERROR_MESSAGE);
-
+        TipCasa tc = (TipCasa) comboTipCasai.getSelectedItem();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date datumPrisustva = new Date(2025,1,1);
+        try {
+            datumPrisustva = sdf.parse(txtDate.getText().trim());
+        } catch (ParseException ex) {
+            Logger.getLogger(KreirajEvidencijuKursaForma.class.getName()).log(Level.SEVERE, null, ex);
         }
-        double cenaBez = Math.floor(Double.parseDouble(txtCenaBezPDVPopust.getText()) * 100.0) / 100.0;
-        double cenaSa = Math.floor(Double.parseDouble(txtCenaSaPDVPopust.getText()) * 100.0) / 100.0;
+        //if (!Validator.isValidNumber(txtCenaBezPDVPopust.getText()) || !Validator.isValidNumber(txtCenaSaPDVPopust.getText())) {
+        //    JOptionPane.showMessageDialog(this, "Pogresan format cene!", "Greska", JOptionPane.ERROR_MESSAGE);
+
+       // }
+        //double cenaBez = Math.floor(Double.parseDouble(txtCenaBezPDVPopust.getText()) * 100.0) / 100.0;
+        double cena = Math.floor(Double.parseDouble(txtCena.getText()) * 100.0) / 100.0;
         String napomena = txtNapomena.getText();
         TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
         StavkaEvidencijeKursa s1;
         if (evidencijakursaChange == null) {
-            s1 = new StavkaEvidencijeKursa(-1, kolicina, napomena, 0, 0, cenaBez, cenaSa, a, evidencijakursaInsert);
+            s1 = new StavkaEvidencijeKursa(-1, datumPrisustva, napomena, chkZavrsen.isEnabled(), tc, evidencijakursaInsert);
         } else {
-            s1 = new StavkaEvidencijeKursa(-1, kolicina, napomena, 0, 0, cenaBez, cenaSa, a, evidencijakursaChange);
+            s1 = new StavkaEvidencijeKursa(-1, datumPrisustva, napomena, chkZavrsen.isEnabled(), tc, evidencijakursaChange);
         }
-        if (tmodel.unetTipCasa(a)) {
+        /*if (tmodel.unetTipCasa(tc)) {
             JOptionPane.showMessageDialog(this, "TipCasa je vec dodat u evidencijukursa!", "Greska", JOptionPane.ERROR_MESSAGE);
             return;
-        }
+        }*/
         tmodel.dodajStavkuEvidencijeKursa(s1);
         tableStavke.setModel(tmodel);
         resetPodataka();
-        ukupnaSa = tmodel.getUkupnaCenaSaPDV();
-        ukupnaBez = tmodel.getUkupnaCenaBezPDV();
-        ukupanPopust = tmodel.getUkupanPopust();
+       // ukupnaSa = tmodel.getUkupnaCenaSaPDV();
+        //u//kupnaBez = tmodel.getUkupnaCenaBezPDV();
+       // ukupanPopust = tmodel.getUkupanPopust();
 
-        txtUkupnoBez.setText(ukupnaBez + "");
-        txtUkupnoSaPDV.setText(ukupnaSa + "");
-        txtUkupanPopust.setText(ukupanPopust + "");
+       // txtUkupnoBez.setText(ukupnaBez + "");
+        txtUkupno.setText(ukupna + "");
+       // txtUkupanPopust.setText(ukupanPopust + "");
     }//GEN-LAST:event_btnDodajStavkuActionPerformed
 
     private void comboTipCasaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipCasaiActionPerformed
         // TODO add your handling code here:
         TipCasa a = (TipCasa) comboTipCasai.getSelectedItem();
-        double cenaBez = Math.floor(a.getCenaBezPDV() * (1 - a.getPopust() / 100) * 100.0) / 100.0;
-        double cenaSa = Math.floor((a.getCenaBezPDV() * (1 - a.getPopust() / 100)) *(1 + (a.getPoreskaStopa().getVrednost()) / 100) * 100) / 100.0;
-        txtCenaBezPDVPopust.setText(cenaBez + "");
-        txtCenaBezPDVBezPopusta.setText(a.getCenaBezPDV() + "");
-        txtCenaSaPDVBezPopusta.setText(a.getCenaSaPDV() + "");
-        txtCenaSaPDVPopust.setText(cenaSa + "");
-        txtPopust.setText(a.getPopust() + "");
+        //double cenaBez = Math.floor(a.getCenaBezPDV() * (1 - a.getPopust() / 100) * 100.0) / 100.0;
+        //double cenaSa = Math.floor((a.getCenaBezPDV() * (1 - a.getPopust() / 100)) *(1 + (a.getPoreskaStopa().getVrednost()) / 100) * 100) / 100.0;
+        //txtCenaBezPDVPopust.setText(cenaBez + "");
+       // txtCenaBezPDVBezPopusta.setText(a.getCenaBezPDV() + "");
+        txtCena.setText(a.getCena() + "");
+       // txtCenaSaPDVPopust.setText(cenaSa + "");
+        //txtPopust.setText(a.getPopust() + "");
     }//GEN-LAST:event_comboTipCasaiActionPerformed
 
     private void btnUkloniStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUkloniStavkuActionPerformed
@@ -655,12 +496,13 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
         tmodel.obrisiStavkuEvidencijeKursa(selected);
         tableStavke.setModel(tmodel);
-        ukupnaSa = tmodel.getUkupnaCenaSaPDV();
-        ukupnaBez =tmodel.getUkupnaCenaBezPDV();
-        ukupanPopust =tmodel.getUkupanPopust();
-        txtUkupnoBez.setText(tmodel.getUkupnaCenaBezPDV()+"");
-        txtUkupnoSaPDV.setText( tmodel.getUkupnaCenaSaPDV()+"");
-        txtUkupanPopust.setText(tmodel.getUkupanPopust()+"");
+        //TODO txtCena.setText(tmodel.getCena() + "");
+        //ukupnaSa = tmodel.getUkupnaCenaSaPDV();
+        //ukupnaBez =tmodel.getUkupnaCenaBezPDV();
+        //ukupanPopust =tmodel.getUkupanPopust();
+        //txtUkupnoBez.setText(tmodel.getUkupnaCenaBezPDV()+"");
+        //txtUkupnoSaPDV.setText( tmodel.getUkupnaCenaSaPDV()+"");
+        //txtUkupanPopust.setText(tmodel.getUkupanPopust()+"");
 
     }//GEN-LAST:event_btnUkloniStavkuActionPerformed
 
@@ -668,17 +510,13 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxInstruktorActionPerformed
 
-    private void txtUkupnoBezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUkupnoBezActionPerformed
+    private void txtUkupnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUkupnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUkupnoBezActionPerformed
+    }//GEN-LAST:event_txtUkupnoActionPerformed
 
-    private void txtUkupnoSaPDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUkupnoSaPDVActionPerformed
+    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUkupnoSaPDVActionPerformed
-
-    private void txtPopustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPopustActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPopustActionPerformed
+    }//GEN-LAST:event_txtDateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -686,52 +524,38 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
     private javax.swing.JButton btnOdustani;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUkloniStavku;
-    private javax.swing.JComboBox<domain.TipCasa> comboTipCasai;
+    private javax.swing.JCheckBox chkZavrsen;
     private javax.swing.JComboBox<domain.Instruktor> comboBoxInstruktor;
     private javax.swing.JComboBox<domain.Polaznik> comboBoxPolaznik;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JComboBox<domain.TipCasa> comboTipCasai;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableStavke;
-    private javax.swing.JTextField txtCenaBezPDVBezPopusta;
-    private javax.swing.JTextField txtCenaBezPDVPopust;
-    private javax.swing.JTextField txtCenaSaPDVBezPopusta;
-    private javax.swing.JTextField txtCenaSaPDVPopust;
-    private javax.swing.JTextField txtDatumIzdavanja;
-    private javax.swing.JTextField txtKolicina;
+    private javax.swing.JTextField txtCena;
+    private javax.swing.JTextField txtDate;
     private javax.swing.JTextArea txtNapomena;
-    private javax.swing.JTextField txtPopust;
-    private javax.swing.JTextField txtUkupanPopust;
-    private javax.swing.JTextField txtUkupnoBez;
-    private javax.swing.JTextField txtUkupnoSaPDV;
+    private javax.swing.JTextField txtUkupno;
     // End of variables declaration//GEN-END:variables
 
     private void popuniInstruktoreIzBaze() throws Exception {
-        txtCenaBezPDVPopust.setEnabled(false);
-        txtCenaSaPDVPopust.setEnabled(false);
-        txtCenaBezPDVBezPopusta.setEnabled(false);
-        txtCenaSaPDVBezPopusta.setEnabled(false);
-        txtUkupanPopust.setEnabled(false);
-        txtUkupnoBez.setEnabled(false);
-        txtUkupnoSaPDV.setEnabled(false);
-        txtPopust.setEnabled(false);
+        //txtCenaBezPDVPopust.setEnabled(false);
+        //t//xtCenaSaPDVPopust.setEnabled(false);
+        //txtCenaBezPDVBezPopusta.setEnabled(false);
+        txtCena.setEnabled(false);
+       // txtUkupanPopust.setEnabled(false);
+       // txtUkupnoBez.setEnabled(false);
+       // txtUkupnoSaPDV.setEnabled(false);
+        //txtPopust.setEnabled(false);
         comboBoxPolaznik.removeAllItems();
         ArrayList<Instruktor> instruktori = Controller.getInstance().ucitajInstruktoreIzBaze();
         for (Instruktor c : instruktori) {
@@ -756,26 +580,21 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
     }
 
     private void resetPodataka() {
-        txtCenaBezPDVPopust.setText("");
-        txtCenaSaPDVPopust.setText("");
-        txtCenaBezPDVBezPopusta.setText("");
-        txtCenaSaPDVBezPopusta.setText("");
-        txtPopust.setText("");
-        txtKolicina.setText("");
+        //txtCenaBezPDVPopust.setText("");
+       // txtCenaSaPDVPopust.setText("");
+       // txtCenaBezPDVBezPopusta.setText("");
+        txtCena.setText("");
+       // txtPopust.setText("");
+        txtDate.setText("");
         txtNapomena.setText("");
     }
 
     private void popuniPromena(EvidencijaKursa evidencijakursa) {
         try {
-            txtDatumIzdavanja.setText(evidencijakursa.getDatumIzdavanja() + "");
-            ukupnaSa = evidencijakursa.getUkupanIznosSaPDV();
-            ukupnaBez = evidencijakursa.getUkupanIznosBezPDv();
-            ukupanPopust = evidencijakursa.getUkupanPopust();
+            ukupna = evidencijakursa.getUkupanIznos();
             comboBoxInstruktor.setSelectedItem(evidencijakursa.getInstruktor());
             comboBoxPolaznik.setSelectedItem(evidencijakursa.getPolaznik());
-            txtUkupnoBez.setText(evidencijakursa.getUkupanIznosBezPDv() + "");
-            txtUkupnoSaPDV.setText(evidencijakursa.getUkupanIznosSaPDV() + "");
-            txtUkupanPopust.setText(evidencijakursa.getUkupanPopust() + "");
+            txtUkupno.setText(evidencijakursa.getUkupanIznos() + "");
             tableStavke.setModel(new TableModelStavkaEvidencijeKursa(evidencijakursa));
         } catch (Exception ex) {
             Logger.getLogger(KreirajEvidencijuKursaForma.class.getName()).log(Level.SEVERE, null, ex);

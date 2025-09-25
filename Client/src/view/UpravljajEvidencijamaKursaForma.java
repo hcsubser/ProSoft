@@ -9,6 +9,7 @@ import controller.Controller;
 import domain.Instruktor;
 import domain.Polaznik;
 import domain.EvidencijaKursa;
+import domain.StavkaEvidencijeKursa;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -253,9 +254,14 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
                     //throw new RuntimeException("Simulacija greske");
                    TableModelEvidencijaKursa model = (TableModelEvidencijaKursa) tblOtp.getModel();
                     EvidencijaKursa evidencijakursa = model.getEvidencijaKursa(selektovanRed);
+                    System.out.println("view.UpravljajEvidencijamaKursaForma.btnChangeActionPerformed()");
+                    System.out.println("view.UpravljajEv "+ Controller.getInstance().ucitajStavkeEvidencijeKursaIzBaze(evidencijakursa));
                     JOptionPane.showMessageDialog(this, "Sistem je nasao evidencijukursa!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                    KreirajEvidencijuKursaForma kof = new KreirajEvidencijuKursaForma(this, evidencijakursa);
-                    kof.setVisible(true);
+                    //StavkaEvidencijeKursa sek = new StavkaEvidencijeKursa(-1, new Date(), "", true, null, evidencijakursa);
+                    System.out.println("view.Upravlj "+Controller.getInstance().ucitajStavkeEvidencijeKursaIzBaze(evidencijakursa));
+
+                    KreirajEvidencijuKursaForma kekf = new KreirajEvidencijuKursaForma(this, evidencijakursa);
+                    kekf.setVisible(true);
                     TableModelEvidencijaKursa tmodel = new TableModelEvidencijaKursa();
                     tblOtp.setModel(tmodel);
                 } catch (Exception ex) {
@@ -315,7 +321,7 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
             if (polaznik.getIme().equals("Bilo koji")) {
                 polaznik = null;
             }
-            filter.setDatumIzdavanja(datum);
+           // filter.setDatum datum);
             filter.setInstruktor(instruktor);
             filter.setPolaznik(polaznik);
             ArrayList<EvidencijaKursa> filtriraneEvidencijeKursa = Controller.getInstance().pretraziEvidencijeKursa(filter);
@@ -425,8 +431,8 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
         comboDatum.removeAllItems();
         comboDatum.addItem("Bilo koji");
         ArrayList<EvidencijaKursa> evidencijekursa = Controller.getInstance().ucitajEvidencijeKursaIzBaze();
-        for (EvidencijaKursa o : evidencijekursa) {
-            comboDatum.addItem(o.getDatumIzdavanja());
-        }
+        //for (EvidencijaKursa o : evidencijekursa) {
+        //    comboDatum.addItem(o.getDatumIzdavanja());
+        //}
     }
 }

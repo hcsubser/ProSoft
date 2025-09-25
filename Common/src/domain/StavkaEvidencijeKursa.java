@@ -7,6 +7,7 @@ package domain;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -15,35 +16,26 @@ import java.util.Objects;
  */
 public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
     private int rb;
-    private int kolicina;
+    private Date datumPrisustva;
     private String napomena;
-    private double iznosBezPDV;
-    private double iznosSaPDV;
-    private double cenaBezPDV;
-    private double cenaSaPDV;
+    private boolean zavrsen;
     private TipCasa tipCasa;
     private EvidencijaKursa evidencijakursa;
     public StavkaEvidencijeKursa() {
     }
-    public StavkaEvidencijeKursa(int rb, int kolicina, String napomena, double iznosBezPDV, double iznosSaPDV, double cenaBezPDV, double cenaSaPdDV, TipCasa tipCasa, EvidencijaKursa evidencijakursa) {
+    public StavkaEvidencijeKursa(int rb, Date datumPrisustva, String napomena,boolean zavrsen, TipCasa tipCasa, EvidencijaKursa evidencijakursa) {
         this.rb = rb;
-        this.kolicina = kolicina;
+        this.datumPrisustva = datumPrisustva;
         this.napomena = napomena;
-        this.iznosBezPDV = iznosBezPDV;
-        this.iznosSaPDV = iznosSaPDV;
-        this.cenaBezPDV = cenaBezPDV;
-        this.cenaSaPDV = cenaSaPdDV;
+        this.zavrsen = zavrsen;
         this.tipCasa = tipCasa;
         this.evidencijakursa = evidencijakursa;
     }
-    public StavkaEvidencijeKursa(int kolicina, String napomena, double iznosBezPDV, double iznosSaPDV, double cenaBezPDV, double cenaSaPdDV, TipCasa tipCasa, EvidencijaKursa evidencijakursa) {
+    public StavkaEvidencijeKursa( Date datumPrisustva, String napomena,boolean zavrsen, TipCasa tipCasa, EvidencijaKursa evidencijakursa) {
 
-        this.kolicina = kolicina;
+        this.datumPrisustva = datumPrisustva;
         this.napomena = napomena;
-        this.iznosBezPDV = iznosBezPDV;
-        this.iznosSaPDV = iznosSaPDV;
-        this.cenaBezPDV = cenaBezPDV;
-        this.cenaSaPDV = cenaSaPdDV;
+        this.zavrsen = zavrsen;
         this.tipCasa = tipCasa;
         this.evidencijakursa = evidencijakursa;
     }
@@ -56,14 +48,6 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
         this.rb = rb;
     }
 
-    public int getKolicina() {
-        return kolicina;
-    }
-
-    public void setKolicina(int kolicina) {
-        this.kolicina = kolicina;
-    }
-
     public String getNapomena() {
         return napomena;
     }
@@ -72,38 +56,24 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
         this.napomena = napomena;
     }
 
-    public double getIznosBezPDV() {
-        return iznosBezPDV;
+    public Date getDatumPrisustva() {
+        return datumPrisustva;
     }
 
-    public void setIznosBezPDV(double iznosBezPDV) {
-        this.iznosBezPDV = iznosBezPDV;
+    public void setDatumPrisustva(Date datumPrisustva) {
+        this.datumPrisustva = datumPrisustva;
     }
 
-    public double getIznosSaPDV() {
-        return iznosSaPDV;
+    public boolean isZavrsen() {
+        return zavrsen;
     }
 
-    public void setIznosSaPDV(double iznosSaPDV) {
-        this.iznosSaPDV = iznosSaPDV;
+    public void setZavrsen(boolean zavrsen) {
+        this.zavrsen = zavrsen;
     }
 
-    public double getCenaBezPDV() {
-        return cenaBezPDV;
-    }
-
-    public void setCenaBezPDV(double cenaBezPDV) {
-        this.cenaBezPDV = cenaBezPDV;
-    }
-
-    public double getCenaSaPDV() {
-        return cenaSaPDV;
-    }
-
-    public void setCenaSaPDV(double cenaSaPdDV) {
-        this.cenaSaPDV = cenaSaPdDV;
-    }
-
+    
+    
     public TipCasa getTipCasa() {
         return tipCasa;
     }
@@ -122,7 +92,7 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
 
     @Override
     public String toString() {
-        return "StavkaEvidencijeKursa{" + "rb=" + rb + ", kolicina=" + kolicina + ", napomena=" + napomena + ", iznosBezPDV=" + iznosBezPDV + ", iznosSaPDV=" + iznosSaPDV + ", cenaBezPDV=" + cenaBezPDV + ", cenaSaPdDV=" + cenaSaPDV + ", tipCasa=" + tipCasa + ", evidencijakursa=" + evidencijakursa + '}';
+        return "StavkaEvidencijeKursa{" + "rb=" + rb + ", datumPrisustva=" + datumPrisustva + ", zavrsen=" + zavrsen + ", tipCasa=" + tipCasa + ", evidencijakursa=" + evidencijakursa + '}';
     }
 
     @Override
@@ -164,9 +134,8 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
 
     @Override
     public String join() {
-        return "JOIN tipCasa a ON (so.idTipCasa = a.id) "
+        return "JOIN tipCasa tc ON (so.idTipCasa = tc.id) "
                 + "JOIN evidencijakursa o ON (so.idEvidencijaKursa = o.id)"
-                +"JOIN poreskastopa ps ON(a.poreskaStopa = ps.id)"
                 +"JOIN instruktor i ON(i.id = o.idInstruktor)"
                 +"JOIN polaznik p ON (p.id = o.idPolaznik)"
                 +"JOIN mesto m ON (m.id = p.idMesto)";
@@ -177,20 +146,12 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
         ArrayList<OpstiDomenskiObjekat> lista = new ArrayList<>();
 
         while (rs.next()) {
-            PoreskaStopa ps = new PoreskaStopa(
-                    rs.getInt("ps.id"),
-                    rs.getDouble("ps.vrednost")
-            );
-
             // TipCasa
             TipCasa tipCasa = new TipCasa(
-                    rs.getInt("a.id"),
-                    rs.getString("a.naziv"),
-                    rs.getString("a.opis"),
-                    ps,
-                    rs.getDouble("a.cenaBezPDV"),
-                    rs.getDouble("a.cenaSaPDV"),
-                    rs.getDouble("a.popust")
+                    rs.getInt("tc.id"),
+                    rs.getString("tc.naziv"),
+                    rs.getString("tc.opis"),
+                    rs.getDouble("tc.cena")
             );
             Instruktor instruktor = new Instruktor(
                     rs.getInt("i.id"),
@@ -218,22 +179,16 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
 
             EvidencijaKursa evidencijakursa = new EvidencijaKursa(
                     rs.getInt("o.id"),
-                    rs.getDouble("o.ukupanIznosBezPDV"),
-                    rs.getDouble("o.ukupanIznosSaPDV"),
-                    rs.getDouble("o.ukupanPopust"),
-                    rs.getDate("o.datumIzdavanja"),                   
+                    rs.getDouble("o.ukupanIznos"),
                     instruktor,
                     polaznik,null
             );
 
             StavkaEvidencijeKursa so = new StavkaEvidencijeKursa(
                     rs.getInt("rb"),
-                    rs.getInt("kolicina"),
+                    rs.getDate("datumPrisustva"),
                     rs.getString("napomena"),
-                    rs.getDouble("iznosBezPDV"),
-                    rs.getDouble("iznosSaPDV"),
-                    rs.getDouble("cenaBezPDV"),
-                    rs.getDouble("cenaSaPDV"),
+                    rs.getBoolean("zavrsen"),
                     tipCasa,
                     evidencijakursa
             );
@@ -247,14 +202,14 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
 
     @Override
     public String koloneZaInsert() {
-        return " (idEvidencijaKursa, rb, kolicina, napomena, iznosBezPDV, iznosSaPDV, cenaBezPDV, cenaSaPDV, idTipCasa) ";
+        return " (idEvidencijaKursa, rb, datumPrisustva, napomena, zavrsen, idTipCasa) ";
     }
 
     @Override
     public String vrednostiZaInsert() {
-        return " " + evidencijakursa.getId() + ", " + rb + ", " + kolicina + ", '"
-                + napomena + "', " + iznosBezPDV + ", " + iznosSaPDV + ", "
-                + cenaBezPDV + ", " + cenaSaPDV + ", " + tipCasa.getId() + " ";
+        return " " + evidencijakursa.getId() + ", " + rb + ", "
+                +  "STR_TO_DATE('" + datumPrisustva.getDay() + "-" + datumPrisustva.getMonth() + "-" + (datumPrisustva.getYear()+1900) +"', '%d-%m-%Y')" 
+                + ", '" + napomena + "', " + ((zavrsen) ? "1":"0") + ", " + tipCasa.getId() + " ";
     }
 
     @Override

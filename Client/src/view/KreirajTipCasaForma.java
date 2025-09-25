@@ -31,7 +31,6 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
        setTitle("Kreiraj tipCasa");
         setResizable(false);
         setLocationRelativeTo(null);       
-        popuniCombo();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
     
@@ -42,7 +41,7 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        popuniCombo();
+        //popuniCombo();
          if (a != null) {
             tipCasa= a;
             uaf = (UpravljajTipovimaCasovaForma) parent;
@@ -64,17 +63,11 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         txtNaziv = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        comboPoreskaStopa = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtOpis = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        txtCenaSaPDV = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtCenaBezPDV = new javax.swing.JTextField();
-        lblpopust = new javax.swing.JLabel();
-        txtPopust = new javax.swing.JTextField();
+        txtCena = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,11 +94,6 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Naziv");
 
-        comboPoreskaStopa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Poreska stopa");
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Opis");
 
@@ -115,19 +103,9 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtOpis);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Cena sa PDV-om");
+        jLabel4.setText("Cena ");
 
-        txtCenaSaPDV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Cena bez PDV-a");
-
-        txtCenaBezPDV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        lblpopust.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblpopust.setText("Popust");
-
-        txtPopust.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCena.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,29 +125,15 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(txtNaziv))
+                                    .addComponent(txtNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(txtCenaSaPDV, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(lblpopust, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtPopust, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(26, 26, 26)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel2))
-                                    .addGap(18, 18, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(comboPoreskaStopa, 0, 1, Short.MAX_VALUE)
-                                        .addComponent(txtCenaBezPDV, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)))))))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(0, 45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -182,16 +146,8 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtCenaSaPDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtCenaBezPDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(comboPoreskaStopa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblpopust)
-                    .addComponent(txtPopust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -211,17 +167,14 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        if (txtNaziv.getText().isEmpty() || txtCenaBezPDV.getText().isEmpty() || txtCenaSaPDV.getText().isEmpty() || txtOpis.getText().isEmpty()) {
+        if (txtNaziv.getText().isEmpty() || txtCena.getText().isEmpty() || txtOpis.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Morate popuniti sva polja!", "Greska", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        PoreskaStopa ps = (PoreskaStopa) comboPoreskaStopa.getSelectedItem();
-        double cenaBez = Double.parseDouble(txtCenaBezPDV.getText());
-        double cenaSa = Double.parseDouble(txtCenaSaPDV.getText());
-        double popust=Double.parseDouble(txtPopust.getText()+"");
+        double cena = Double.parseDouble(txtCena.getText());
         if (tipCasa == null) {
             try {
-                TipCasa a = new TipCasa(-1,txtNaziv.getText(), txtOpis.getText(), ps, cenaBez, cenaSa,popust);
+                TipCasa a = new TipCasa(-1,txtNaziv.getText(), txtOpis.getText(), cena);
                 Controller.getInstance().dodajTipCasa(a);
                 JOptionPane.showMessageDialog(this, "TipCasa je dodat", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
                 this.dispose();
@@ -230,10 +183,8 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
             }
         } else {
             tipCasa.setNaziv(txtNaziv.getText());
-            tipCasa.setCenaSaPDV(cenaSa);
-            tipCasa.setCenaBezPDV(cenaBez);
+            tipCasa.setCena(cena);
             tipCasa.setOpis(txtOpis.getText());
-            tipCasa.setPopust(popust);
             try {
                 
                 Controller.getInstance().promeniTipCasa(tipCasa);
@@ -285,22 +236,16 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JComboBox<PoreskaStopa> comboPoreskaStopa;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblpopust;
-    private javax.swing.JTextField txtCenaBezPDV;
-    private javax.swing.JTextField txtCenaSaPDV;
+    private javax.swing.JTextField txtCena;
     private javax.swing.JTextField txtNaziv;
     private javax.swing.JTextArea txtOpis;
-    private javax.swing.JTextField txtPopust;
     // End of variables declaration//GEN-END:variables
 
-    private void popuniCombo() {
+   /* private void popuniCombo() {
         try {
             ArrayList<PoreskaStopa> poreskaStopa = Controller.getInstance().ucitajPoreskeStopeIzBaze();
             for (PoreskaStopa ps : poreskaStopa) {
@@ -309,14 +254,12 @@ public class KreirajTipCasaForma extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(KreirajTipCasaForma.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
     
     private void popuniPolja() {
         txtNaziv.setText(tipCasa.getNaziv());
-        txtCenaSaPDV.setText(tipCasa.getCenaSaPDV() + "");
-        txtCenaBezPDV.setText(tipCasa.getCenaBezPDV() + "");
+        txtCena.setText(tipCasa.getCena() + "");
         txtOpis.setText(tipCasa.getOpis());
-        txtPopust.setText(tipCasa.getPopust()+"");
     }
     
 }

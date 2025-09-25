@@ -18,7 +18,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModelTipCasa extends AbstractTableModel {
 
     private ArrayList<TipCasa> listaTipCasaa;
-    private String[] kolone = {"Naziv", "Poreska Stopa", "Cena Bez PDV-a", "Cena Sa PDV-om", "Opis"};
+    private String[] kolone = {"Naziv", "Opis", "Cena"};
 
     public TableModelTipCasa() {
         try {
@@ -45,13 +45,9 @@ public class TableModelTipCasa extends AbstractTableModel {
             case 0:
                 return a.getNaziv();
             case 1:
-                return a.getPoreskaStopa().getVrednost();
-            case 2:
-                return a.getCenaBezPDV();
-            case 3:
-                return a.getCenaSaPDV();
-            case 4:
                 return a.getOpis();
+            case 2:
+                return a.getCena();
             default:
                 return null;
         }

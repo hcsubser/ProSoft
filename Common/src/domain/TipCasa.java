@@ -18,32 +18,26 @@ public class TipCasa extends OpstiDomenskiObjekat {
     private int id;
     private String naziv;
     private String opis;
-    private PoreskaStopa poreskaStopa;
-    private double cenaBezPDV;
-    private double cenaSaPDV;
-    public double popust;
+    //private PoreskaStopa poreskaStopa;
+    //private double cenaBezPDV;
+    private double cena;
+    //public double popust;
 
     public TipCasa() {
     }
 
-    public TipCasa(int id, String naziv, String opis, PoreskaStopa poreskaStopa, double cenaBezPDV, double cenaSaPDV, double popust) {
+    public TipCasa(int id, String naziv, String opis, double cena) {
         this.id = id;
         this.naziv = naziv;
         this.opis = opis;
-        this.poreskaStopa = poreskaStopa;
-        this.cenaBezPDV = cenaBezPDV;
-        this.cenaSaPDV = cenaSaPDV;
-        this.popust = popust;
+        this.cena = cena;
     }
 
-    public TipCasa(String naziv, String opis, PoreskaStopa poreskaStopa, double cenaBezPDV, double cenaSaPDV, double popust) {
+    public TipCasa(String naziv, String opis, double cena) {
 
         this.naziv = naziv;
         this.opis = opis;
-        this.poreskaStopa = poreskaStopa;
-        this.cenaBezPDV = cenaBezPDV;
-        this.cenaSaPDV = cenaSaPDV;
-        this.popust = popust;
+        this.cena = cena;
     }
 
     public int getId() {
@@ -66,40 +60,16 @@ public class TipCasa extends OpstiDomenskiObjekat {
         return opis;
     }
 
-    public double getPopust() {
-        return popust;
-    }
-
-    public void setPopust(double popust) {
-        this.popust = popust;
-    }
-
     public void setOpis(String opis) {
         this.opis = opis;
     }
 
-    public PoreskaStopa getPoreskaStopa() {
-        return poreskaStopa;
+    public double getCena() {
+        return cena;
     }
 
-    public void setPoreskaStopa(PoreskaStopa poreskaStopa) {
-        this.poreskaStopa = poreskaStopa;
-    }
-
-    public double getCenaBezPDV() {
-        return cenaBezPDV;
-    }
-
-    public void setCenaBezPDV(double cenaBezPDV) {
-        this.cenaBezPDV = cenaBezPDV;
-    }
-
-    public double getCenaSaPDV() {
-        return cenaSaPDV;
-    }
-
-    public void setCenaSaPDV(double cenaSaPDV) {
-        this.cenaSaPDV = cenaSaPDV;
+    public void setCena(double cena) {
+        this.cena = cena;
     }
 
     @Override
@@ -138,12 +108,12 @@ public class TipCasa extends OpstiDomenskiObjekat {
 
     @Override
     public String alijas() {
-        return "a";
+        return "tc";
     }
 
     @Override
     public String join() {
-        return "JOIN poreskastopa ps ON a.poreskaStopa = ps.id";
+        return "";
     }
 
     @Override
@@ -151,17 +121,13 @@ public class TipCasa extends OpstiDomenskiObjekat {
         ArrayList<OpstiDomenskiObjekat> lista = new ArrayList<>();
 
         while (rs.next()) {
-            PoreskaStopa ps = new PoreskaStopa(rs.getInt("ps.id"), rs.getDouble("ps.vrednost"));
-            TipCasa a = new TipCasa(
-                    rs.getInt("a.id"),
-                    rs.getString("a.naziv"),
-                    rs.getString("a.opis"),
-                    ps,
-                    rs.getDouble("a.cenaBezPDV"),
-                    rs.getDouble("a.cenaSaPDV"),
-                    rs.getDouble("a.popust")
+            TipCasa tc = new TipCasa(
+                    rs.getInt("tc.id"),
+                    rs.getString("tc.naziv"),
+                    rs.getString("tc.opis"),
+                    rs.getDouble("tc.cena")
             );
-            lista.add(a);
+            lista.add(tc);
         }
 
         rs.close();
@@ -170,19 +136,17 @@ public class TipCasa extends OpstiDomenskiObjekat {
 
     @Override
     public String koloneZaInsert() {
-        return "(naziv, opis, poreskaStopa, cenaBezPDV, cenaSaPDV, popust)";
+        return "(naziv, opis, cena)";
     }
 
     @Override
     public String vrednostiZaInsert() {
-        return  "'"+naziv + "', '" + opis + "', " + poreskaStopa.getId() + ", "
-                + cenaBezPDV + ", " + cenaSaPDV+", "+popust;
+        return  "'"+naziv + "', '" + opis + "', " + cena;
     }
 
     @Override
     public String vrednostiZaUpdate() {
-        return "naziv = '" + naziv + "', opis = '" + opis + "', poreskaStopa = " + poreskaStopa.getId()
-                + ", cenaBezPDV = " + cenaBezPDV + ", cenaSaPDV = " + cenaSaPDV+", popust = "+popust;
+        return "naziv = '" + naziv + "', opis = '" + opis +"', cena = " + cena;
     }
 
     @Override

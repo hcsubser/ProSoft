@@ -29,10 +29,7 @@ public class SOKreirajTipCasa extends OpstaSistemskaOperacija {
         if (a.getNaziv() == null || a.getNaziv().trim().isEmpty()) {
             throw new Exception("Naziv tipCasaa ne sme biti prazan!");
         }
-        if (a.getPoreskaStopa() == null) {
-            throw new Exception("Poreska stopa mora biti uneta!");
-        }
-        if (a.getCenaBezPDV() <= 0 || a.getCenaSaPDV() <= 0) {
+        if (a.getCena() <= 0) {
             throw new Exception("Cena mora biti veca od nule!");
         }
     }
