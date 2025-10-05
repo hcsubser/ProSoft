@@ -397,7 +397,8 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                 TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
                 tmodel.setKof(this);
                 ArrayList<StavkaEvidencijeKursa> stavke = tmodel.getListaStavki();
-                evidencijakursaInsert = new EvidencijaKursa(-1, Integer.parseInt(txtUkupno.getText().trim()),  c, k, stavke);
+               // evidencijakursaInsert = new EvidencijaKursa(-1, Integer.parseInt(txtUkupno.getText().trim()),  c, k, stavke);
+                evidencijakursaInsert = new EvidencijaKursa(-1, ukupna,  c, k, stavke);
                 System.out.println("otp:"+evidencijakursaInsert);
                        
                 Controller.getInstance().dodajEvidencijuKursa(evidencijakursaInsert);
@@ -405,6 +406,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                 this.dispose();
             } catch (Exception ex) {
                  JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva evidencijukursa!", "Greska", JOptionPane.ERROR_MESSAGE);
+                 ex.printStackTrace();
                 return;
 
             }

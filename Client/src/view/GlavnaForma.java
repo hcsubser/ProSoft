@@ -98,7 +98,7 @@ public class GlavnaForma extends javax.swing.JFrame {
         meniInstruktor.add(jMenuItem10);
 
         itemSSAdd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemSSAdd.setText("Ubaci strucnu spremu");
+        itemSSAdd.setText("Ubaci licencu");
         itemSSAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemSSAddActionPerformed(evt);
@@ -107,7 +107,7 @@ public class GlavnaForma extends javax.swing.JFrame {
         meniInstruktor.add(itemSSAdd);
 
         itemSSControl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemSSControl.setText("Upravljaj strucnim spremama");
+        itemSSControl.setText("Upravljaj licencama");
         itemSSControl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemSSControlActionPerformed(evt);
@@ -355,12 +355,12 @@ public class GlavnaForma extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemInstruktorChange;
-    private javax.swing.JMenuItem itemPolaznikAdd;
-    private javax.swing.JMenuItem itemPolaznikChange;
     private javax.swing.JMenuItem itemMestoView;
     private javax.swing.JMenuItem itemOtpAdd;
     private javax.swing.JMenuItem itemOtpChange;
     private javax.swing.JMenuItem itemOtpSearch;
+    private javax.swing.JMenuItem itemPolaznikAdd;
+    private javax.swing.JMenuItem itemPolaznikChange;
     private javax.swing.JMenuItem itemSSAdd;
     private javax.swing.JMenuItem itemSSControl;
     private javax.swing.JButton jButton1;
@@ -368,11 +368,11 @@ public class GlavnaForma extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenu meniTipCasa;
-    private javax.swing.JMenu meniInstruktor;
-    private javax.swing.JMenu meniPolaznik;
-    private javax.swing.JMenu meniMesto;
     private javax.swing.JMenu meniEvidencijaKursa;
+    private javax.swing.JMenu meniInstruktor;
+    private javax.swing.JMenu meniMesto;
+    private javax.swing.JMenu meniPolaznik;
+    private javax.swing.JMenu meniTipCasa;
     private javax.swing.JLabel txtLogovan;
     // End of variables declaration//GEN-END:variables
 }

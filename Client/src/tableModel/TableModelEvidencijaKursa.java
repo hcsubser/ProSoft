@@ -53,7 +53,7 @@ public class TableModelEvidencijaKursa extends AbstractTableModel {
             case 2:
                 return o.getInstruktor().getIme() + " " + o.getInstruktor().getPrezime();
             case 3:
-                return o.getPolaznik().getIme();
+                return o.getPolaznik().getIme() + " " + o.getPolaznik().getPrezime();
 
             default:
                 return null;
