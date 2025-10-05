@@ -18,9 +18,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException {
-       //ThreadServer server = new ThreadServer();
-       //server.start();
-       new ServerForm().setVisible(true);
+       ThreadServer server = new ThreadServer();
+       server.start();
+       //new ServerForm().setVisible(true);
     }
     
 }

@@ -31,10 +31,8 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
 
     public TableModelStavkaEvidencijeKursa(EvidencijaKursa evidencijakursa) {
         try {
-            System.out.println("MILAN11111");
-            System.out.println(""+ evidencijakursa.getId() + evidencijakursa.getStavkeEvidencijeKursa());
+            System.out.println(""+ evidencijakursa.getId() +" "+ evidencijakursa.getStavkeEvidencijeKursa());
             listaStavki = Controller.getInstance().ucitajStavkeEvidencijeKursaIzBaze(evidencijakursa);
-                        System.out.println("MILAN2222");
 
         } catch (Exception ex) {
             Logger.getLogger(TableModelStavkaEvidencijeKursa.class.getName()).log(Level.SEVERE, null, ex);
@@ -132,9 +130,9 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    private double izracunajIznos(double datumPrisustva, double cena) {
-        return  datumPrisustva * cena;
-    }
+    //private double izracunajIznos(double datumPrisustva, double cena) {
+    //    return  datumPrisustva * cena;
+    //}
 
     public void obrisiStavkuEvidencijeKursa(int selected) {
         rbrStavke = 0;
@@ -145,16 +143,16 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    /*public double getUkupnaCena() {
-        double ukupnaCenaSa = 0;
+    public double getUkupnaCena() {
+        double ukupnaCena = 0;
         for (StavkaEvidencijeKursa stavkaEvidencijeKursa : listaStavki) {
-            ukupnaCenaSa += stavkaEvidencijeKursa.getIznosSaPDV();
+            ukupnaCena += stavkaEvidencijeKursa.getTipCasa().getCena();
         }
-        return Math.round(ukupnaCenaSa * 100.0) / 100.0;
-        return StavkaEvidencijeKursa.
+        return Math.round(ukupnaCena * 100.0) / 100.0;
+        //return StavkaEvidencijeKursa.
     }
 
-    public double getUkupnaCenaBezPDV() {
+    /*public double getUkupnaCenaBezPDV() {
         double ukupnaCenaBez = 0;
         for (StavkaEvidencijeKursa stavkaEvidencijeKursa : listaStavki) {
             ukupnaCenaBez += stavkaEvidencijeKursa.getIznosBezPDV();

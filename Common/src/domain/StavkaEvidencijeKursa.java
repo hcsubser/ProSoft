@@ -6,9 +6,12 @@ package domain;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -141,12 +144,21 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
                 +"JOIN mesto m ON (m.id = p.idMesto)";
     }
 
-    @Override
+    /*@Override
     public ArrayList<OpstiDomenskiObjekat> vratiListu(ResultSet rs) throws SQLException {
         ArrayList<OpstiDomenskiObjekat> lista = new ArrayList<>();
 
         while (rs.next()) {
+            //System.out.println(rs.);
             // TipCasa
+            StavkaEvidencijeKursa so = new StavkaEvidencijeKursa(
+                    rs.getInt("rb"),
+                    rs.getDate("datumPrisustva"),
+                    rs.getString("napomena"),
+                    rs.getBoolean("zavrsen"),
+                    null,
+                    null
+            );
             TipCasa tipCasa = new TipCasa(
                     rs.getInt("tc.id"),
                     rs.getString("tc.naziv"),
@@ -183,20 +195,84 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
                     instruktor,
                     polaznik,null
             );
+            //add missing
+            so.setTipCasa(tipCasa);
+            so.setEvidencijaKursa(evidencijakursa);
 
-            StavkaEvidencijeKursa so = new StavkaEvidencijeKursa(
-                    rs.getInt("rb"),
-                    rs.getDate("datumPrisustva"),
-                    rs.getString("napomena"),
-                    rs.getBoolean("zavrsen"),
-                    tipCasa,
-                    evidencijakursa
-            );
 
             lista.add(so);
         }
 
         rs.close();
+        return lista;
+    }*/
+    @Override
+    public ArrayList<OpstiDomenskiObjekat> vratiListu(ResultSet rs)  {
+        ArrayList<OpstiDomenskiObjekat> lista = new ArrayList<>();
+
+        try {
+            while (rs.next()) {
+                //System.out.println(rs.);
+                // TipCasa
+                System.out.println("siso2");
+                
+                TipCasa tipCasa = new TipCasa(
+                        rs.getInt("tc.id"),
+                        rs.getString("tc.naziv"),
+                        rs.getString("tc.opis"),
+                        rs.getDouble("tc.cena")
+                );
+                Instruktor instruktor = new Instruktor(
+                        rs.getInt("i.id"),
+                        rs.getString("i.ime"),
+                        rs.getString("i.prezime"),
+                        rs.getString("i.korisnickoIme"),
+                        rs.getString("i.lozinka")
+                );
+                Mesto mesto = new Mesto(
+                        rs.getInt("m.id"),
+                        rs.getString("m.grad"),
+                        rs.getInt("m.postanskiBroj"),
+                        rs.getString("m.ulica")
+                );
+                
+                Polaznik polaznik = new Polaznik(
+                        rs.getInt("p.id"),
+                        rs.getString("p.ime"),
+                        rs.getString("p.prezime"),
+                        rs.getString("p.telefon"),
+                        rs.getString("p.email"),
+                        mesto
+                        
+                );
+                
+                EvidencijaKursa evidencijakursa = new EvidencijaKursa(
+                        rs.getInt("o.id"),
+                        rs.getDouble("o.ukupanIznos"),
+                        instruktor,
+                        polaznik,null
+                );
+                
+                StavkaEvidencijeKursa so = new StavkaEvidencijeKursa(
+                        rs.getInt("rb"),
+                        rs.getDate("datumPrisustva"),
+                        rs.getString("napomena"),
+                        rs.getBoolean("zavrsen"),
+                        tipCasa,
+                        evidencijakursa
+                );
+                
+                lista.add(so);
+                
+
+            }
+            rs.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(StavkaEvidencijeKursa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("siso3");
+        
         return lista;
     }
 
@@ -207,9 +283,15 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
 
     @Override
     public String vrednostiZaInsert() {
+        String date = new SimpleDateFormat("yyyy-MM-dd").format(datumPrisustva);
+        System.out.println("Test date insert: "+ date);
+        
         return " " + evidencijakursa.getId() + ", " + rb + ", "
-                +  "STR_TO_DATE('" + datumPrisustva.getDay() + "-" + datumPrisustva.getMonth() + "-" + (datumPrisustva.getYear()+1900) +"', '%d-%m-%Y')" 
-                + ", '" + napomena + "', " + ((zavrsen) ? "1":"0") + ", " + tipCasa.getId() + " ";
+                +  "'" + date +"', '"  + napomena + "', " + ((zavrsen) ? "1":"0") + ", " + tipCasa.getId() + " ";
+
+        //return " " + evidencijakursa.getId() + ", " + rb + ", "
+        //        +  "STR_TO_DATE('" + datumPrisustva.getDay() + "-" + datumPrisustva.getMonth() + "-" + (datumPrisustva.getYear()+1900) +"', '%d-%m-%Y')" 
+        //        + ", '" + napomena + "', " + ((zavrsen) ? "1":"0") + ", " + tipCasa.getId() + " ";
     }
 
     @Override

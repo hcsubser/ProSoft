@@ -166,6 +166,8 @@ public class DatabaseBroker {
         System.out.println(upit);
         Statement s = connection.createStatement();
         ResultSet rs = s.executeQuery(upit);
+        //ArrayList<OpstiDomenskiObjekat> lodo =  odo.vratiListu(rs);
+        //return lodo;
         return odo.vratiListu(rs);
     }
 

@@ -159,7 +159,6 @@ public class Controller {
     }
 
     public ArrayList<StavkaEvidencijeKursa> ucitajStavkeEvidencijeKursaIzBaze(EvidencijaKursa evidencijakursa) throws Exception {
-        System.out.println("MILAN33333");
         return (ArrayList<StavkaEvidencijeKursa>) sendRequest(Operation.VRATI_LISTU_STAVKI_EVIDENCIJE_KURSA, evidencijakursa);
     }
 

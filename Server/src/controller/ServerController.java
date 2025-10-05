@@ -185,11 +185,9 @@ public class ServerController {
     }
 
     public ArrayList<StavkaEvidencijeKursa> ucitajStavkeEvidencijeKursaIzBaze(EvidencijaKursa evidencijakursa) throws Exception {//mozda promenim na Arraylist posle
-                   System.out.println("MILAN56666");
 
         SOVratiListuSviStavkaEvidencijeKursa so = new SOVratiListuSviStavkaEvidencijeKursa();
         StavkaEvidencijeKursa s = new StavkaEvidencijeKursa();
-                    System.out.println("MILAN7777" + s);
 
         s.setEvidencijaKursa(evidencijakursa);
         so.templateExecute(s);

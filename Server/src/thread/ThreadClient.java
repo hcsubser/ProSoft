@@ -143,8 +143,6 @@ public class ThreadClient extends Thread {
                     response.setData(ServerController.getInstance().pretraziEvidencijuKursa((EvidencijaKursa) request.getData()));
                     break;
                 case Operation.VRATI_LISTU_STAVKI_EVIDENCIJE_KURSA:
-                                System.out.println("MILAN5555");
-
                     response.setData(ServerController.getInstance().ucitajStavkeEvidencijeKursaIzBaze((EvidencijaKursa) request.getData()));
                     break;
                 case Operation.PROMENI_LICENCA:

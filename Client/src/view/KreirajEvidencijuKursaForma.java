@@ -14,14 +14,15 @@ import domain.Instruktor;
 import domain.Polaznik;
 import domain.EvidencijaKursa;
 import domain.StavkaEvidencijeKursa;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
+//import javax.swing.JTextField;
 import tableModel.TableModelEvidencijaKursa;
 import tableModel.TableModelStavkaEvidencijeKursa;
-import validator.Validator;
+//import validator.Validator;
 
 /**
  *
@@ -42,9 +43,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         this.ukupna= ukupna;
     }
 
-    /**
-     * Creates new form KreirajOtp
-     */
+   
     public KreirajEvidencijuKursaForma() throws Exception {
         initComponents();
         this.evidencijakursaChange = null;
@@ -56,6 +55,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         popuniTipCasaeIzBaze();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         TableModelStavkaEvidencijeKursa tmodel = new TableModelStavkaEvidencijeKursa();
+        //txtUkupno.setText(""+tmodel.getUkupnaCena());
         tmodel.setKof(this);
         tableStavke.setModel(tmodel);
         JOptionPane.showMessageDialog(this, "Sistem je kreirao evidencijukursa!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
@@ -397,7 +397,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
                 TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
                 tmodel.setKof(this);
                 ArrayList<StavkaEvidencijeKursa> stavke = tmodel.getListaStavki();
-                evidencijakursaInsert = new EvidencijaKursa(-1, 9876,  c, k, stavke);
+                evidencijakursaInsert = new EvidencijaKursa(-1, Integer.parseInt(txtUkupno.getText().trim()),  c, k, stavke);
                 System.out.println("otp:"+evidencijakursaInsert);
                        
                 Controller.getInstance().dodajEvidencijuKursa(evidencijakursaInsert);
@@ -437,10 +437,13 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         }
 
         TipCasa tc = (TipCasa) comboTipCasai.getSelectedItem();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date datumPrisustva = new Date(2025,1,1);
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date datumPrisustva = new Date();
+        //sdf.parse("2025-01-01");
         try {
+            //datumPrisustva = sdf.parse(txtDate.getText().trim());
             datumPrisustva = sdf.parse(txtDate.getText().trim());
+            
         } catch (ParseException ex) {
             Logger.getLogger(KreirajEvidencijuKursaForma.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -454,9 +457,9 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
         StavkaEvidencijeKursa s1;
         if (evidencijakursaChange == null) {
-            s1 = new StavkaEvidencijeKursa(-1, datumPrisustva, napomena, chkZavrsen.isEnabled(), tc, evidencijakursaInsert);
+            s1 = new StavkaEvidencijeKursa(-1, datumPrisustva, napomena, chkZavrsen.isSelected(), tc, evidencijakursaInsert);
         } else {
-            s1 = new StavkaEvidencijeKursa(-1, datumPrisustva, napomena, chkZavrsen.isEnabled(), tc, evidencijakursaChange);
+            s1 = new StavkaEvidencijeKursa(-1, datumPrisustva, napomena, chkZavrsen.isSelected(), tc, evidencijakursaChange);
         }
         /*if (tmodel.unetTipCasa(tc)) {
             JOptionPane.showMessageDialog(this, "TipCasa je vec dodat u evidencijukursa!", "Greska", JOptionPane.ERROR_MESSAGE);
@@ -465,7 +468,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         tmodel.dodajStavkuEvidencijeKursa(s1);
         tableStavke.setModel(tmodel);
         resetPodataka();
-       // ukupnaSa = tmodel.getUkupnaCenaSaPDV();
+        ukupna = tmodel.getUkupnaCena();
         //u//kupnaBez = tmodel.getUkupnaCenaBezPDV();
        // ukupanPopust = tmodel.getUkupanPopust();
 
@@ -496,13 +499,10 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
         tmodel.obrisiStavkuEvidencijeKursa(selected);
         tableStavke.setModel(tmodel);
+        
         //TODO txtCena.setText(tmodel.getCena() + "");
-        //ukupnaSa = tmodel.getUkupnaCenaSaPDV();
-        //ukupnaBez =tmodel.getUkupnaCenaBezPDV();
-        //ukupanPopust =tmodel.getUkupanPopust();
-        //txtUkupnoBez.setText(tmodel.getUkupnaCenaBezPDV()+"");
-        //txtUkupnoSaPDV.setText( tmodel.getUkupnaCenaSaPDV()+"");
-        //txtUkupanPopust.setText(tmodel.getUkupanPopust()+"");
+        ukupna = tmodel.getUkupnaCena();
+        txtUkupno.setText(ukupna+"");
 
     }//GEN-LAST:event_btnUkloniStavkuActionPerformed
 
@@ -554,7 +554,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         txtCena.setEnabled(false);
        // txtUkupanPopust.setEnabled(false);
        // txtUkupnoBez.setEnabled(false);
-       // txtUkupnoSaPDV.setEnabled(false);
+        txtUkupno.setEnabled(false);
         //txtPopust.setEnabled(false);
         comboBoxPolaznik.removeAllItems();
         ArrayList<Instruktor> instruktori = Controller.getInstance().ucitajInstruktoreIzBaze();
