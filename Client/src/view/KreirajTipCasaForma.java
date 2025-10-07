@@ -6,8 +6,7 @@ package view;
 
 import controller.Controller;
 import domain.TipCasa;
-import domain.PoreskaStopa;
-import java.util.ArrayList;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;

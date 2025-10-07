@@ -10,7 +10,6 @@ import domain.Instruktor;
 import domain.Polaznik;
 import domain.Mesto;
 import domain.EvidencijaKursa;
-import domain.PoreskaStopa;
 import domain.StavkaEvidencijeKursa;
 import domain.Licenca;
 import java.io.ObjectInputStream;
@@ -93,7 +92,7 @@ public class Controller {
     }
 
     public ArrayList<TipCasa> ucitajTipCasaeIzBaze() throws Exception {
-        return (ArrayList<TipCasa>) sendRequest(Operation.VRATI_LISTU_SVI_TIPCASAI, null);
+        return (ArrayList<TipCasa>) sendRequest(Operation.VRATI_LISTU_SVI_TIPCASA, null);
     }
 
     public void odjaviInstruktora(String korisnickoIme) throws Exception {
@@ -174,10 +173,6 @@ public class Controller {
     public void promeniEvidencijuKursa(EvidencijaKursa evidencijakursaChange) throws Exception {
         sendRequest(Operation.PROMENI_EVIDENCIJU_KURSA, evidencijakursaChange);
 
-    }
-
-    public ArrayList<PoreskaStopa> ucitajPoreskeStopeIzBaze() throws Exception {
-        return (ArrayList<PoreskaStopa>) sendRequest(Operation.VRATI_LISTU_PORESKA_STOPA, null);
     }
 
     public ArrayList<Polaznik> pretraziKupce(Polaznik filter) throws Exception {

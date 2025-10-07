@@ -10,7 +10,6 @@ import domain.Instruktor;
 import domain.Polaznik;
 import domain.Mesto;
 import domain.EvidencijaKursa;
-import domain.PoreskaStopa;
 import domain.StavkaEvidencijeKursa;
 import domain.Licenca;
 import java.sql.SQLException;
@@ -38,7 +37,6 @@ import so.evidencijakursa.SOObrisiEvidencijuKursa;
 import so.evidencijakursa.SOPretraziEvidencijuKursa;
 import so.evidencijakursa.SOPromeniEvidencijuKursa;
 import so.evidencijakursa.SOVratiListuSvihEvidencijaKursa;
-import so.poreskastopa.SOVratiListuSviPoreskaStopa;
 import so.stavkaevidencijekursa.SOVratiListuSviStavkaEvidencijeKursa;
 import so.licenca.SOObrisiLicenca;
 import so.licenca.SOPromeniLicenca;
@@ -200,13 +198,7 @@ public class ServerController {
         so.templateExecute(kriterijum);
         return so.getLista();
     }
-
-    public ArrayList<PoreskaStopa> ucitajPoreskaStopeIzBaze() throws Exception {
-        SOVratiListuSviPoreskaStopa so = new SOVratiListuSviPoreskaStopa();
-        so.templateExecute(new PoreskaStopa());
-        return so.getList();
-    }
-
+  
     public void dodajLicenca(Licenca licenca) throws Exception {
         (new SOUbaciLicenca()).templateExecute(licenca);
     }

@@ -100,7 +100,7 @@ public class ThreadClient extends Thread {
                 case Operation.VRATI_LISTU_SVI_POLAZNICI:
                     response.setData(ServerController.getInstance().ucitajKupceIzBaze());
                     break;
-                case Operation.VRATI_LISTU_SVI_TIPCASAI:
+                case Operation.VRATI_LISTU_SVI_TIPCASA:
                     response.setData(ServerController.getInstance().ucitajTipCasaeIzBaze());
                     break;
                 case Operation.VRATI_LISTU_SVI_INSTRUKTOR:
@@ -153,9 +153,6 @@ public class ThreadClient extends Thread {
                     break;
                 case Operation.VRATI_LISTU_SVI_LICENCA:
                     response.setData(ServerController.getInstance().ucitajLicenceIzBaze());
-                    break;
-                case Operation.VRATI_LISTU_PORESKA_STOPA:
-                    response.setData(ServerController.getInstance().ucitajPoreskaStopeIzBaze());
                     break;
                 case Operation.DODAJ_LICENCA:
                     ServerController.getInstance().dodajLicenca((Licenca) request.getData());

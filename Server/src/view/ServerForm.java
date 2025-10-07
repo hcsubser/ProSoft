@@ -28,6 +28,7 @@ public class ServerForm extends javax.swing.JFrame {
         lblServerStatus.setText("Server je ugasen!");
         btnPokreniServer.setEnabled(true);
         btnUgasiServer.setEnabled(false);
+        setResizable(false);
         setTitle("Serverska forma");
 
     }
@@ -41,27 +42,19 @@ public class ServerForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnPokreniServer = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         btnUgasiServer = new javax.swing.JButton();
-        lblServerStatus = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jmbMain = new javax.swing.JMenuBar();
-        jmServer = new javax.swing.JMenu();
-        miKonfiguracija = new javax.swing.JMenuItem();
+        btnPokreniServer = new javax.swing.JButton();
+        lblServerStatus = new javax.swing.JLabel();
+        btnKonfiguracija = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 153, 153));
 
-        btnPokreniServer.setBackground(new java.awt.Color(153, 255, 204));
-        btnPokreniServer.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnPokreniServer.setForeground(new java.awt.Color(0, 0, 0));
-        btnPokreniServer.setText("POKRENI SERVER");
-        btnPokreniServer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPokreniServerActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        btnUgasiServer.setBackground(new java.awt.Color(153, 255, 204));
+        btnUgasiServer.setBackground(new java.awt.Color(255, 0, 0));
         btnUgasiServer.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnUgasiServer.setForeground(new java.awt.Color(0, 0, 0));
         btnUgasiServer.setText("UGASI SERVER");
@@ -71,74 +64,97 @@ public class ServerForm extends javax.swing.JFrame {
             }
         });
 
-        lblServerStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("STATUS");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("STATUS:");
 
-        jmServer.setText("Server");
-
-        miKonfiguracija.setText("Konfiguracija");
-        miKonfiguracija.addActionListener(new java.awt.event.ActionListener() {
+        btnPokreniServer.setBackground(new java.awt.Color(0, 255, 0));
+        btnPokreniServer.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnPokreniServer.setForeground(new java.awt.Color(0, 0, 0));
+        btnPokreniServer.setText("POKRENI SERVER");
+        btnPokreniServer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miKonfiguracijaActionPerformed(evt);
+                btnPokreniServerActionPerformed(evt);
             }
         });
-        jmServer.add(miKonfiguracija);
 
-        jmbMain.add(jmServer);
+        lblServerStatus.setBackground(new java.awt.Color(255, 255, 255));
+        lblServerStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblServerStatus.setForeground(new java.awt.Color(255, 255, 255));
 
-        setJMenuBar(jmbMain);
+        btnKonfiguracija.setBackground(new java.awt.Color(255, 255, 255));
+        btnKonfiguracija.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnKonfiguracija.setForeground(new java.awt.Color(0, 0, 0));
+        btnKonfiguracija.setText("KONFIGURACIJA");
+        btnKonfiguracija.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKonfiguracijaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1)
+                    .addComponent(btnPokreniServer, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                    .addComponent(btnUgasiServer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnKonfiguracija, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblServerStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(btnPokreniServer, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnKonfiguracija, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnUgasiServer, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblServerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(btnUgasiServer, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(32, 32, 32)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lblServerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(122, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPokreniServer, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUgasiServer, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPokreniServer, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(lblServerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPokreniServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPokreniServerActionPerformed
+    private void btnUgasiServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUgasiServerActionPerformed
+        if (threadServer.getServerSocket() != null && threadServer.getServerSocket().isBound()) {
+            try {
+                threadServer.getServerSocket().close();
+                JOptionPane.showMessageDialog(this, "Server je ugasen, gasenje programa...");
+                this.dispose();
+                System.exit(0);
+            } catch (IOException ex) {
+                Logger.getLogger(ServerForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnUgasiServerActionPerformed
 
-        File file = new File("dbconfiguration.properties");
+    private void btnPokreniServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPokreniServerActionPerformed
+        // TODO add your handling code here:
+                File file = new File("dbconfiguration.properties");
         if (!file.exists()) {
             JOptionPane.showMessageDialog(this, "Konfiguracioni fajl ne postoji!"
-                    + "Unesite parametre za pristup bazi podataka!", "Upozorenje", JOptionPane.ERROR_MESSAGE);
+                + "Unesite parametre za pristup bazi podataka!", "Upozorenje", JOptionPane.ERROR_MESSAGE);
             new KonfiguracijaBaze(this, true).setVisible(true);
         }
 
@@ -153,43 +169,21 @@ public class ServerForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Port se vec koristi. Samo jedan server se moze pokrenuti", "Greska", JOptionPane.ERROR_MESSAGE);
             }
         }
-
     }//GEN-LAST:event_btnPokreniServerActionPerformed
 
-    private void miKonfiguracijaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miKonfiguracijaActionPerformed
+    private void btnKonfiguracijaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKonfiguracijaActionPerformed
+        // TODO add your handling code here:
         new KonfiguracijaBaze(this, true).setVisible(true);
+    }//GEN-LAST:event_btnKonfiguracijaActionPerformed
 
-
-    }//GEN-LAST:event_miKonfiguracijaActionPerformed
-
-    private void btnUgasiServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUgasiServerActionPerformed
-        if (threadServer.getServerSocket() != null && threadServer.getServerSocket().isBound()) {
-            try {
-                threadServer.getServerSocket().close();
-                JOptionPane.showMessageDialog(this, "Server je ugasen, gasenje programa...");
-                this.dispose();
-                System.exit(0);
-            } catch (IOException ex) {
-                Logger.getLogger(ServerForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_btnUgasiServerActionPerformed
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ServerForm().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKonfiguracija;
     private javax.swing.JButton btnPokreniServer;
     private javax.swing.JButton btnUgasiServer;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jmServer;
-    private javax.swing.JMenuBar jmbMain;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblServerStatus;
-    private javax.swing.JMenuItem miKonfiguracija;
     // End of variables declaration//GEN-END:variables
 
 }
