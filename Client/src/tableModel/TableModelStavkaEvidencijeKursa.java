@@ -21,7 +21,7 @@ import view.KreirajEvidencijuKursaForma;
 public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
 
     private ArrayList<StavkaEvidencijeKursa> listaStavki;
-    private KreirajEvidencijuKursaForma kof;
+    //private KreirajEvidencijuKursaForma kof;
     private int rbrStavke = 0;
     private final String[] kolone = {"RB", "Datum", "Tip Casa", "Cena", "Napomena", "zavrsen"};
 
@@ -39,13 +39,13 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
         }
     }
 
-    public KreirajEvidencijuKursaForma getKof() {
+    /*public KreirajEvidencijuKursaForma getKof() {
         return kof;
     }
 
     public void setKof(KreirajEvidencijuKursaForma kof) {
         this.kof = kof;
-    }
+    }*/
 
     public ArrayList<StavkaEvidencijeKursa> getListaStavki() {
         return listaStavki;

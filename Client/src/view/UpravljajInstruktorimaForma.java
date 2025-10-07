@@ -6,6 +6,7 @@ package view;
 
 import controller.Controller;
 import domain.Instruktor;
+import java.awt.Color;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -43,6 +44,8 @@ public class UpravljajInstruktorimaForma extends javax.swing.JFrame {
             adminCheck();
             setTitle("Upravljaj instruktorima");
             tma = new TableModelInstruktor();
+            tblInstruktori.getTableHeader().setBackground(Color.decode("#00000"));
+            tblInstruktori.getTableHeader().setForeground(Color.decode("#ffffff"));
             tblInstruktori.setModel(tma);
             setResizable(false);
             setLocationRelativeTo(null);
@@ -67,10 +70,14 @@ public class UpravljajInstruktorimaForma extends javax.swing.JFrame {
         btnPromeni = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
         btnNazad = new javax.swing.JButton();
+        btnDodaj = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        tblInstruktori.setBackground(new java.awt.Color(51, 51, 51));
         tblInstruktori.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblInstruktori.setForeground(new java.awt.Color(255, 255, 255));
         tblInstruktori.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -82,6 +89,9 @@ public class UpravljajInstruktorimaForma extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblInstruktori.setGridColor(new java.awt.Color(153, 153, 153));
+        tblInstruktori.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tblInstruktori.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tblInstruktori.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblInstruktoriMouseClicked(evt);
@@ -89,8 +99,9 @@ public class UpravljajInstruktorimaForma extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblInstruktori);
 
-        btnPromeni.setBackground(new java.awt.Color(153, 255, 204));
+        btnPromeni.setBackground(new java.awt.Color(0, 204, 255));
         btnPromeni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnPromeni.setForeground(new java.awt.Color(0, 0, 0));
         btnPromeni.setText("Promeni");
         btnPromeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,8 +109,9 @@ public class UpravljajInstruktorimaForma extends javax.swing.JFrame {
             }
         });
 
-        btnObrisi.setBackground(new java.awt.Color(153, 255, 204));
+        btnObrisi.setBackground(new java.awt.Color(255, 0, 0));
         btnObrisi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnObrisi.setForeground(new java.awt.Color(0, 0, 0));
         btnObrisi.setText("Obrisi");
         btnObrisi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,8 +119,9 @@ public class UpravljajInstruktorimaForma extends javax.swing.JFrame {
             }
         });
 
-        btnNazad.setBackground(new java.awt.Color(153, 255, 204));
+        btnNazad.setBackground(new java.awt.Color(255, 255, 255));
         btnNazad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnNazad.setForeground(new java.awt.Color(0, 0, 0));
         btnNazad.setText("Otkazi");
         btnNazad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,36 +129,45 @@ public class UpravljajInstruktorimaForma extends javax.swing.JFrame {
             }
         });
 
+        btnDodaj.setBackground(new java.awt.Color(0, 255, 0));
+        btnDodaj.setForeground(new java.awt.Color(0, 0, 0));
+        btnDodaj.setText("Dodaj");
+        btnDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(46, 46, 46)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnPromeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnNazad, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(btnNazad, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnPromeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnPromeni, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnNazad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnNazad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43))
         );
 
@@ -215,8 +237,15 @@ public class UpravljajInstruktorimaForma extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
 
+    private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
+        // TODO add your handling code here:
+        KreirajInstruktoraForma kif = new KreirajInstruktoraForma();
+        kif.setVisible(true);
+    }//GEN-LAST:event_btnDodajActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodaj;
     private javax.swing.JButton btnNazad;
     private javax.swing.JButton btnObrisi;
     private javax.swing.JButton btnPromeni;

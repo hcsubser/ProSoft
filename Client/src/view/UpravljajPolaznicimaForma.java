@@ -9,6 +9,7 @@ import controller.Controller;
 import javax.swing.JOptionPane;
 import domain.Polaznik;
 import domain.Mesto;
+import java.awt.Color;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
     /**
      * Creates new form PromeniPolaznikForma
      */
-    public UpravljajPolaznicimaForma(boolean obrisiKupca) throws Exception {
+    public UpravljajPolaznicimaForma() throws Exception {
         initComponents();
         lista = Controller.getInstance().ucitajKupceIzBaze();
         setTitle("Upravljaj polaznicima");
@@ -44,10 +45,9 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        if (obrisiKupca == true) {
-            btnObrisi.setVisible(true);
-            btnPromeni.setVisible(false);
-        }
+        tblKupci.getTableHeader().setBackground(Color.decode("#000000"));
+        tblKupci.getTableHeader().setForeground(Color.decode("#ffffff"));
+
         try {
             tblKupci.setModel(new TableModelPolaznik());
         } catch (Exception ex) {
@@ -64,19 +64,95 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblKupci = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        txtPolaznik = new javax.swing.JLabel();
+        comboPolaznik = new javax.swing.JComboBox<>();
+        txtMesto = new javax.swing.JLabel();
+        comboMesto = new javax.swing.JComboBox<>();
+        btnPretrazi = new javax.swing.JButton();
+        btnDodaj = new javax.swing.JButton();
         btnPromeni = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
         btnNazad = new javax.swing.JButton();
-        txtPolaznik = new javax.swing.JLabel();
-        txtMesto = new javax.swing.JLabel();
-        comboMesto = new javax.swing.JComboBox<>();
-        comboPolaznik = new javax.swing.JComboBox<>();
-        btnPretrazi = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblKupci = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+
+        txtPolaznik.setBackground(new java.awt.Color(51, 51, 51));
+        txtPolaznik.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPolaznik.setForeground(new java.awt.Color(255, 255, 255));
+        txtPolaznik.setText("Polaznik");
+
+        comboPolaznik.setBackground(new java.awt.Color(0, 204, 255));
+        comboPolaznik.setEditable(true);
+        comboPolaznik.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboPolaznik.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtMesto.setBackground(new java.awt.Color(51, 51, 51));
+        txtMesto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMesto.setForeground(new java.awt.Color(255, 255, 255));
+        txtMesto.setText("Mesto");
+
+        comboMesto.setBackground(new java.awt.Color(0, 204, 255));
+        comboMesto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboMesto.setForeground(new java.awt.Color(0, 0, 0));
+
+        btnPretrazi.setBackground(new java.awt.Color(255, 255, 255));
+        btnPretrazi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnPretrazi.setForeground(new java.awt.Color(0, 0, 0));
+        btnPretrazi.setText("Pretrazi");
+        btnPretrazi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPretraziActionPerformed(evt);
+            }
+        });
+
+        btnDodaj.setBackground(new java.awt.Color(0, 255, 0));
+        btnDodaj.setForeground(new java.awt.Color(0, 0, 0));
+        btnDodaj.setText("Dodaj");
+        btnDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajActionPerformed(evt);
+            }
+        });
+
+        btnPromeni.setBackground(new java.awt.Color(0, 204, 255));
+        btnPromeni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnPromeni.setForeground(new java.awt.Color(0, 0, 0));
+        btnPromeni.setText("Promeni");
+        btnPromeni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPromeniActionPerformed(evt);
+            }
+        });
+
+        btnObrisi.setBackground(new java.awt.Color(255, 0, 0));
+        btnObrisi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnObrisi.setForeground(new java.awt.Color(0, 0, 0));
+        btnObrisi.setText("Obrisi");
+        btnObrisi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObrisiActionPerformed(evt);
+            }
+        });
+
+        btnNazad.setBackground(new java.awt.Color(255, 255, 255));
+        btnNazad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnNazad.setForeground(new java.awt.Color(0, 0, 0));
+        btnNazad.setText("Otkazi");
+        btnNazad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNazadActionPerformed(evt);
+            }
+        });
+
+        tblKupci.setBackground(new java.awt.Color(51, 51, 51));
+        tblKupci.setForeground(new java.awt.Color(255, 255, 255));
         tblKupci.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -88,110 +164,79 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblKupci.setGridColor(new java.awt.Color(153, 153, 153));
+        tblKupci.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tblKupci.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblKupci);
 
-        btnPromeni.setBackground(new java.awt.Color(153, 255, 204));
-        btnPromeni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnPromeni.setText("Promeni");
-        btnPromeni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPromeniActionPerformed(evt);
-            }
-        });
-
-        btnObrisi.setBackground(new java.awt.Color(153, 255, 204));
-        btnObrisi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnObrisi.setText("Obrisi");
-        btnObrisi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnObrisiActionPerformed(evt);
-            }
-        });
-
-        btnNazad.setBackground(new java.awt.Color(153, 255, 204));
-        btnNazad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnNazad.setText("Otkazi");
-        btnNazad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNazadActionPerformed(evt);
-            }
-        });
-
-        txtPolaznik.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPolaznik.setText("Polaznik");
-
-        txtMesto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtMesto.setText("Mesto");
-
-        comboMesto.setBackground(new java.awt.Color(153, 255, 204));
-        comboMesto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        comboPolaznik.setBackground(new java.awt.Color(153, 255, 204));
-        comboPolaznik.setEditable(true);
-        comboPolaznik.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        btnPretrazi.setBackground(new java.awt.Color(153, 255, 204));
-        btnPretrazi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnPretrazi.setText("Pretrazi");
-        btnPretrazi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPretraziActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPolaznik)
+                            .addComponent(comboPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboMesto, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMesto, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPretrazi, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnNazad, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnPromeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(btnPretrazi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(249, 249, 249))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnPromeni, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnNazad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPolaznik)
+                            .addComponent(txtMesto))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboMesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNazad, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(comboPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(comboMesto, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(txtPolaznik)
-                        .addGap(230, 230, 230)
-                        .addComponent(txtMesto, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnPromeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPretrazi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(52, 52, 52))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPolaznik)
-                            .addComponent(txtMesto))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboMesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPretrazi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnPromeni, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(btnNazad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -237,6 +282,7 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Sistem je nasao polaznika!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
                 KreirajPolaznikaForma kf = new KreirajPolaznikaForma(this, polaznikChange);
                 kf.setVisible(true);
+                this.dispose();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Sistem nije uspeo da nadje polaznika!", "Greska", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -284,18 +330,29 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPretraziActionPerformed
 
+    private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
+        // TODO add your handling code here:
+        KreirajPolaznikaForma kpf = new KreirajPolaznikaForma();
+        //kpf.set
+        kpf.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnDodajActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodaj;
     private javax.swing.JButton btnNazad;
     private javax.swing.JButton btnObrisi;
     private javax.swing.JButton btnPretrazi;
     private javax.swing.JButton btnPromeni;
-    private javax.swing.JComboBox<domain.Polaznik> comboPolaznik;
     private javax.swing.JComboBox<Mesto> comboMesto;
+    private javax.swing.JComboBox<domain.Polaznik> comboPolaznik;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblKupci;
-    private javax.swing.JLabel txtPolaznik;
     private javax.swing.JLabel txtMesto;
+    private javax.swing.JLabel txtPolaznik;
     // End of variables declaration//GEN-END:variables
 
     private void popuniCombo() {

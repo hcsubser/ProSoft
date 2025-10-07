@@ -24,7 +24,7 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
 
     private List<Licenca> lista;
     TableModelLicenca tmss;
-    private Instruktor ulogovani;
+    //private Instruktor ulogovani;
 
     public JTable getTblLicenca() {
         return tblLicenca;
@@ -37,13 +37,13 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
     /**
      * Creates new form PromeniStrucnuSpremuForma
      */
-    public UpravljajLicencamaForma(Instruktor ulogovani) {
+    public UpravljajLicencamaForma() {
         initComponents();
-        this.ulogovani = ulogovani;
-        adminCheck();
+        //this.ulogovani = ulogovani;
+        //adminCheck();
         setResizable(false);
         setLocationRelativeTo(null);
-        setTitle("Upravljaj strucnim spremama");
+        setTitle("Upravljaj licencama");
         TableModelLicenca tmodel = new TableModelLicenca();
         tblLicenca.setModel(tmodel);
         btnPromeni.setEnabled(false);
@@ -59,15 +59,23 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLicenca = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         btnPromeni = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+
+        tblLicenca.setBackground(new java.awt.Color(51, 51, 51));
         tblLicenca.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblLicenca.setForeground(new java.awt.Color(255, 255, 255));
         tblLicenca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -79,6 +87,9 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblLicenca.setGridColor(new java.awt.Color(153, 153, 153));
+        tblLicenca.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tblLicenca.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tblLicenca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblLicencaMouseClicked(evt);
@@ -86,8 +97,18 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblLicenca);
 
-        btnPromeni.setBackground(new java.awt.Color(153, 255, 204));
+        jButton1.setBackground(new java.awt.Color(0, 255, 0));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Dodaj");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnPromeni.setBackground(new java.awt.Color(0, 204, 255));
         btnPromeni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnPromeni.setForeground(new java.awt.Color(0, 0, 0));
         btnPromeni.setText("Promeni");
         btnPromeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,8 +116,9 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
             }
         });
 
-        btnObrisi.setBackground(new java.awt.Color(153, 255, 204));
+        btnObrisi.setBackground(new java.awt.Color(255, 0, 0));
         btnObrisi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnObrisi.setForeground(new java.awt.Color(255, 255, 255));
         btnObrisi.setText("Obrisi");
         btnObrisi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,8 +126,9 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
             }
         });
 
-        btnCancel.setBackground(new java.awt.Color(153, 255, 204));
+        btnCancel.setBackground(new java.awt.Color(255, 255, 255));
         btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(0, 0, 0));
         btnCancel.setText("Otkazi");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,37 +136,56 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(btnPromeni))))
+                .addGap(34, 34, 34))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPromeni, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPromeni, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnObrisi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnPromeni, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -165,6 +207,7 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
         Licenca zaPromenu = model.getLicenca(selektovanRed);
         UbaciLicencuForma ussf = new UbaciLicencuForma(this, zaPromenu);
         ussf.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnPromeniActionPerformed
 
     private void tblLicencaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLicencaMouseClicked
@@ -201,6 +244,12 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
             Logger.getLogger(UpravljajInstruktorimaForma.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        UbaciLicencuForma lf = new UbaciLicencuForma();
+        lf.setVisible(true);   
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,16 +291,18 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnObrisi;
     private javax.swing.JButton btnPromeni;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblLicenca;
     // End of variables declaration//GEN-END:variables
 
-    private void adminCheck() {
+    /*private void adminCheck() {
         if (!ulogovani.getKorisnickoIme().equals("admin")) {
             btnObrisi.setVisible(false);
         } else {
             btnObrisi.setVisible(true);
             btnObrisi.setEnabled(false);
         }
-    }
+    }*/
 }

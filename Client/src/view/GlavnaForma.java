@@ -26,7 +26,7 @@ public class GlavnaForma extends javax.swing.JFrame {
         initComponents();
         instruktor = c;
         setTitle(instruktor.getIme() + " " + instruktor.getPrezime());
-        txtLogovan.setText("Zdravo, " + instruktor.getIme() + "!");
+        txtLogovan.setText("Ulogovani kao:, " + instruktor.getIme() + "!");
         setResizable(false);
         setLocationRelativeTo(null);
 
@@ -41,31 +41,27 @@ public class GlavnaForma extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         txtLogovan = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        btnEvidencijaKursa = new javax.swing.JButton();
+        btnInstruktor = new javax.swing.JButton();
+        btnPolaznik = new javax.swing.JButton();
+        btnLicenca = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
-        meniInstruktor = new javax.swing.JMenu();
-        itemInstruktorChange = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        itemSSAdd = new javax.swing.JMenuItem();
-        itemSSControl = new javax.swing.JMenuItem();
-        meniEvidencijaKursa = new javax.swing.JMenu();
-        itemOtpAdd = new javax.swing.JMenuItem();
-        itemOtpChange = new javax.swing.JMenuItem();
-        itemOtpSearch = new javax.swing.JMenuItem();
-        meniPolaznik = new javax.swing.JMenu();
-        itemPolaznikAdd = new javax.swing.JMenuItem();
-        itemPolaznikChange = new javax.swing.JMenuItem();
-        meniTipCasa = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        meniMesto = new javax.swing.JMenu();
-        itemMestoView = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setBackground(new java.awt.Color(153, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
+        txtLogovan.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtLogovan.setForeground(new java.awt.Color(255, 255, 255));
+        txtLogovan.setText("Ulogovani kao: ");
+
+        jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Izloguj se");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,141 +69,87 @@ public class GlavnaForma extends javax.swing.JFrame {
             }
         });
 
-        txtLogovan.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txtLogovan.setText("jLabel1");
-
-        meniInstruktor.setText("Instruktor");
-        meniInstruktor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        itemInstruktorChange.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemInstruktorChange.setText("Kreiraj instruktora");
-        itemInstruktorChange.addActionListener(new java.awt.event.ActionListener() {
+        btnEvidencijaKursa.setBackground(new java.awt.Color(0, 204, 255));
+        btnEvidencijaKursa.setForeground(new java.awt.Color(0, 0, 0));
+        btnEvidencijaKursa.setText("Evidencija Kursa");
+        btnEvidencijaKursa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemInstruktorChangeActionPerformed(evt);
+                btnEvidencijaKursaActionPerformed(evt);
             }
         });
-        meniInstruktor.add(itemInstruktorChange);
 
-        jMenuItem10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem10.setText("Upravljaj instruktorima");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+        btnInstruktor.setBackground(new java.awt.Color(0, 255, 0));
+        btnInstruktor.setForeground(new java.awt.Color(0, 0, 0));
+        btnInstruktor.setText("Instruktori");
+        btnInstruktor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
+                btnInstruktorActionPerformed(evt);
             }
         });
-        meniInstruktor.add(jMenuItem10);
 
-        itemSSAdd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemSSAdd.setText("Ubaci licencu");
-        itemSSAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnPolaznik.setBackground(new java.awt.Color(0, 255, 0));
+        btnPolaznik.setForeground(new java.awt.Color(0, 0, 0));
+        btnPolaznik.setText("Polaznici");
+        btnPolaznik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemSSAddActionPerformed(evt);
+                btnPolaznikActionPerformed(evt);
             }
         });
-        meniInstruktor.add(itemSSAdd);
 
-        itemSSControl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemSSControl.setText("Upravljaj licencama");
-        itemSSControl.addActionListener(new java.awt.event.ActionListener() {
+        btnLicenca.setBackground(new java.awt.Color(255, 255, 255));
+        btnLicenca.setForeground(new java.awt.Color(0, 0, 0));
+        btnLicenca.setText("Licence");
+        btnLicenca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemSSControlActionPerformed(evt);
+                btnLicencaActionPerformed(evt);
             }
         });
-        meniInstruktor.add(itemSSControl);
 
-        jMenuBar1.add(meniInstruktor);
+        jSeparator1.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator1.setOpaque(true);
 
-        meniEvidencijaKursa.setText("EvidencijaKursa");
-        meniEvidencijaKursa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        itemOtpAdd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemOtpAdd.setText("Kreiraj evidencijukursa");
-        itemOtpAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemOtpAddActionPerformed(evt);
-            }
-        });
-        meniEvidencijaKursa.add(itemOtpAdd);
-
-        itemOtpChange.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemOtpChange.setText("Upravljaj evidencijakursama");
-        itemOtpChange.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemOtpChangeActionPerformed(evt);
-            }
-        });
-        meniEvidencijaKursa.add(itemOtpChange);
-
-        itemOtpSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemOtpSearch.setText("Pretrazi evidencijukursa");
-        itemOtpSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemOtpSearchActionPerformed(evt);
-            }
-        });
-        meniEvidencijaKursa.add(itemOtpSearch);
-
-        jMenuBar1.add(meniEvidencijaKursa);
-
-        meniPolaznik.setText("Polaznik");
-        meniPolaznik.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        itemPolaznikAdd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemPolaznikAdd.setText("Kreiraj polaznika");
-        itemPolaznikAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemPolaznikAddActionPerformed(evt);
-            }
-        });
-        meniPolaznik.add(itemPolaznikAdd);
-
-        itemPolaznikChange.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemPolaznikChange.setText("Upravljaj polaznicima");
-        itemPolaznikChange.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemPolaznikChangeActionPerformed(evt);
-            }
-        });
-        meniPolaznik.add(itemPolaznikChange);
-
-        jMenuBar1.add(meniPolaznik);
-
-        meniTipCasa.setText("TipCasa");
-        meniTipCasa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem1.setText("Kreiraj tipCasa");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        meniTipCasa.add(jMenuItem1);
-
-        jMenuItem14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem14.setText("Upravljaj tipCasaima");
-        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem14ActionPerformed(evt);
-            }
-        });
-        meniTipCasa.add(jMenuItem14);
-
-        jMenuBar1.add(meniTipCasa);
-
-        meniMesto.setText("Mesto");
-        meniMesto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        itemMestoView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemMestoView.setText("Pregled mesta");
-        itemMestoView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemMestoViewActionPerformed(evt);
-            }
-        });
-        meniMesto.add(itemMestoView);
-
-        jMenuBar1.add(meniMesto);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnLicenca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtLogovan, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                                .addComponent(btnEvidencijaKursa, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(84, 84, 84)
+                                .addComponent(btnPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(16, 16, 16))))
+            .addComponent(jSeparator1)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLogovan, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInstruktor)
+                    .addComponent(btnEvidencijaKursa)
+                    .addComponent(btnPolaznik))
+                .addGap(18, 18, 18)
+                .addComponent(btnLicenca)
+                .addContainerGap(145, Short.MAX_VALUE))
+        );
 
         setJMenuBar(jMenuBar1);
 
@@ -215,48 +157,15 @@ public class GlavnaForma extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(txtLogovan, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(19, 19, 19))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLogovan, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void itemOtpAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemOtpAddActionPerformed
-        try {
-            //throw new RuntimeException("Simulacija greske");
-            KreirajEvidencijuKursaForma ko = new KreirajEvidencijuKursaForma();
-            ko.setVisible(true);
-            // tblOtp.setModel(mto);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Sistem nije uspeo da kreira evidencijukursa!", "Greska", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-    }//GEN-LAST:event_itemOtpAddActionPerformed
-
-    private void itemPolaznikChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPolaznikChangeActionPerformed
-        try {
-            // TODO add your handling code here:
-            UpravljajPolaznicimaForma pkf = new UpravljajPolaznicimaForma(false);
-            pkf.setVisible(true);
-        } catch (Exception ex) {
-            Logger.getLogger(GlavnaForma.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_itemPolaznikChangeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -281,98 +190,43 @@ public class GlavnaForma extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void itemOtpChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemOtpChangeActionPerformed
+    private void btnEvidencijaKursaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvidencijaKursaActionPerformed
         // TODO add your handling code here:
         UpravljajEvidencijamaKursaForma pf = new UpravljajEvidencijamaKursaForma();
         pf.setVisible(true);
-    }//GEN-LAST:event_itemOtpChangeActionPerformed
+    }//GEN-LAST:event_btnEvidencijaKursaActionPerformed
 
-    private void itemPolaznikAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPolaznikAddActionPerformed
-        // TODO add your handling code here:
-        try {
-            //throw new RuntimeException("Simulacija greske");
-            KreirajPolaznikaForma kf = new KreirajPolaznikaForma();
-            kf.setVisible(true);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Sistem nije uspeo da kreira polaznika!", "Greska", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-    }//GEN-LAST:event_itemPolaznikAddActionPerformed
+    private void btnInstruktorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstruktorActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        UpravljajInstruktorimaForma uif = new UpravljajInstruktorimaForma(instruktor);
+        uif.setVisible(true);       
+        
+    }//GEN-LAST:event_btnInstruktorActionPerformed
 
-        UpravljajInstruktorimaForma pc = new UpravljajInstruktorimaForma(instruktor);
-        pc.setVisible(true);
-
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
-    private void itemInstruktorChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemInstruktorChangeActionPerformed
-        // TODO add your handling code here:
-        KreirajInstruktoraForma kcf = new KreirajInstruktoraForma();
-        kcf.setVisible(true);
-    }//GEN-LAST:event_itemInstruktorChangeActionPerformed
-
-    private void itemSSAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSSAddActionPerformed
-        // TODO add your handling code here:
-        UbaciLicencuForma ssf = new UbaciLicencuForma();
-        ssf.setVisible(true);
-    }//GEN-LAST:event_itemSSAddActionPerformed
-
-    private void itemOtpSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemOtpSearchActionPerformed
-        // TODO add your handling code here:
-        boolean pretraga = true;
-        UpravljajEvidencijamaKursaForma uof = new UpravljajEvidencijamaKursaForma(pretraga);
-        uof.setVisible(true);
-    }//GEN-LAST:event_itemOtpSearchActionPerformed
-
-    private void itemMestoViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMestoViewActionPerformed
+    private void btnPolaznikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPolaznikActionPerformed
         try {
             // TODO add your handling code here:
-            PregledMestaForma pmf = new PregledMestaForma();
-            pmf.setVisible(true);
+            UpravljajPolaznicimaForma pkf = new UpravljajPolaznicimaForma();
+            pkf.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(GlavnaForma.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_itemMestoViewActionPerformed
+    }//GEN-LAST:event_btnPolaznikActionPerformed
 
-    private void itemSSControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSSControlActionPerformed
-        // TODO add your handling code here:
-        UpravljajLicencamaForma pssf = new UpravljajLicencamaForma(instruktor);
-        pssf.setVisible(true);
-    }//GEN-LAST:event_itemSSControlActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        KreirajTipCasaForma kaf = new KreirajTipCasaForma();
-        kaf.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        // TODO add your handling code here:
-        UpravljajTipovimaCasovaForma uaf = new UpravljajTipovimaCasovaForma();
-        uaf.setVisible(true);
-    }//GEN-LAST:event_jMenuItem14ActionPerformed
+    private void btnLicencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLicencaActionPerformed
+        UpravljajLicencamaForma lf = new UpravljajLicencamaForma();
+        lf.setVisible(true);      
+    }//GEN-LAST:event_btnLicencaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem itemInstruktorChange;
-    private javax.swing.JMenuItem itemMestoView;
-    private javax.swing.JMenuItem itemOtpAdd;
-    private javax.swing.JMenuItem itemOtpChange;
-    private javax.swing.JMenuItem itemOtpSearch;
-    private javax.swing.JMenuItem itemPolaznikAdd;
-    private javax.swing.JMenuItem itemPolaznikChange;
-    private javax.swing.JMenuItem itemSSAdd;
-    private javax.swing.JMenuItem itemSSControl;
+    private javax.swing.JButton btnEvidencijaKursa;
+    private javax.swing.JButton btnInstruktor;
+    private javax.swing.JButton btnLicenca;
+    private javax.swing.JButton btnPolaznik;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenu meniEvidencijaKursa;
-    private javax.swing.JMenu meniInstruktor;
-    private javax.swing.JMenu meniMesto;
-    private javax.swing.JMenu meniPolaznik;
-    private javax.swing.JMenu meniTipCasa;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel txtLogovan;
     // End of variables declaration//GEN-END:variables
 }

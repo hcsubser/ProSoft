@@ -52,11 +52,11 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         popuniInstruktoreIzBaze();
         popuniKupceIzBaze();
-        popuniTipCasaeIzBaze();
+        popuniTipCasaIzBaze();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         TableModelStavkaEvidencijeKursa tmodel = new TableModelStavkaEvidencijeKursa();
         //txtUkupno.setText(""+tmodel.getUkupnaCena());
-        tmodel.setKof(this);
+        //tmodel.setKof(this);
         tableStavke.setModel(tmodel);
         JOptionPane.showMessageDialog(this, "Sistem je kreirao evidencijukursa!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -72,10 +72,10 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         popuniInstruktoreIzBaze();
         popuniKupceIzBaze();
-        popuniTipCasaeIzBaze();
+        popuniTipCasaIzBaze();
         popuniPromena(evidencijakursa);
         TableModelStavkaEvidencijeKursa tmodel = new TableModelStavkaEvidencijeKursa(evidencijakursa);
-        tmodel.setKof(this);
+        //tmodel.setKof(this);
         tableStavke.setModel(tmodel);
     }
 
@@ -88,68 +88,160 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        comboBoxInstruktor = new javax.swing.JComboBox<>();
-        comboBoxPolaznik = new javax.swing.JComboBox<>();
-        btnOdustani = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableStavke = new javax.swing.JTable();
-        btnDodajStavku = new javax.swing.JToggleButton();
-        jLabel6 = new javax.swing.JLabel();
-        txtUkupno = new javax.swing.JTextField();
-        comboTipCasai = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        comboTipCasa = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        txtDate = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        chkZavrsen = new javax.swing.JCheckBox();
+        jLabel15 = new javax.swing.JLabel();
+        txtCena = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        comboBoxInstruktor = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        comboBoxPolaznik = new javax.swing.JComboBox<>();
+        jSeparator1 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtNapomena = new javax.swing.JTextArea();
-        jLabel13 = new javax.swing.JLabel();
+        btnDodajStavku = new javax.swing.JToggleButton();
         btnUkloniStavku = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        txtCena = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        chkZavrsen = new javax.swing.JCheckBox();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableStavke = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        txtUkupno = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        btnOdustani = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                onWindowClosed(evt);
+            }
+        });
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel18.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("EvidencijaKursa");
+
+        comboTipCasa.setBackground(new java.awt.Color(0, 204, 255));
+        comboTipCasa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboTipCasa.setForeground(new java.awt.Color(0, 0, 0));
+        comboTipCasa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTipCasaActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("TipCasa");
+
+        jLabel11.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Datum");
+
+        txtDate.setBackground(new java.awt.Color(0, 0, 0));
+        txtDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtDate.setForeground(new java.awt.Color(255, 255, 255));
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Zavrsen");
+
+        chkZavrsen.setBackground(new java.awt.Color(51, 51, 51));
+        chkZavrsen.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel15.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Cena:");
+
+        txtCena.setBackground(new java.awt.Color(0, 0, 0));
+        txtCena.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCena.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Instruktor");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Polaznik");
-
-        comboBoxInstruktor.setBackground(new java.awt.Color(153, 255, 204));
+        comboBoxInstruktor.setBackground(new java.awt.Color(0, 204, 255));
         comboBoxInstruktor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboBoxInstruktor.setForeground(new java.awt.Color(0, 0, 0));
         comboBoxInstruktor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxInstruktorActionPerformed(evt);
             }
         });
 
-        comboBoxPolaznik.setBackground(new java.awt.Color(153, 255, 204));
+        jLabel4.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Polaznik");
+
+        comboBoxPolaznik.setBackground(new java.awt.Color(0, 204, 255));
         comboBoxPolaznik.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboBoxPolaznik.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnOdustani.setBackground(new java.awt.Color(153, 255, 204));
-        btnOdustani.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnOdustani.setText("Otkazi");
-        btnOdustani.addActionListener(new java.awt.event.ActionListener() {
+        jSeparator1.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator1.setOpaque(true);
+
+        jLabel12.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Napomena");
+
+        txtNapomena.setBackground(new java.awt.Color(0, 0, 0));
+        txtNapomena.setColumns(20);
+        txtNapomena.setForeground(new java.awt.Color(255, 255, 255));
+        txtNapomena.setRows(5);
+        txtNapomena.setPreferredSize(new java.awt.Dimension(0, 0));
+        jScrollPane2.setViewportView(txtNapomena);
+
+        btnDodajStavku.setBackground(new java.awt.Color(0, 255, 0));
+        btnDodajStavku.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnDodajStavku.setForeground(new java.awt.Color(0, 0, 0));
+        btnDodajStavku.setText("Dodaj stavku");
+        btnDodajStavku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOdustaniActionPerformed(evt);
+                btnDodajStavkuActionPerformed(evt);
             }
         });
 
-        btnSave.setBackground(new java.awt.Color(153, 255, 204));
-        btnSave.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnSave.setText("Sacuvaj");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnUkloniStavku.setBackground(new java.awt.Color(255, 0, 0));
+        btnUkloniStavku.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnUkloniStavku.setForeground(new java.awt.Color(0, 0, 0));
+        btnUkloniStavku.setText("Ukloni stavku");
+        btnUkloniStavku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnUkloniStavkuActionPerformed(evt);
             }
         });
+
+        jSeparator2.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator2.setOpaque(true);
+
+        jLabel13.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Stavke evidencijekursa");
 
         tableStavke.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tableStavke.setModel(new javax.swing.table.DefaultTableModel(
@@ -165,271 +257,174 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tableStavke);
 
-        btnDodajStavku.setBackground(new java.awt.Color(153, 255, 204));
-        btnDodajStavku.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnDodajStavku.setText("Dodaj stavku");
-        btnDodajStavku.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDodajStavkuActionPerformed(evt);
-            }
-        });
-
+        jLabel6.setBackground(new java.awt.Color(51, 51, 51));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Ukupan iznos");
 
+        txtUkupno.setBackground(new java.awt.Color(0, 0, 0));
         txtUkupno.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtUkupno.setForeground(new java.awt.Color(255, 255, 255));
         txtUkupno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUkupnoActionPerformed(evt);
             }
         });
 
-        comboTipCasai.setBackground(new java.awt.Color(153, 255, 204));
-        comboTipCasai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        comboTipCasai.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setBackground(new java.awt.Color(0, 255, 0));
+        btnSave.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(0, 0, 0));
+        btnSave.setText("Sacuvaj");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboTipCasaiActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("TipCasa");
-
-        txtDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtDate.addActionListener(new java.awt.event.ActionListener() {
+        btnOdustani.setBackground(new java.awt.Color(255, 255, 255));
+        btnOdustani.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnOdustani.setForeground(new java.awt.Color(0, 0, 0));
+        btnOdustani.setText("Otkazi");
+        btnOdustani.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDateActionPerformed(evt);
+                btnOdustaniActionPerformed(evt);
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel11.setText("Datum");
+        jSeparator3.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator3.setOpaque(true);
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel12.setText("Napomena");
-
-        txtNapomena.setColumns(20);
-        txtNapomena.setRows(5);
-        jScrollPane2.setViewportView(txtNapomena);
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel13.setText("Stavke evidencijekursa");
-
-        btnUkloniStavku.setBackground(new java.awt.Color(153, 255, 204));
-        btnUkloniStavku.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnUkloniStavku.setText("Ukloni stavku");
-        btnUkloniStavku.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUkloniStavkuActionPerformed(evt);
-            }
-        });
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setText("Cena");
-
-        txtCena.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel18.setText("EvidencijaKursa");
-
-        jLabel2.setText("Zavrsen");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(btnDodajStavku, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel12))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkZavrsen)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboTipCasa, 0, 192, Short.MAX_VALUE)
+                                    .addComponent(txtDate))
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel13)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnOdustani, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 845, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtUkupno, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnUkloniStavku, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comboBoxInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comboBoxPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(comboBoxInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(comboTipCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(chkZavrsen))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnDodajStavku, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtUkupno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUkloniStavku))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOdustani)
+                    .addComponent(btnSave))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(232, 232, 232))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2)
-                                    .addGap(198, 198, 198))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(comboTipCasai, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(44, 44, 44)
-                                            .addComponent(chkZavrsen)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(88, 88, 88)
-                                    .addComponent(jLabel12))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnDodajStavku)
-                                        .addComponent(btnUkloniStavku)))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(361, 361, 361)
-                                    .addComponent(jLabel3)
-                                    .addGap(206, 206, 206)
-                                    .addComponent(jLabel4))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(278, 278, 278)
-                                    .addComponent(comboBoxInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(32, 32, 32)
-                                    .addComponent(comboBoxPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnOdustani, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(34, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(402, 402, 402)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUkupno, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(comboBoxPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboTipCasai, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chkZavrsen)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDodajStavku, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnUkloniStavku, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24)
-                .addComponent(jLabel13)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtUkupno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOdustani, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnOdustaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOdustaniActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_btnOdustaniActionPerformed
-
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
-        /*if (tableStavke.getRowCount() == 0) {
-            JOptionPane.showMessageDialog(this, "Nije moguce sacuvati evidencijukursa bez ijedne stavke!", "Greska", JOptionPane.ERROR_MESSAGE);
-            return;
-        }*/
-       /* Date datumIzdavanja = new Date();
-        try {
-
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            if (txtDatumIzdavanja.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Datum nije popunjen!", "Greska", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (!Validator.isValidDate(txtDatumIzdavanja.getText())) {
-                JOptionPane.showMessageDialog(this, "Uneti datum nije validan. Proveriti da li je format datuma YYYY-MM-DD.", "Greska", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            datumIzdavanja = dateFormat.parse(txtDatumIzdavanja.getText());
-        } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(this, "Pogresan format datuma!\nDatum treba da bude u formatu YYYY-MM-DD", "Greska", JOptionPane.ERROR_MESSAGE);
-            return;
-        }*/
-        Instruktor c = (Instruktor) comboBoxInstruktor.getSelectedItem();
-        Polaznik k = (Polaznik) comboBoxPolaznik.getSelectedItem();
-        if (evidencijakursaChange == null) {
-            try {
-                //throw new RuntimeException("Simulacija greske");
-                TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
-                tmodel.setKof(this);
-                ArrayList<StavkaEvidencijeKursa> stavke = tmodel.getListaStavki();
-               // evidencijakursaInsert = new EvidencijaKursa(-1, Integer.parseInt(txtUkupno.getText().trim()),  c, k, stavke);
-                evidencijakursaInsert = new EvidencijaKursa(-1, ukupna,  c, k, stavke);
-                System.out.println("otp:"+evidencijakursaInsert);
-                       
-                Controller.getInstance().dodajEvidencijuKursa(evidencijakursaInsert);
-                JOptionPane.showMessageDialog(this, "Sistem je sacuvao evidencijukursa!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                this.dispose();
-            } catch (Exception ex) {
-                 JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva evidencijukursa!", "Greska", JOptionPane.ERROR_MESSAGE);
-                 ex.printStackTrace();
-                return;
-
-            }
-        } else {
-            try {
-                //throw new RuntimeException("Simulacija greske");
-                TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
-                tmodel.setKof(this);
-                ArrayList<StavkaEvidencijeKursa> stavke = tmodel.getListaStavki();
-                evidencijakursaChange.setInstruktor(c);
-                evidencijakursaChange.setPolaznik(k);
-                evidencijakursaChange.setUkupanIznos(ukupna);
-                evidencijakursaChange.setStavkeEvidencijeKursa(stavke);
-                Controller.getInstance().promeniEvidencijuKursa(evidencijakursaChange);
-                JOptionPane.showMessageDialog(this, "Sistem je izmenio evidencijukursa!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                uof.getTblOtp().setModel(new TableModelEvidencijaKursa());
-                this.dispose();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Sistem ne moze da izmeni evidencijukursa!", "Greska", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-        }
-    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnDodajStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajStavkuActionPerformed
         // TODO add your handling code here:
@@ -438,7 +433,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
             return;
         }
 
-        TipCasa tc = (TipCasa) comboTipCasai.getSelectedItem();
+        TipCasa tc = (TipCasa) comboTipCasa.getSelectedItem();
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date datumPrisustva = new Date();
         //sdf.parse("2025-01-01");
@@ -479,17 +474,10 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
        // txtUkupanPopust.setText(ukupanPopust + "");
     }//GEN-LAST:event_btnDodajStavkuActionPerformed
 
-    private void comboTipCasaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipCasaiActionPerformed
-        // TODO add your handling code here:
-        TipCasa a = (TipCasa) comboTipCasai.getSelectedItem();
-        //double cenaBez = Math.floor(a.getCenaBezPDV() * (1 - a.getPopust() / 100) * 100.0) / 100.0;
-        //double cenaSa = Math.floor((a.getCenaBezPDV() * (1 - a.getPopust() / 100)) *(1 + (a.getPoreskaStopa().getVrednost()) / 100) * 100) / 100.0;
-        //txtCenaBezPDVPopust.setText(cenaBez + "");
-       // txtCenaBezPDVBezPopusta.setText(a.getCenaBezPDV() + "");
+    private void comboTipCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipCasaActionPerformed
+        TipCasa a = (TipCasa) comboTipCasa.getSelectedItem();
         txtCena.setText(a.getCena() + "");
-       // txtCenaSaPDVPopust.setText(cenaSa + "");
-        //txtPopust.setText(a.getPopust() + "");
-    }//GEN-LAST:event_comboTipCasaiActionPerformed
+    }//GEN-LAST:event_comboTipCasaActionPerformed
 
     private void btnUkloniStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUkloniStavkuActionPerformed
         // TODO add your handling code here:
@@ -512,13 +500,65 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxInstruktorActionPerformed
 
-    private void txtUkupnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUkupnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUkupnoActionPerformed
-
     private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateActionPerformed
+
+    private void onWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_onWindowClosed
+        UpravljajEvidencijamaKursaForma f = new UpravljajEvidencijamaKursaForma();
+        f.setVisible(true);
+    }//GEN-LAST:event_onWindowClosed
+
+    private void btnOdustaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOdustaniActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnOdustaniActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        Instruktor c = (Instruktor) comboBoxInstruktor.getSelectedItem();
+        Polaznik k = (Polaznik) comboBoxPolaznik.getSelectedItem();
+
+        if (evidencijakursaChange == null) {
+            try {
+                TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
+                ArrayList<StavkaEvidencijeKursa> stavke = tmodel.getListaStavki();
+                evidencijakursaInsert = new EvidencijaKursa(-1, ukupna,  c, k, stavke);
+                System.out.println("otp:"+evidencijakursaInsert);
+
+                Controller.getInstance().dodajEvidencijuKursa(evidencijakursaInsert);
+                JOptionPane.showMessageDialog(this, "Sistem je sacuvao evidencijukursa!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva evidencijukursa!", "Greska", JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
+            }
+        } else {
+            try {
+                //throw new RuntimeException("Simulacija greske");
+                TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
+                //tmodel.setKof(this);
+                ArrayList<StavkaEvidencijeKursa> stavke = tmodel.getListaStavki();
+
+                evidencijakursaChange.setInstruktor(c);
+                evidencijakursaChange.setPolaznik(k);
+                evidencijakursaChange.setUkupanIznos(ukupna);
+                evidencijakursaChange.setStavkeEvidencijeKursa(stavke);
+
+                Controller.getInstance().promeniEvidencijuKursa(evidencijakursaChange);
+
+                JOptionPane.showMessageDialog(this, "Sistem je izmenio evidencijukursa!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+                uof.getTblOtp().setModel(new TableModelEvidencijaKursa());
+                this.dispose();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Sistem ne moze da izmeni evidencijukursa!", "Greska", JOptionPane.ERROR_MESSAGE);
+                //return;
+            }
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtUkupnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUkupnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUkupnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -529,7 +569,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
     private javax.swing.JCheckBox chkZavrsen;
     private javax.swing.JComboBox<domain.Instruktor> comboBoxInstruktor;
     private javax.swing.JComboBox<domain.Polaznik> comboBoxPolaznik;
-    private javax.swing.JComboBox<domain.TipCasa> comboTipCasai;
+    private javax.swing.JComboBox<domain.TipCasa> comboTipCasa;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -540,8 +580,12 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable tableStavke;
     private javax.swing.JTextField txtCena;
     private javax.swing.JTextField txtDate;
@@ -550,14 +594,9 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void popuniInstruktoreIzBaze() throws Exception {
-        //txtCenaBezPDVPopust.setEnabled(false);
-        //t//xtCenaSaPDVPopust.setEnabled(false);
-        //txtCenaBezPDVBezPopusta.setEnabled(false);
+
         txtCena.setEnabled(false);
-       // txtUkupanPopust.setEnabled(false);
-       // txtUkupnoBez.setEnabled(false);
         txtUkupno.setEnabled(false);
-        //txtPopust.setEnabled(false);
         comboBoxPolaznik.removeAllItems();
         ArrayList<Instruktor> instruktori = Controller.getInstance().ucitajInstruktoreIzBaze();
         for (Instruktor c : instruktori) {
@@ -573,20 +612,16 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         }
     }
 
-    private void popuniTipCasaeIzBaze() throws Exception {
-        comboTipCasai.removeAllItems();
+    private void popuniTipCasaIzBaze() throws Exception {
+        comboTipCasa.removeAllItems();
         ArrayList<TipCasa> tipCasai = Controller.getInstance().ucitajTipCasaeIzBaze();
         for (TipCasa a : tipCasai) {
-            comboTipCasai.addItem(a);
+            comboTipCasa.addItem(a);
         }
     }
 
     private void resetPodataka() {
-        //txtCenaBezPDVPopust.setText("");
-       // txtCenaSaPDVPopust.setText("");
-       // txtCenaBezPDVBezPopusta.setText("");
         txtCena.setText("");
-       // txtPopust.setText("");
         txtDate.setText("");
         txtNapomena.setText("");
     }
