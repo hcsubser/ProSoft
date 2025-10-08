@@ -28,7 +28,7 @@ public class LoginForma extends javax.swing.JFrame {
         setTitle("Prijava");
         setResizable(false);
         setLocationRelativeTo(null);
-        txtErrorLozinka.setVisible(false);
+        //txtErrorLozinka.setVisible(false);
         unos();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -48,9 +48,9 @@ public class LoginForma extends javax.swing.JFrame {
         lblLoznika = new javax.swing.JLabel();
         txtKorisnickoIme = new javax.swing.JTextField();
         txtLozinka = new javax.swing.JPasswordField();
-        txtErrorLozinka = new javax.swing.JTextField();
         btnCancel = new javax.swing.JButton();
         btnUlogujSe = new javax.swing.JButton();
+        txtErrorLozinka = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -89,15 +89,6 @@ public class LoginForma extends javax.swing.JFrame {
             }
         });
 
-        txtErrorLozinka.setBackground(new java.awt.Color(51, 51, 51));
-        txtErrorLozinka.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtErrorLozinka.setForeground(new java.awt.Color(255, 0, 0));
-        txtErrorLozinka.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtErrorLozinkaActionPerformed(evt);
-            }
-        });
-
         btnCancel.setBackground(new java.awt.Color(255, 255, 255));
         btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCancel.setForeground(new java.awt.Color(0, 0, 0));
@@ -118,25 +109,33 @@ public class LoginForma extends javax.swing.JFrame {
             }
         });
 
+        txtErrorLozinka.setBackground(new java.awt.Color(51, 51, 51));
+        txtErrorLozinka.setForeground(new java.awt.Color(255, 0, 0));
+        txtErrorLozinka.setText("    ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblkorisnickoIme)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(btnUlogujSe, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblLoznika, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtKorisnickoIme, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                            .addComponent(txtLozinka)
-                            .addComponent(txtErrorLozinka))))
+                        .addContainerGap()
+                        .addComponent(txtErrorLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblkorisnickoIme)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66)
+                                .addComponent(btnUlogujSe, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblLoznika, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtKorisnickoIme, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                    .addComponent(txtLozinka))))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -151,7 +150,7 @@ public class LoginForma extends javax.swing.JFrame {
                     .addComponent(lblLoznika)
                     .addComponent(txtLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(txtErrorLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtErrorLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUlogujSe)
@@ -196,7 +195,7 @@ public class LoginForma extends javax.swing.JFrame {
             instruktor.setLozinka(pass);
             instruktor = controller.prijaviInstruktora(instruktor);
             try {
-                // throw new RuntimeException("Simulacija greske");
+                //throw new RuntimeException("Simulacija greske");
                 JOptionPane.showMessageDialog(this, "Korisnicko ime i sifra su ispravni!", "Login", JOptionPane.INFORMATION_MESSAGE);
                 Session.getInstance().setUlogovani(instruktor);
                 GlavnaForma gf = new GlavnaForma(instruktor);
@@ -217,10 +216,6 @@ public class LoginForma extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
-
-    private void txtErrorLozinkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtErrorLozinkaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtErrorLozinkaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,7 +258,7 @@ public class LoginForma extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLoznika;
     private javax.swing.JLabel lblkorisnickoIme;
-    private javax.swing.JTextField txtErrorLozinka;
+    private javax.swing.JLabel txtErrorLozinka;
     private javax.swing.JTextField txtKorisnickoIme;
     private javax.swing.JPasswordField txtLozinka;
     // End of variables declaration//GEN-END:variables
@@ -295,15 +290,15 @@ public class LoginForma extends javax.swing.JFrame {
             Document source = e.getDocument();
 
             if (source == txtKorisnickoIme.getDocument()) {
-                txtErrorLozinka.setText("");
-                txtErrorLozinka.setVisible(false);
+                txtErrorLozinka.setText("  ");
+                //txtErrorLozinka.setVisible(false);
 
             }
             if (source == txtLozinka.getDocument()) {
                 String pass = String.valueOf(txtLozinka.getPassword());
                 if (pass != null && pass.length() >= 8) {
-                    txtErrorLozinka.setText("");
-                    txtErrorLozinka.setVisible(false);
+                    txtErrorLozinka.setText("   ");
+                    //txtErrorLozinka.setVisible(false);
 
                 } else {
                     txtErrorLozinka.setVisible(true);

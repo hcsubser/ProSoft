@@ -12,8 +12,6 @@ import domain.StavkaEvidencijeKursa;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import view.KreirajEvidencijuKursaForma;
-
 /**
  *
  * @author Milan
@@ -21,7 +19,6 @@ import view.KreirajEvidencijuKursaForma;
 public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
 
     private ArrayList<StavkaEvidencijeKursa> listaStavki;
-    //private KreirajEvidencijuKursaForma kof;
     private int rbrStavke = 0;
     private final String[] kolone = {"RB", "Datum", "Tip Casa", "Cena", "Napomena", "zavrsen"};
 
@@ -38,14 +35,6 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
             Logger.getLogger(TableModelStavkaEvidencijeKursa.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    /*public KreirajEvidencijuKursaForma getKof() {
-        return kof;
-    }
-
-    public void setKof(KreirajEvidencijuKursaForma kof) {
-        this.kof = kof;
-    }*/
 
     public ArrayList<StavkaEvidencijeKursa> getListaStavki() {
         return listaStavki;
@@ -98,22 +87,6 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
         return columnIndex == 1;
     }
 
-    /*@Override
-    public void setValueAt(Object value, int rowIndex, int columnIndex) {
-        StavkaEvidencijeKursa st = listaStavki.get(rowIndex);
-
-        if (columnIndex == 1) {
-
-            kof.setUkupnaSa(getUkupnaCenaSaPDV());
-            kof.setUkupnaBez(getUkupnaCenaBezPDV());
-            kof.setUkupanPopust(getUkupanPopust());
-            kof.getTxtUkupanPopust().setText(getUkupanPopust()+"");
-            kof.getTxtUkupnoBez().setText(getUkupnaCenaBezPDV()+"");
-            kof.getTxtUkupnoSaPDV().setText(getUkupnaCenaSaPDV()+"");
-            fireTableRowsUpdated(rowIndex, rowIndex);
-        }
-    }*/
-
     public boolean unetTipCasa(TipCasa tipCasa) {
         for (StavkaEvidencijeKursa stavkaEvidencijeKursa : listaStavki) {
             if (stavkaEvidencijeKursa.getTipCasa().getId() == tipCasa.getId()) {
@@ -123,16 +96,12 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
         return false;
     }
 
-    public void dodajStavkuEvidencijeKursa(StavkaEvidencijeKursa so) {
+    public void dodajStavkuEvidencijeKursa(StavkaEvidencijeKursa sek) {
         rbrStavke = listaStavki.size();
-        so.setRb(++rbrStavke);
-        listaStavki.add(so);
+        sek.setRb(++rbrStavke);
+        listaStavki.add(sek);
         fireTableDataChanged();
     }
-
-    //private double izracunajIznos(double datumPrisustva, double cena) {
-    //    return  datumPrisustva * cena;
-    //}
 
     public void obrisiStavkuEvidencijeKursa(int selected) {
         rbrStavke = 0;
@@ -151,20 +120,4 @@ public class TableModelStavkaEvidencijeKursa extends AbstractTableModel {
         return Math.round(ukupnaCena * 100.0) / 100.0;
         //return StavkaEvidencijeKursa.
     }
-
-    /*public double getUkupnaCenaBezPDV() {
-        double ukupnaCenaBez = 0;
-        for (StavkaEvidencijeKursa stavkaEvidencijeKursa : listaStavki) {
-            ukupnaCenaBez += stavkaEvidencijeKursa.getIznosBezPDV();
-        }
-        return Math.round(ukupnaCenaBez * 100.0) / 100.0;
-    }
-
-    public double getUkupanPopust() {
-        double ukupanPopust = 0;
-        for (StavkaEvidencijeKursa stavkaEvidencijeKursa : listaStavki) {
-            ukupanPopust += (stavkaEvidencijeKursa.getKolicina() * (stavkaEvidencijeKursa.getTipCasa().getCenaSaPDV() - stavkaEvidencijeKursa.getCenaSaPDV()));
-        }
-        return Math.round(ukupanPopust * 100.0) / 100.0;
-    }*/
 }

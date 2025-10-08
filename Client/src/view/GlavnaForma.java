@@ -18,6 +18,7 @@ import session.Session;
 public class GlavnaForma extends javax.swing.JFrame {
 
     Instruktor instruktor;
+    Thread counter_thread;
 
     /**
      * Creates new form MainForma
@@ -26,9 +27,10 @@ public class GlavnaForma extends javax.swing.JFrame {
         initComponents();
         instruktor = c;
         setTitle(instruktor.getIme() + " " + instruktor.getPrezime());
-        txtLogovan.setText("Ulogovani kao:, " + instruktor.getIme() + "!");
+        txtLogovan.setText("Ulogovani kao: " + instruktor.getIme());
         setResizable(false);
         setLocationRelativeTo(null);
+        new_counter_thread();
 
     }
 
@@ -49,9 +51,15 @@ public class GlavnaForma extends javax.swing.JFrame {
         btnPolaznik = new javax.swing.JButton();
         btnLicenca = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        lblTrajanjeSesije = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -108,6 +116,10 @@ public class GlavnaForma extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator1.setOpaque(true);
 
+        lblTrajanjeSesije.setBackground(new java.awt.Color(51, 51, 51));
+        lblTrajanjeSesije.setForeground(new java.awt.Color(255, 255, 255));
+        lblTrajanjeSesije.setText("Trajanje sesije: 0m 00s");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,13 +130,16 @@ public class GlavnaForma extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnLicenca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lblTrajanjeSesije))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtLogovan, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                                 .addComponent(btnEvidencijaKursa, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,7 +163,9 @@ public class GlavnaForma extends javax.swing.JFrame {
                     .addComponent(btnPolaznik))
                 .addGap(18, 18, 18)
                 .addComponent(btnLicenca)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addComponent(lblTrajanjeSesije)
+                .addContainerGap())
         );
 
         setJMenuBar(jMenuBar1);
@@ -218,6 +235,37 @@ public class GlavnaForma extends javax.swing.JFrame {
         lf.setVisible(true);      
     }//GEN-LAST:event_btnLicencaActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        counter_thread.interrupt();
+    }//GEN-LAST:event_formWindowClosed
+
+    
+    public void new_counter_thread(){
+        counter_thread = new Thread() {
+            public void run() {
+                int min = 0;
+                int sec = 0;
+                try {
+                    while(true){
+                        //System.out.println("m s "+min +sec);
+                        lblTrajanjeSesije.setText("Trajanje sesije: " + min + "m " + sec + "s");
+                        sec++;
+                        if(sec==60){
+                            sec=0;
+                            min++;
+                        }
+                        sleep(1000);
+                    }
+                } catch(InterruptedException v) {
+                    System.out.println(v);
+                }
+            }  
+
+        };
+        counter_thread.start();
+
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEvidencijaKursa;
     private javax.swing.JButton btnInstruktor;
@@ -227,6 +275,7 @@ public class GlavnaForma extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblTrajanjeSesije;
     private javax.swing.JLabel txtLogovan;
     // End of variables declaration//GEN-END:variables
 }

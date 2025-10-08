@@ -86,7 +86,7 @@ public class Controller {
         sendRequest(Operation.KREIRAJ_EVIDENCIJU_KURSA, evidencijakursa);
     }
 
-    public ArrayList<Polaznik> ucitajKupceIzBaze() throws Exception {
+    public ArrayList<Polaznik> ucitajPolaznikeIzBaze() throws Exception {
         return (ArrayList<Polaznik>) sendRequest(Operation.VRATI_LISTU_SVI_POLAZNICI, null);
 
     }
@@ -111,11 +111,11 @@ public class Controller {
         return (ArrayList<Licenca>) sendRequest(Operation.VRATI_LISTU_SVI_LICENCA, null);
     }
 
-    public void dodajKupca(Polaznik k) throws Exception {
+    public void dodajPolaznika(Polaznik k) throws Exception {
         sendRequest(Operation.KREIRAJ_POLAZNIKA, k);
     }
 
-    public void izmeniKupca(Polaznik k) throws Exception {
+    public void izmeniPolaznika(Polaznik k) throws Exception {
         sendRequest(Operation.PROMENI_POLAZNIKA, k);
     }
 
@@ -136,7 +136,7 @@ public class Controller {
         sendRequest(Operation.PROMENI_MESTO, mestoChange);
     }
 
-    public void obrisiKupca(Polaznik polaznikDelete) throws Exception {
+    public void obrisiPolaznika(Polaznik polaznikDelete) throws Exception {
         sendRequest(Operation.OBRISI_POLAZNIKA, polaznikDelete);
     }
 
@@ -175,7 +175,7 @@ public class Controller {
 
     }
 
-    public ArrayList<Polaznik> pretraziKupce(Polaznik filter) throws Exception {
+    public ArrayList<Polaznik> pretraziPolaznike(Polaznik filter) throws Exception {
         return (ArrayList<Polaznik>) sendRequest(Operation.PRETRAZI_POLAZNIKA, filter);
     }
 }

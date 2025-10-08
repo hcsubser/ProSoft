@@ -34,7 +34,7 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
     }
     
     /**
-     * Creates new form KreirajKupcaForma
+     * Creates new form KreirajPolaznikaForma
      */
      public KreirajPolaznikaForma(JFrame parent,Polaznik k) {
         initComponents();
@@ -51,13 +51,20 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
         }
     }
     public KreirajPolaznikaForma() {
-        initComponents();
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        inicijalizujPolja();
-        setTitle("Kreiraj polaznika");
-        setResizable(false);
-        setLocationRelativeTo(null);
-         JOptionPane.showMessageDialog(this, "Sistem je kreirao polaznika!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+        try{
+            //throw new Exception();
+            initComponents();
+            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            inicijalizujPolja();
+            setTitle("Kreiraj polaznika");
+            setResizable(false);
+            setLocationRelativeTo(null);
+            JOptionPane.showMessageDialog(this, "Sistem je kreirao polaznika!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Sistem nije kreirao polaznika!", "Obavestenje", JOptionPane.ERROR_MESSAGE);
+
+        }
     }
 
     /**
@@ -284,7 +291,7 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
             try {
                 //throw new RuntimeException("Simulacija greske");
                 Polaznik k=new Polaznik( -1, ime, prezime, telefon, email, mesto);
-                Controller.getInstance().dodajKupca(k);
+                Controller.getInstance().dodajPolaznika(k);
                 JOptionPane.showMessageDialog(this, "Sistem je uspesno sacuvao polaznika!","Obavestenje",JOptionPane.INFORMATION_MESSAGE);
                 this.dispose();
             } catch (Exception ex) {
@@ -299,9 +306,9 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
                 polaznik.setIme(txtIme.getText());
                 polaznik.setPrezime(txtPrezime.getText().trim());
                 polaznik.setTelefon(txtTelefon.getText());
-                Controller.getInstance().izmeniKupca(polaznik);
+                Controller.getInstance().izmeniPolaznika(polaznik);
                 JOptionPane.showMessageDialog(this, "Sistem je uspesno sacuvao polaznika!","Obavestenje",JOptionPane.INFORMATION_MESSAGE);
-                pkf.getTblKupci().setModel(new TableModelPolaznik());           
+                pkf.getTblPolaznici().setModel(new TableModelPolaznik());           
                 this.dispose();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Sistem nije uspeo da sacuva polaznika!", "Greska", JOptionPane.ERROR_MESSAGE);

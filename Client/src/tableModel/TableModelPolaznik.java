@@ -23,7 +23,7 @@ public class TableModelPolaznik extends AbstractTableModel {
 
     public TableModelPolaznik() {
         try {
-            listaPolaznika = Controller.getInstance().ucitajKupceIzBaze();
+            listaPolaznika = Controller.getInstance().ucitajPolaznikeIzBaze();
         } catch (Exception ex) {
             Logger.getLogger(TableModelPolaznik.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -76,7 +76,7 @@ public class TableModelPolaznik extends AbstractTableModel {
     
     public void refresh() {
         try {
-            listaPolaznika = Controller.getInstance().ucitajKupceIzBaze();
+            listaPolaznika = Controller.getInstance().ucitajPolaznikeIzBaze();
             fireTableDataChanged();
         } catch (Exception ex) {
             Logger.getLogger(TableModelPolaznik.class.getName()).log(Level.SEVERE, null, ex);

@@ -173,19 +173,19 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
         if(l==null){
         Licenca licenca = new Licenca(-1,txtNaziv.getText(), txtKategorija.getText());
             try {
-               // throw new RuntimeException("Simulacija greske");
+                //throw new RuntimeException("Simulacija greske");
                 Controller.getInstance().ubaciLicenca(licenca);
-                JOptionPane.showMessageDialog(this, "Sistem je sacuvao strucnu spremu!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Sistem je sacuvao licencu!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
                 this.dispose();
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva strucnu spremu!", "Greska", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva licencu!", "Greska", JOptionPane.ERROR_MESSAGE);
             }
         }else{
             l.setNaziv(txtNaziv.getText());
             l.setKategorija(txtKategorija.getText());
             try {
                 Controller.getInstance().promeniLicencu(l);
-                JOptionPane.showMessageDialog(this, "Sistem je uspenso izmenio strucnu spremu!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Sistem je uspenso izmenio licencu!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
                 ulf.getTblLicenca().setModel(new TableModelLicenca());
                 this.dispose();
             } catch (Exception ex) {
@@ -247,9 +247,9 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
     private javax.swing.JTextField txtNaziv;
     // End of variables declaration//GEN-END:variables
 
-    private void popuniIzmenuLicenca(Licenca ss) {
-        txtNaziv.setText(ss.getNaziv());
-        txtKategorija.setText(ss.getKategorija());
+    private void popuniIzmenuLicenca(Licenca l) {
+        txtNaziv.setText(l.getNaziv());
+        txtKategorija.setText(l.getKategorija());
 
        
     }

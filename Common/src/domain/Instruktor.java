@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * @author Milan
  */
 public class Instruktor extends OpstiDomenskiObjekat{
-
     private int id;
     private String ime;
     private String prezime;
@@ -22,7 +21,6 @@ public class Instruktor extends OpstiDomenskiObjekat{
 
     public Instruktor() {
     }
-
     public Instruktor(int idInstruktor, String ime, String prezime, String korisnickoIme, String lozinka) {
         this.id = idInstruktor;
         this.ime = ime;
@@ -30,7 +28,6 @@ public class Instruktor extends OpstiDomenskiObjekat{
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
     }
-
     public Instruktor(String ime, String prezime, String korisnickoIme, String lozinka) {
 
         this.ime = ime;

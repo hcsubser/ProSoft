@@ -144,68 +144,6 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
                 +"JOIN mesto m ON (m.id = p.idMesto)";
     }
 
-    /*@Override
-    public ArrayList<OpstiDomenskiObjekat> vratiListu(ResultSet rs) throws SQLException {
-        ArrayList<OpstiDomenskiObjekat> lista = new ArrayList<>();
-
-        while (rs.next()) {
-            //System.out.println(rs.);
-            // TipCasa
-            StavkaEvidencijeKursa so = new StavkaEvidencijeKursa(
-                    rs.getInt("rb"),
-                    rs.getDate("datumPrisustva"),
-                    rs.getString("napomena"),
-                    rs.getBoolean("zavrsen"),
-                    null,
-                    null
-            );
-            TipCasa tipCasa = new TipCasa(
-                    rs.getInt("tc.id"),
-                    rs.getString("tc.naziv"),
-                    rs.getString("tc.opis"),
-                    rs.getDouble("tc.cena")
-            );
-            Instruktor instruktor = new Instruktor(
-                    rs.getInt("i.id"),
-                    rs.getString("i.ime"),
-                    rs.getString("i.prezime"),
-                    rs.getString("i.korisnickoIme"),
-                    rs.getString("i.lozinka")
-            );
-            Mesto mesto = new Mesto(
-                    rs.getInt("m.id"),
-                    rs.getString("m.grad"),
-                    rs.getInt("m.postanskiBroj"),
-                    rs.getString("m.ulica")
-            );
-
-            Polaznik polaznik = new Polaznik(
-                    rs.getInt("p.id"),
-                    rs.getString("p.ime"),
-                    rs.getString("p.prezime"),
-                    rs.getString("p.telefon"),
-                    rs.getString("p.email"),
-                    mesto
-                    
-            );
-
-            EvidencijaKursa evidencijakursa = new EvidencijaKursa(
-                    rs.getInt("o.id"),
-                    rs.getDouble("o.ukupanIznos"),
-                    instruktor,
-                    polaznik,null
-            );
-            //add missing
-            so.setTipCasa(tipCasa);
-            so.setEvidencijaKursa(evidencijakursa);
-
-
-            lista.add(so);
-        }
-
-        rs.close();
-        return lista;
-    }*/
     @Override
     public ArrayList<OpstiDomenskiObjekat> vratiListu(ResultSet rs)  {
         ArrayList<OpstiDomenskiObjekat> lista = new ArrayList<>();

@@ -92,25 +92,25 @@ public class ServerController {
         (new SOObrisiInstruktor()).templateExecute(instruktorDelete);
     }
 
-    public ArrayList<Polaznik> ucitajKupceIzBaze() throws Exception {
+    public ArrayList<Polaznik> ucitajPolaznikeIzBaze() throws Exception {
         SOVratiListuSviPolaznik so = new SOVratiListuSviPolaznik();
         so.templateExecute(new Polaznik());
         return so.getList();
     }
 
-    public void promeniKupca(Polaznik polaznikChange) throws Exception {
+    public void promeniPolaznika(Polaznik polaznikChange) throws Exception {
         (new SOPromeniPolaznik()).templateExecute(polaznikChange);
     }
 
-    public void obrisiKupca(Polaznik polaznikDelete) throws Exception {
+    public void obrisiPolaznika(Polaznik polaznikDelete) throws Exception {
         (new SOObrisiPolaznik()).templateExecute(polaznikDelete);
     }
 
-    public void dodajKupca(Polaznik polaznikAdd) throws Exception {
+    public void dodajPolaznika(Polaznik polaznikAdd) throws Exception {
         (new SOKreirajPolaznik()).templateExecute(polaznikAdd);
     }
 
-    public ArrayList<TipCasa> ucitajTipCasaeIzBaze() throws Exception {
+    public ArrayList<TipCasa> ucitajTipCasaIzBaze() throws Exception {
         SOVratiListuSviTipCasa so = new SOVratiListuSviTipCasa();
         so.templateExecute(new TipCasa());
         return so.getList();
@@ -146,14 +146,14 @@ public class ServerController {
         (new SOKreirajMesto()).templateExecute(mestoAdd);
     }
 
-    public void kreirajEvidencijuKursa(EvidencijaKursa otpAdd) throws Exception {
-        (new SOKreirajEvidencijuKursa()).templateExecute(otpAdd);
+    public void kreirajEvidencijuKursa(EvidencijaKursa ekAdd) throws Exception {
+        (new SOKreirajEvidencijuKursa()).templateExecute(ekAdd);
     }
 
     public ArrayList<EvidencijaKursa> ucitajEvidencijeKursaIzBaze() throws Exception {
-        SOVratiListuSvihEvidencijaKursa so = new SOVratiListuSvihEvidencijaKursa();
-        so.templateExecute(new EvidencijaKursa());
-        return so.getList();
+        SOVratiListuSvihEvidencijaKursa sek = new SOVratiListuSvihEvidencijaKursa();
+        sek.templateExecute(new EvidencijaKursa());
+        return sek.getList();
     }
 
     public void promeniEvidencijuKursa(EvidencijaKursa evidencijakursaChange) throws Exception {
@@ -182,14 +182,14 @@ public class ServerController {
         (new SOObrisiEvidencijuKursa()).templateExecute(evidencijakursaDelete);
     }
 
-    public ArrayList<StavkaEvidencijeKursa> ucitajStavkeEvidencijeKursaIzBaze(EvidencijaKursa evidencijakursa) throws Exception {//mozda promenim na Arraylist posle
+    public ArrayList<StavkaEvidencijeKursa> ucitajStavkeEvidencijeKursaIzBaze(EvidencijaKursa evidencijakursa) throws Exception {
 
-        SOVratiListuSviStavkaEvidencijeKursa so = new SOVratiListuSviStavkaEvidencijeKursa();
+        SOVratiListuSviStavkaEvidencijeKursa sek = new SOVratiListuSviStavkaEvidencijeKursa();
         StavkaEvidencijeKursa s = new StavkaEvidencijeKursa();
 
         s.setEvidencijaKursa(evidencijakursa);
-        so.templateExecute(s);
-        return so.getLista();
+        sek.templateExecute(s);
+        return sek.getLista();
 
     }
 
@@ -203,7 +203,7 @@ public class ServerController {
         (new SOUbaciLicenca()).templateExecute(licenca);
     }
 
-    public ArrayList<Polaznik> pretraziKupca(Polaznik polaznik) throws Exception {
+    public ArrayList<Polaznik> pretraziPolaznika(Polaznik polaznik) throws Exception {
         SOPretraziPolaznik so = new SOPretraziPolaznik();
         so.templateExecute(polaznik);
         return so.getLista();

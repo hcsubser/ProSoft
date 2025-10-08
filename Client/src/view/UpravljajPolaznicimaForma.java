@@ -24,12 +24,12 @@ import javax.swing.JTable;
  */
 public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
 
-    public JTable getTblKupci() {
-        return tblKupci;
+    public JTable getTblPolaznici() {
+        return tblPolaznici;
     }
 
-    public void setTblKupci(JTable tblKupci) {
-        this.tblKupci = tblKupci;
+    public void setTblPolaznici(JTable tblPolaznici) {
+        this.tblPolaznici = tblPolaznici;
     }
 
     private ArrayList<Polaznik> lista;
@@ -39,17 +39,17 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
      */
     public UpravljajPolaznicimaForma() throws Exception {
         initComponents();
-        lista = Controller.getInstance().ucitajKupceIzBaze();
+        lista = Controller.getInstance().ucitajPolaznikeIzBaze();
         setTitle("Upravljaj polaznicima");
         popuniCombo();
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        tblKupci.getTableHeader().setBackground(Color.decode("#000000"));
-        tblKupci.getTableHeader().setForeground(Color.decode("#ffffff"));
+        tblPolaznici.getTableHeader().setBackground(Color.decode("#000000"));
+        tblPolaznici.getTableHeader().setForeground(Color.decode("#ffffff"));
 
         try {
-            tblKupci.setModel(new TableModelPolaznik());
+            tblPolaznici.setModel(new TableModelPolaznik());
         } catch (Exception ex) {
             Logger.getLogger(UpravljajPolaznicimaForma.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -75,7 +75,7 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
         btnObrisi = new javax.swing.JButton();
         btnNazad = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblKupci = new javax.swing.JTable();
+        tblPolaznici = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -151,9 +151,9 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
             }
         });
 
-        tblKupci.setBackground(new java.awt.Color(51, 51, 51));
-        tblKupci.setForeground(new java.awt.Color(255, 255, 255));
-        tblKupci.setModel(new javax.swing.table.DefaultTableModel(
+        tblPolaznici.setBackground(new java.awt.Color(51, 51, 51));
+        tblPolaznici.setForeground(new java.awt.Color(255, 255, 255));
+        tblPolaznici.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -164,10 +164,10 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblKupci.setGridColor(new java.awt.Color(153, 153, 153));
-        tblKupci.setSelectionBackground(new java.awt.Color(0, 204, 255));
-        tblKupci.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(tblKupci);
+        tblPolaznici.setGridColor(new java.awt.Color(153, 153, 153));
+        tblPolaznici.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tblPolaznici.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(tblPolaznici);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -245,21 +245,21 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
         // TODO add your handling code here:
         try {
-            int selektovanRed = tblKupci.getSelectedRow();
+            int selektovanRed = tblPolaznici.getSelectedRow();
             if (selektovanRed == -1) {
                 JOptionPane.showMessageDialog(this, "Nista nije selektovano", "Greska", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             try {
-                //throw new RuntimeException("Simulacija greske");
-                Controller.getInstance().obrisiKupca(lista.get(selektovanRed));
-            } catch (SQLIntegrityConstraintViolationException ex) {
+                //throw new Exception();
+                Controller.getInstance().obrisiPolaznika(lista.get(selektovanRed));
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Sistem ne moze da obrise polaznika!", "Greska", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             JOptionPane.showMessageDialog(this, "Sistem je uspesno obrisao polaznika!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
 
-            tblKupci.setModel(new TableModelPolaznik());
+            tblPolaznici.setModel(new TableModelPolaznik());
         } catch (Exception ex) {
             Logger.getLogger(UpravljajInstruktorimaForma.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -269,12 +269,12 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
 
-            int selektovanRed = tblKupci.getSelectedRow();
+            int selektovanRed = tblPolaznici.getSelectedRow();
             if (selektovanRed == -1) {
                 JOptionPane.showMessageDialog(this, "Nista nije selektovano!", "Greska", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            TableModelPolaznik model = (TableModelPolaznik) tblKupci.getModel();
+            TableModelPolaznik model = (TableModelPolaznik) tblPolaznici.getModel();
             Polaznik polaznikChange = model.getPolaznik(selektovanRed);
             
             try {
@@ -315,14 +315,14 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
             if (polaznik != null) {
                 filter.setIme(polaznik.getIme());
             }
-            ArrayList<Polaznik> filtriraniKupci = Controller.getInstance().pretraziKupce(filter);
-            TableModelPolaznik model = new TableModelPolaznik(filtriraniKupci);
+            ArrayList<Polaznik> filtriraniPolaznici = Controller.getInstance().pretraziPolaznike(filter);
+            TableModelPolaznik model = new TableModelPolaznik(filtriraniPolaznici);
             if (model.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "Sistem nije uspeo da nadje polaznike po zadatim kriterijumima!", "Greska", JOptionPane.ERROR_MESSAGE);
                 return;
             } else {
                 JOptionPane.showMessageDialog(this, "Sistem je nasao polaznike po zadatim kriterijumima!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                tblKupci.setModel(model);
+                tblPolaznici.setModel(model);
             }
 
         } catch (Exception ex) {
@@ -350,7 +350,7 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
     private javax.swing.JComboBox<domain.Polaznik> comboPolaznik;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblKupci;
+    private javax.swing.JTable tblPolaznici;
     private javax.swing.JLabel txtMesto;
     private javax.swing.JLabel txtPolaznik;
     // End of variables declaration//GEN-END:variables
@@ -361,7 +361,7 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
             Polaznik defaultPolaznik = new Polaznik();
             defaultPolaznik.setIme("Bilo koji");
             comboPolaznik.addItem(defaultPolaznik);
-            ArrayList<Polaznik> polaznici = Controller.getInstance().ucitajKupceIzBaze();
+            ArrayList<Polaznik> polaznici = Controller.getInstance().ucitajPolaznikeIzBaze();
             for (Polaznik k : polaznici) {
                 comboPolaznik.addItem(k);
             }

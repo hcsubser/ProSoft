@@ -86,10 +86,10 @@ public class ThreadClient extends Thread {
                     ServerController.getInstance().ubaciLicencu((Licenca) request.getData());
                     break;
                 case Operation.PROMENI_POLAZNIKA:
-                    ServerController.getInstance().promeniKupca((Polaznik) request.getData());
+                    ServerController.getInstance().promeniPolaznika((Polaznik) request.getData());
                     break;
                 case Operation.OBRISI_POLAZNIKA:
-                    ServerController.getInstance().obrisiKupca((Polaznik) request.getData());
+                    ServerController.getInstance().obrisiPolaznika((Polaznik) request.getData());
                     break;
                 case Operation.PROMENI_INSTRUKTORA:
                     ServerController.getInstance().promeniInstruktora((Instruktor) request.getData());
@@ -98,16 +98,16 @@ public class ThreadClient extends Thread {
                     ServerController.getInstance().obrisiInstruktora((Instruktor) request.getData());
                     break;
                 case Operation.VRATI_LISTU_SVI_POLAZNICI:
-                    response.setData(ServerController.getInstance().ucitajKupceIzBaze());
+                    response.setData(ServerController.getInstance().ucitajPolaznikeIzBaze());
                     break;
                 case Operation.VRATI_LISTU_SVI_TIPCASA:
-                    response.setData(ServerController.getInstance().ucitajTipCasaeIzBaze());
+                    response.setData(ServerController.getInstance().ucitajTipCasaIzBaze());
                     break;
                 case Operation.VRATI_LISTU_SVI_INSTRUKTOR:
                     response.setData(ServerController.getInstance().ucitajInstruktoreIzBaze());
                     break;
                 case Operation.KREIRAJ_POLAZNIKA:
-                    ServerController.getInstance().dodajKupca((Polaznik) request.getData());
+                    ServerController.getInstance().dodajPolaznika((Polaznik) request.getData());
                     break;
                 case Operation.KREIRAJ_TIPCASA:
                     ServerController.getInstance().dodajTipCasa((TipCasa) request.getData());
@@ -158,7 +158,7 @@ public class ThreadClient extends Thread {
                     ServerController.getInstance().dodajLicenca((Licenca) request.getData());
                     break;
                 case Operation.PRETRAZI_POLAZNIKA:
-                    response.setData(ServerController.getInstance().pretraziKupca((Polaznik) request.getData()));
+                    response.setData(ServerController.getInstance().pretraziPolaznika((Polaznik) request.getData()));
                     break;
                 case Operation.ODJAVA_INSTRUKTORA:
                     String korisnickoIme = (String) request.getData();

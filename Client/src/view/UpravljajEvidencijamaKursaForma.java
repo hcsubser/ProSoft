@@ -98,10 +98,8 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
         btnDodaj = new javax.swing.JButton();
         btnChange = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        comboDatum = new javax.swing.JComboBox<>();
         comboInstruktor = new javax.swing.JComboBox<>();
         comboPolaznik = new javax.swing.JComboBox<>();
-        datum = new javax.swing.JLabel();
         lblinstruktor = new javax.swing.JLabel();
         lblpolaznik = new javax.swing.JLabel();
 
@@ -182,10 +180,6 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
             }
         });
 
-        comboDatum.setBackground(new java.awt.Color(0, 204, 255));
-        comboDatum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        comboDatum.setForeground(new java.awt.Color(0, 0, 0));
-
         comboInstruktor.setBackground(new java.awt.Color(0, 204, 255));
         comboInstruktor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboInstruktor.setForeground(new java.awt.Color(0, 0, 0));
@@ -198,11 +192,6 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
                 comboPolaznikActionPerformed(evt);
             }
         });
-
-        datum.setBackground(new java.awt.Color(51, 51, 51));
-        datum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        datum.setForeground(new java.awt.Color(255, 255, 255));
-        datum.setText("Datum izdavanja");
 
         lblinstruktor.setBackground(new java.awt.Color(51, 51, 51));
         lblinstruktor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -224,15 +213,11 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(datum))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblinstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(149, 149, 149)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblpolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -247,15 +232,12 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblinstruktor)
-                        .addComponent(datum))
-                    .addComponent(lblpolaznik, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblpolaznik)
+                    .addComponent(lblinstruktor))
                 .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
@@ -299,8 +281,8 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
             } else {
 
                 try {
-                    //throw new RuntimeException("Simulacija greske");
-                   TableModelEvidencijaKursa model = (TableModelEvidencijaKursa) tblOtp.getModel();
+                    //throw new RuntimeException();
+                    TableModelEvidencijaKursa model = (TableModelEvidencijaKursa) tblOtp.getModel();
                     EvidencijaKursa evidencijakursa = model.getEvidencijaKursa(selektovanRed);
                     System.out.println("view.UpravljajEvidencijamaKursaForma.btnChangeActionPerformed()");
                     System.out.println("view.UpravljajEv "+ Controller.getInstance().ucitajStavkeEvidencijeKursaIzBaze(evidencijakursa));
@@ -352,26 +334,18 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         try {
-            // TODO add your handling code here:
-            Object obj = (Object) comboDatum.getSelectedItem();
-            Date datum = new Date();
-            if (obj.equals("Bilo koji")) {
-                datum = null;
-            } else {
-                datum = (Date) comboDatum.getSelectedItem();
-            }
             Instruktor instruktor = (Instruktor) comboInstruktor.getSelectedItem();
             Polaznik polaznik = (Polaznik) comboPolaznik.getSelectedItem();
             btnChange.setVisible(true);
             btnDelete.setVisible(true);
             EvidencijaKursa filter = new EvidencijaKursa();
-            if (instruktor.getIme().equals("Bilo") && instruktor.getPrezime().equals("koji")) {
+            if (instruktor.getIme().equals("Svi")){
                 instruktor = null;
             }
-            if (polaznik.getIme().equals("Bilo koji")) {
+            if (polaznik.getIme().equals("Svi")) {
                 polaznik = null;
             }
-           // filter.setDatum datum);
+
             filter.setInstruktor(instruktor);
             filter.setPolaznik(polaznik);
             ArrayList<EvidencijaKursa> filtriraneEvidencijeKursa = Controller.getInstance().pretraziEvidencijeKursa(filter);
@@ -384,6 +358,7 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Sistem je nasao evidencijekursa po zadatim kriterijumima!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
+            
         } catch (Exception ex) {
             Logger.getLogger(UpravljajEvidencijamaKursaForma.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -414,10 +389,8 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDodaj;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JComboBox<Object> comboDatum;
     private javax.swing.JComboBox<domain.Instruktor> comboInstruktor;
     private javax.swing.JComboBox<domain.Polaznik> comboPolaznik;
-    private javax.swing.JLabel datum;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -431,23 +404,24 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
 
         comboPolaznik.removeAllItems();
         Polaznik defaultPolaznik = new Polaznik();
-        defaultPolaznik.setIme("Bilo koji");
+        defaultPolaznik.setIme("Svi");
+        defaultPolaznik.setPrezime("");
         comboPolaznik.addItem(defaultPolaznik);
-        ArrayList<Polaznik> polaznici = Controller.getInstance().ucitajKupceIzBaze();
+        ArrayList<Polaznik> polaznici = Controller.getInstance().ucitajPolaznikeIzBaze();
         for (Polaznik k : polaznici) {
             comboPolaznik.addItem(k);
         }
         comboInstruktor.removeAllItems();
         Instruktor defaultInstruktor = new Instruktor();
-        defaultInstruktor.setIme("Bilo");
-        defaultInstruktor.setPrezime("koji");
+        defaultInstruktor.setIme("Svi");
+        defaultInstruktor.setPrezime("");
         comboInstruktor.addItem(defaultInstruktor);
         ArrayList<Instruktor> instruktori = Controller.getInstance().ucitajInstruktoreIzBaze();
         for (Instruktor c : instruktori) {
             comboInstruktor.addItem(c);
         }
-        comboDatum.removeAllItems();
-        comboDatum.addItem("Bilo koji");
+        //comboDatum.removeAllItems();
+        //comboDatum.addItem("Bilo koji");
         ArrayList<EvidencijaKursa> evidencijekursa = Controller.getInstance().ucitajEvidencijeKursaIzBaze();
         //for (EvidencijaKursa o : evidencijekursa) {
         //    comboDatum.addItem(o.getDatumIzdavanja());

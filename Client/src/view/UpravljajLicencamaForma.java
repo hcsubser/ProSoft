@@ -22,8 +22,8 @@ import java.sql.SQLIntegrityConstraintViolationException;
  */
 public class UpravljajLicencamaForma extends javax.swing.JFrame {
 
-    private List<Licenca> lista;
-    TableModelLicenca tmss;
+    //private List<Licenca> lista;
+    //TableModelLicenca tmss;
     //private Instruktor ulogovani;
 
     public JTable getTblLicenca() {
@@ -234,10 +234,10 @@ public class UpravljajLicencamaForma extends javax.swing.JFrame {
             try {
                 Controller.getInstance().obrisiLicenca(zaBrisanje);
             } catch (SQLIntegrityConstraintViolationException ex) {
-                JOptionPane.showMessageDialog(this, "Ne mozete obrisati strucnu spremu jer je povezana sa instruktorima", "Greska", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Ne mozete obrisati licencu jer je povezana sa instruktorima", "Greska", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
-            JOptionPane.showMessageDialog(this, "Strucna sprema obrisana", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Licenca obrisana", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
             model.refresh();
             tblLicenca.setModel(model);
         } catch (Exception ex) {

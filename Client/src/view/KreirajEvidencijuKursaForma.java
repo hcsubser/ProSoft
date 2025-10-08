@@ -51,7 +51,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         setResizable(false);
         setLocationRelativeTo(null);
         popuniInstruktoreIzBaze();
-        popuniKupceIzBaze();
+        popuniPolaznikeIzBaze();
         popuniTipCasaIzBaze();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         TableModelStavkaEvidencijeKursa tmodel = new TableModelStavkaEvidencijeKursa();
@@ -71,7 +71,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         popuniInstruktoreIzBaze();
-        popuniKupceIzBaze();
+        popuniPolaznikeIzBaze();
         popuniTipCasaIzBaze();
         popuniPromena(evidencijakursa);
         TableModelStavkaEvidencijeKursa tmodel = new TableModelStavkaEvidencijeKursa(evidencijakursa);
@@ -427,7 +427,6 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDodajStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajStavkuActionPerformed
-        // TODO add your handling code here:
         if (txtDate.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nisu sva polja popunjena za tipCasa!", "Greska", JOptionPane.ERROR_MESSAGE);
             return;
@@ -435,20 +434,16 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
 
         TipCasa tc = (TipCasa) comboTipCasa.getSelectedItem();
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date datumPrisustva = new Date();
-        //sdf.parse("2025-01-01");
+        Date datumPrisustva;
         try {
-            //datumPrisustva = sdf.parse(txtDate.getText().trim());
             datumPrisustva = sdf.parse(txtDate.getText().trim());
             
         } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(this,"Nije pravilo popunjen datum! Format je: yyyy-mm-dd", "Greska", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(KreirajEvidencijuKursaForma.class.getName()).log(Level.SEVERE, null, ex);
+            return;
         }
-        //if (!Validator.isValidNumber(txtCenaBezPDVPopust.getText()) || !Validator.isValidNumber(txtCenaSaPDVPopust.getText())) {
-        //    JOptionPane.showMessageDialog(this, "Pogresan format cene!", "Greska", JOptionPane.ERROR_MESSAGE);
 
-       // }
-        //double cenaBez = Math.floor(Double.parseDouble(txtCenaBezPDVPopust.getText()) * 100.0) / 100.0;
         double cena = Math.floor(Double.parseDouble(txtCena.getText()) * 100.0) / 100.0;
         String napomena = txtNapomena.getText();
         TableModelStavkaEvidencijeKursa tmodel = (TableModelStavkaEvidencijeKursa) tableStavke.getModel();
@@ -458,20 +453,13 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         } else {
             s1 = new StavkaEvidencijeKursa(-1, datumPrisustva, napomena, chkZavrsen.isSelected(), tc, evidencijakursaChange);
         }
-        /*if (tmodel.unetTipCasa(tc)) {
-            JOptionPane.showMessageDialog(this, "TipCasa je vec dodat u evidencijukursa!", "Greska", JOptionPane.ERROR_MESSAGE);
-            return;
-        }*/
+
         tmodel.dodajStavkuEvidencijeKursa(s1);
         tableStavke.setModel(tmodel);
         resetPodataka();
+        
         ukupna = tmodel.getUkupnaCena();
-        //u//kupnaBez = tmodel.getUkupnaCenaBezPDV();
-       // ukupanPopust = tmodel.getUkupanPopust();
-
-       // txtUkupnoBez.setText(ukupnaBez + "");
         txtUkupno.setText(ukupna + "");
-       // txtUkupanPopust.setText(ukupanPopust + "");
     }//GEN-LAST:event_btnDodajStavkuActionPerformed
 
     private void comboTipCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipCasaActionPerformed
@@ -604,9 +592,9 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         }
     }
 
-    private void popuniKupceIzBaze() throws Exception {
+    private void popuniPolaznikeIzBaze() throws Exception {
         comboBoxPolaznik.removeAllItems();
-        ArrayList<Polaznik> polaznici = Controller.getInstance().ucitajKupceIzBaze();
+        ArrayList<Polaznik> polaznici = Controller.getInstance().ucitajPolaznikeIzBaze();
         for (Polaznik k : polaznici) {
             comboBoxPolaznik.addItem(k);
         }
