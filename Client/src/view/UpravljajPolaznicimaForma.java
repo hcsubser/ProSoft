@@ -305,10 +305,10 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
             Mesto mesto = (Mesto) comboMesto.getSelectedItem();
             Polaznik polaznik = (Polaznik) comboPolaznik.getSelectedItem();
             Polaznik filter = new Polaznik();
-            if (mesto.getGrad().equals("Bilo koji")) {
+            if (mesto.getGrad().equals("Svi")) {
                 mesto = null;
             }
-            if (polaznik.getIme().equals("Bilo koji")) {
+            if (polaznik.getIme().equals("Svi")) {
                 polaznik = null;
             }
             filter.setMesto(mesto);
@@ -359,7 +359,8 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
         try {
             comboPolaznik.removeAllItems();
             Polaznik defaultPolaznik = new Polaznik();
-            defaultPolaznik.setIme("Bilo koji");
+            defaultPolaznik.setIme("Svi");
+            defaultPolaznik.setPrezime("");
             comboPolaznik.addItem(defaultPolaznik);
             ArrayList<Polaznik> polaznici = Controller.getInstance().ucitajPolaznikeIzBaze();
             for (Polaznik k : polaznici) {
@@ -368,7 +369,7 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
 
             comboMesto.removeAllItems();
             Mesto defaultMesto = new Mesto();
-            defaultMesto.setGrad("Bilo koji");
+            defaultMesto.setGrad("Svi");
             comboMesto.addItem(defaultMesto);
             List<Mesto> mesto = Controller.getInstance().ucitajMestaIzBaze();
             for (Mesto m : mesto) {
