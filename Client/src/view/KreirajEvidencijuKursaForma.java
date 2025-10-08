@@ -22,7 +22,6 @@ import javax.swing.JFrame;
 //import javax.swing.JTextField;
 import tableModel.TableModelEvidencijaKursa;
 import tableModel.TableModelStavkaEvidencijeKursa;
-//import validator.Validator;
 
 /**
  *
@@ -55,8 +54,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
         popuniTipCasaIzBaze();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         TableModelStavkaEvidencijeKursa tmodel = new TableModelStavkaEvidencijeKursa();
-        //txtUkupno.setText(""+tmodel.getUkupnaCena());
-        //tmodel.setKof(this);
+
         tableStavke.setModel(tmodel);
         JOptionPane.showMessageDialog(this, "Sistem je kreirao evidencijukursa!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -602,7 +600,7 @@ public class KreirajEvidencijuKursaForma extends javax.swing.JDialog {
 
     private void popuniTipCasaIzBaze() throws Exception {
         comboTipCasa.removeAllItems();
-        ArrayList<TipCasa> tipCasai = Controller.getInstance().ucitajTipCasaeIzBaze();
+        ArrayList<TipCasa> tipCasai = Controller.getInstance().ucitajTipCasaIzBaze();
         for (TipCasa a : tipCasai) {
             comboTipCasa.addItem(a);
         }

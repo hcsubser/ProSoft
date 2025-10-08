@@ -11,11 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import domain.Polaznik;
 import domain.Mesto;
-import java.awt.Dialog;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
-import javax.swing.JDialog;
 
 /**
  *
@@ -387,6 +385,6 @@ public class KreirajPolaznikaForma extends javax.swing.JFrame {
     }
 
     private boolean validateTel(String text) {
-        return text.matches("^\\+381\\d{1,10}$");
+        return text.matches("^\\+\\d{1,13}$");
     }
 }

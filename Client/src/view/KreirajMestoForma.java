@@ -11,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import tableModel.TableModelMesto;
 
 /**
  *
@@ -21,7 +20,6 @@ public class KreirajMestoForma extends javax.swing.JFrame {
 
     private boolean uspeh = false;
     private Mesto mesto;
-    private PregledMestaForma viewForm;
     private KreirajPolaznikaForma polaznikForm;
     private boolean dodaj = false;
 
@@ -33,31 +31,7 @@ public class KreirajMestoForma extends javax.swing.JFrame {
         this.uspeh = uspeh;
     }
 
-    public KreirajMestoForma(PregledMestaForma viewForm) {
-        initComponents();
-        this.viewForm = viewForm;
-        this.mesto = null;
-        setTitle("Kreiraj mesto");
-        setResizable(false);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-    }
-
-    public KreirajMestoForma(PregledMestaForma viewForm, Mesto m) {
-        initComponents();
-        this.viewForm = viewForm;
-        setResizable(false);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        if (m != null) {
-            setTitle("Izmeni mesto");
-            mesto = m;
-            popuniIzmenuMesto(mesto);
-        }
-    }
-
-    public KreirajMestoForma(KreirajPolaznikaForma polaznikForm, boolean dodaj) {
+       public KreirajMestoForma(KreirajPolaznikaForma polaznikForm, boolean dodaj) {
         initComponents();
         this.dodaj = dodaj;
         this.polaznikForm = polaznikForm;
@@ -192,37 +166,23 @@ public class KreirajMestoForma extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Postanski broj ne postoji!", "Greska", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if (mesto == null) {
-                Mesto m = new Mesto(-1, txtGrad.getText(), pb, txtUlica.getText());
-                Controller.getInstance().dodajMesto(m);
-                if (dodaj == false) {
-                    JOptionPane.showMessageDialog(this, "Mesto je dodato", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                    viewForm.getTblMesta().setModel(new TableModelMesto());
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Mesto je dodato", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                    uspeh = true;
-                    polaznikForm.getComboBoxMesto().removeAllItems();
-                    ArrayList<Mesto> listaMesta = Controller.getInstance().ucitajMestaIzBaze();
-                    for (Mesto mesto1 : listaMesta) {
-                        polaznikForm.getComboBoxMesto().addItem(mesto1);
-                    }
-                    this.dispose();
-                }
-
+            Mesto m = new Mesto(-1, txtGrad.getText(), pb, txtUlica.getText());
+            Controller.getInstance().dodajMesto(m);
+            if (dodaj == false) {
+                JOptionPane.showMessageDialog(this, "Mesto je dodato", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+                //viewForm.getTblMesta().setModel(new TableModelMesto());
+                this.dispose();
             } else {
-                mesto.setGrad(txtGrad.getText());
-                mesto.setUlica(txtUlica.getText());
-                mesto.setPostanskiBroj(pb);
-                try {
-                    Controller.getInstance().promeniMesto(mesto);
-                } catch (Exception ex) {
-                    Logger.getLogger(KreirajInstruktoraForma.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Mesto je dodato", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+                uspeh = true;
+                polaznikForm.getComboBoxMesto().removeAllItems();
+                ArrayList<Mesto> listaMesta = Controller.getInstance().ucitajMestaIzBaze();
+                for (Mesto mesto1 : listaMesta) {
+                    polaznikForm.getComboBoxMesto().addItem(mesto1);
                 }
-                JOptionPane.showMessageDialog(this, "Mesto je izmenjeno", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                viewForm.getTblMesta().setModel(new TableModelMesto());
                 this.dispose();
             }
+
 
         } catch (Exception ex) {
             Logger.getLogger(KreirajMestoForma.class.getName()).log(Level.SEVERE, null, ex);
@@ -231,39 +191,6 @@ public class KreirajMestoForma extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAddActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(KreirajMestoForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(KreirajMestoForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(KreirajMestoForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(KreirajMestoForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;

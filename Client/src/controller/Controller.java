@@ -27,7 +27,7 @@ import transfer.util.ResponseStatus;
  */
 public class Controller {
 
-    private static Controller instance; //jedna, jedina instanca controllera u mojoj aplikaciji
+    private static Controller instance; 
 
     public static Controller getInstance() throws Exception {
         if (instance == null) {
@@ -62,24 +62,8 @@ public class Controller {
 
     }
 
-    public void dodajInstruktora(Instruktor c) throws Exception {
-        sendRequest(Operation.DODAJ_INSTRUKTORA, c);
-    }
-
-    public void promeniInstruktora(Instruktor instruktor) throws Exception {
-        sendRequest(Operation.PROMENI_INSTRUKTORA, instruktor);
-    }
-
     public ArrayList<Instruktor> ucitajInstruktoreIzBaze() throws Exception {
         return (ArrayList<Instruktor>) sendRequest(Operation.VRATI_LISTU_SVI_INSTRUKTOR, null);
-    }
-
-    public void obrisiInstruktora(Instruktor instruktorDelete) throws Exception {
-        sendRequest(Operation.OBRISI_INSTRUKTORA, instruktorDelete);
-    }
-
-    public void obrisiLicenca(Licenca licencaDelete) throws Exception {
-        sendRequest(Operation.OBRISI_LICENCA, licencaDelete);
     }
 
     public void dodajEvidencijuKursa(EvidencijaKursa evidencijakursa) throws Exception {
@@ -91,7 +75,7 @@ public class Controller {
 
     }
 
-    public ArrayList<TipCasa> ucitajTipCasaeIzBaze() throws Exception {
+    public ArrayList<TipCasa> ucitajTipCasaIzBaze() throws Exception {
         return (ArrayList<TipCasa>) sendRequest(Operation.VRATI_LISTU_SVI_TIPCASA, null);
     }
 
@@ -101,14 +85,6 @@ public class Controller {
 
     public void ubaciLicenca(Licenca strs) throws Exception {
         sendRequest(Operation.DODAJ_LICENCA, strs);
-    }
-
-    public void promeniLicencu(Licenca ss) throws Exception {
-        sendRequest(Operation.PROMENI_LICENCA, ss);
-    }
-
-    public ArrayList<Licenca> ucitajLicenceIzBaze() throws Exception {
-        return (ArrayList<Licenca>) sendRequest(Operation.VRATI_LISTU_SVI_LICENCA, null);
     }
 
     public void dodajPolaznika(Polaznik k) throws Exception {
@@ -127,30 +103,8 @@ public class Controller {
         sendRequest(Operation.KREIRAJ_MESTO, m);
     }
 
-    public void obrisiMesto(Mesto mestoDelete) throws Exception {
-        sendRequest(Operation.OBRISI_MESTO, mestoDelete);
-
-    }
-
-    public void promeniMesto(Mesto mestoChange) throws Exception {
-        sendRequest(Operation.PROMENI_MESTO, mestoChange);
-    }
-
     public void obrisiPolaznika(Polaznik polaznikDelete) throws Exception {
         sendRequest(Operation.OBRISI_POLAZNIKA, polaznikDelete);
-    }
-
-    public void dodajTipCasa(TipCasa tipCasaAdd) throws Exception {
-        sendRequest(Operation.KREIRAJ_TIPCASA, tipCasaAdd);
-    }
-
-    public void promeniTipCasa(TipCasa tipCasaChange) throws Exception {
-        sendRequest(Operation.PROMENI_TIPCASA, tipCasaChange);
-
-    }
-
-    public void obrisiTipCasa(TipCasa tipCasaDelete) throws Exception {
-        sendRequest(Operation.OBRISI_TIPCASA, tipCasaDelete);
     }
 
     public ArrayList<EvidencijaKursa> ucitajEvidencijeKursaIzBaze() throws Exception {

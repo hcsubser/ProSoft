@@ -261,7 +261,7 @@ public class UpravljajPolaznicimaForma extends javax.swing.JFrame {
 
             tblPolaznici.setModel(new TableModelPolaznik());
         } catch (Exception ex) {
-            Logger.getLogger(UpravljajInstruktorimaForma.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
 

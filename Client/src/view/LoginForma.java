@@ -296,7 +296,7 @@ public class LoginForma extends javax.swing.JFrame {
             }
             if (source == txtLozinka.getDocument()) {
                 String pass = String.valueOf(txtLozinka.getPassword());
-                if (pass != null && pass.length() >= 8) {
+                if (pass != null && pass.length() >= 5) {
                     txtErrorLozinka.setText("   ");
                     //txtErrorLozinka.setVisible(false);
 

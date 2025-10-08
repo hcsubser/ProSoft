@@ -18,10 +18,7 @@ public class TipCasa extends OpstiDomenskiObjekat {
     private int id;
     private String naziv;
     private String opis;
-    //private PoreskaStopa poreskaStopa;
-    //private double cenaBezPDV;
     private double cena;
-    //public double popust;
 
     public TipCasa() {
     }

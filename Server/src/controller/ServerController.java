@@ -4,7 +4,6 @@
  */
 package controller;
 
-import validator.PasswordHash;
 import domain.TipCasa;
 import domain.Instruktor;
 import domain.Polaznik;
@@ -14,14 +13,8 @@ import domain.StavkaEvidencijeKursa;
 import domain.Licenca;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import so.tipcasa.SOKreirajTipCasa;
-import so.tipcasa.SOObrisiTipCasa;
-import so.tipcasa.SOPromeniTipCasa;
 import so.tipcasa.SOVratiListuSviTipCasa;
-import so.instruktor.SOKreirajInstruktor;
-import so.instruktor.SOObrisiInstruktor;
 import so.instruktor.SOPrijaviInstruktor;
-import so.instruktor.SOPromeniInstruktor;
 import so.instruktor.SOVratiListuSviInstruktor;
 import so.polaznik.SOObrisiPolaznik;
 import so.polaznik.SOPromeniPolaznik;
@@ -29,8 +22,6 @@ import so.polaznik.SOVratiListuSviPolaznik;
 import so.polaznik.SOKreirajPolaznik;
 import so.polaznik.SOPretraziPolaznik;
 import so.mesto.SOKreirajMesto;
-import so.mesto.SOObrisiMesto;
-import so.mesto.SOPromeniMesto;
 import so.mesto.SOVratiListuSviMesto;
 import so.evidencijakursa.SOKreirajEvidencijuKursa;
 import so.evidencijakursa.SOObrisiEvidencijuKursa;
@@ -38,10 +29,7 @@ import so.evidencijakursa.SOPretraziEvidencijuKursa;
 import so.evidencijakursa.SOPromeniEvidencijuKursa;
 import so.evidencijakursa.SOVratiListuSvihEvidencijaKursa;
 import so.stavkaevidencijekursa.SOVratiListuSviStavkaEvidencijeKursa;
-import so.licenca.SOObrisiLicenca;
-import so.licenca.SOPromeniLicenca;
 import so.licenca.SOUbaciLicenca;
-import so.licenca.SOVratiListuSviLicenca;
 
 /**
  *
@@ -64,32 +52,15 @@ public class ServerController {
 
     public Instruktor prijaviInstruktora(Instruktor instruktor) throws SQLException, Exception {
         SOPrijaviInstruktor soPrijavi = new SOPrijaviInstruktor();
-        String hash = PasswordHash.hashPassword(instruktor.getLozinka());
-        instruktor.setLozinka(hash);
         soPrijavi.templateExecute(instruktor);
         return soPrijavi.getPrijavljenInstruktor();
 
-    }
-
-    public void dodajInstruktora(Instruktor instruktorAdd) throws Exception {
-        String hash = PasswordHash.hashPassword(instruktorAdd.getLozinka());
-        instruktorAdd.setLozinka(hash);
-        (new SOKreirajInstruktor()).templateExecute(instruktorAdd);
-
-    }
-
-    public void promeniInstruktora(Instruktor instruktorChange) throws Exception {
-        (new SOPromeniInstruktor()).templateExecute(instruktorChange);
     }
 
     public ArrayList<Instruktor> ucitajInstruktoreIzBaze() throws Exception {
         SOVratiListuSviInstruktor so = new SOVratiListuSviInstruktor();
         so.templateExecute(new Instruktor());
         return so.getList();
-    }
-
-    public void obrisiInstruktora(Instruktor instruktorDelete) throws Exception {
-        (new SOObrisiInstruktor()).templateExecute(instruktorDelete);
     }
 
     public ArrayList<Polaznik> ucitajPolaznikeIzBaze() throws Exception {
@@ -116,30 +87,10 @@ public class ServerController {
         return so.getList();
     }
 
-    public void promeniTipCasa(TipCasa tipCasaChange) throws Exception {
-        (new SOPromeniTipCasa()).templateExecute(tipCasaChange);
-    }
-
-    public void obrisiTipCasa(TipCasa tipCasaDelete) throws Exception {
-        (new SOObrisiTipCasa()).templateExecute(tipCasaDelete);
-    }
-
-    public void dodajTipCasa(TipCasa tipCasaAdd) throws Exception {
-        (new SOKreirajTipCasa()).templateExecute(tipCasaAdd);
-    }
-
     public ArrayList<Mesto> ucitajMestaIzBaze() throws Exception {
         SOVratiListuSviMesto so = new SOVratiListuSviMesto();
         so.templateExecute(new Mesto());
         return so.getList();
-    }
-
-    public void promeniMesto(Mesto mestoChange) throws Exception {
-        (new SOPromeniMesto()).templateExecute(mestoChange);
-    }
-
-    public void obrisiMesto(Mesto mestoDelete) throws Exception {
-        (new SOObrisiMesto()).templateExecute(mestoDelete);
     }
 
     public void dodajMesto(Mesto mestoAdd) throws Exception {
@@ -158,24 +109,6 @@ public class ServerController {
 
     public void promeniEvidencijuKursa(EvidencijaKursa evidencijakursaChange) throws Exception {
         (new SOPromeniEvidencijuKursa()).templateExecute(evidencijakursaChange);
-    }
-
-    public void ubaciLicencu(Licenca licencaAdd) throws Exception {
-        (new SOUbaciLicenca()).templateExecute(licencaAdd);
-    }
-
-    public void promeniLicencu(Licenca licencaChange) throws Exception {
-        (new SOPromeniLicenca()).templateExecute(licencaChange);
-    }
-
-    public ArrayList<Licenca> ucitajLicenceIzBaze() throws Exception {
-        SOVratiListuSviLicenca so = new SOVratiListuSviLicenca();
-        so.templateExecute(new Licenca());
-        return so.getList();
-    }
-
-    public void obrisiLicenca(Licenca licencaDelete) throws Exception {
-        (new SOObrisiLicenca()).templateExecute(licencaDelete);
     }
 
     public void obrisiEvidencijuKursa(EvidencijaKursa evidencijakursaDelete) throws Exception {

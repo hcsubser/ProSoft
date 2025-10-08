@@ -47,7 +47,6 @@ public class GlavnaForma extends javax.swing.JFrame {
         txtLogovan = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnEvidencijaKursa = new javax.swing.JButton();
-        btnInstruktor = new javax.swing.JButton();
         btnPolaznik = new javax.swing.JButton();
         btnLicenca = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -86,15 +85,6 @@ public class GlavnaForma extends javax.swing.JFrame {
             }
         });
 
-        btnInstruktor.setBackground(new java.awt.Color(0, 255, 0));
-        btnInstruktor.setForeground(new java.awt.Color(0, 0, 0));
-        btnInstruktor.setText("Instruktori");
-        btnInstruktor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInstruktorActionPerformed(evt);
-            }
-        });
-
         btnPolaznik.setBackground(new java.awt.Color(0, 255, 0));
         btnPolaznik.setForeground(new java.awt.Color(0, 0, 0));
         btnPolaznik.setText("Polaznici");
@@ -126,26 +116,21 @@ public class GlavnaForma extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtLogovan, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblTrajanjeSesije))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnLicenca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblTrajanjeSesije))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtLogovan, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnInstruktor, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                                .addComponent(btnEvidencijaKursa, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(84, 84, 84)
-                                .addComponent(btnPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(16, 16, 16))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEvidencijaKursa, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84)
+                        .addComponent(btnPolaznik, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(16, 16, 16))
             .addComponent(jSeparator1)
         );
         jPanel1Layout.setVerticalGroup(
@@ -158,12 +143,10 @@ public class GlavnaForma extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInstruktor)
                     .addComponent(btnEvidencijaKursa)
-                    .addComponent(btnPolaznik))
-                .addGap(18, 18, 18)
-                .addComponent(btnLicenca)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                    .addComponent(btnPolaznik)
+                    .addComponent(btnLicenca))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
                 .addComponent(lblTrajanjeSesije)
                 .addContainerGap())
         );
@@ -213,13 +196,6 @@ public class GlavnaForma extends javax.swing.JFrame {
         pf.setVisible(true);
     }//GEN-LAST:event_btnEvidencijaKursaActionPerformed
 
-    private void btnInstruktorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstruktorActionPerformed
-
-        UpravljajInstruktorimaForma uif = new UpravljajInstruktorimaForma(instruktor);
-        uif.setVisible(true);       
-        
-    }//GEN-LAST:event_btnInstruktorActionPerformed
-
     private void btnPolaznikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPolaznikActionPerformed
         try {
             // TODO add your handling code here:
@@ -231,7 +207,7 @@ public class GlavnaForma extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPolaznikActionPerformed
 
     private void btnLicencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLicencaActionPerformed
-        UpravljajLicencamaForma lf = new UpravljajLicencamaForma();
+        UbaciLicencuForma lf = new UbaciLicencuForma();
         lf.setVisible(true);      
     }//GEN-LAST:event_btnLicencaActionPerformed
 
@@ -268,7 +244,6 @@ public class GlavnaForma extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEvidencijaKursa;
-    private javax.swing.JButton btnInstruktor;
     private javax.swing.JButton btnLicenca;
     private javax.swing.JButton btnPolaznik;
     private javax.swing.JButton jButton1;

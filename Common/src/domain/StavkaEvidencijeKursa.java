@@ -227,9 +227,6 @@ public class StavkaEvidencijeKursa extends OpstiDomenskiObjekat {
         return " " + evidencijakursa.getId() + ", " + rb + ", "
                 +  "'" + date +"', '"  + napomena + "', " + ((zavrsen) ? "1":"0") + ", " + tipCasa.getId() + " ";
 
-        //return " " + evidencijakursa.getId() + ", " + rb + ", "
-        //        +  "STR_TO_DATE('" + datumPrisustva.getDay() + "-" + datumPrisustva.getMonth() + "-" + (datumPrisustva.getYear()+1900) +"', '%d-%m-%Y')" 
-        //        + ", '" + napomena + "', " + ((zavrsen) ? "1":"0") + ", " + tipCasa.getId() + " ";
     }
 
     @Override

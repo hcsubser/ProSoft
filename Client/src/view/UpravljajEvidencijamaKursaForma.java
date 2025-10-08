@@ -9,11 +9,9 @@ import controller.Controller;
 import domain.Instruktor;
 import domain.Polaznik;
 import domain.EvidencijaKursa;
-import domain.StavkaEvidencijeKursa;
 import java.awt.Color;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -49,37 +47,13 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
             //boje:
             tblOtp.getTableHeader().setBackground(Color.decode("#000000"));
             tblOtp.getTableHeader().setForeground(Color.decode("#ffffff"));
-            //tblOtp.get
-            
-            //btnSearch.setVisible(false);
-            //comboInstruktor.setVisible(false);
-            //comboDatum.setVisible(false);
-            //comboPolaznik.setVisible(false);
-            //lblinstruktor.setVisible(false);
-            //lblpolaznik.setVisible(false);
-            //datum.setVisible(false);
+
             TableModelEvidencijaKursa tmodel = new TableModelEvidencijaKursa();
             tblOtp.setModel(tmodel);
         } catch (Exception ex) {
             Logger.getLogger(UpravljajEvidencijamaKursaForma.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    /*public UpravljajEvidencijamaKursaForma(boolean pretraga) {
-        try {
-            initComponents();
-            popuniCombo();
-            setTitle("Pretrazi evidencijukursa");
-            //btnChange.setVisible(false);
-            //btnDelete.setVisible(false);
-            setResizable(false);
-            setLocationRelativeTo(null);
-            TableModelEvidencijaKursa tmodel = new TableModelEvidencijaKursa();
-            tblOtp.setModel(tmodel);
-        } catch (Exception ex) {
-            Logger.getLogger(UpravljajEvidencijamaKursaForma.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -328,7 +302,7 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
             TableModelEvidencijaKursa tmodel = new TableModelEvidencijaKursa();
             tblOtp.setModel(tmodel);
         } catch (Exception ex) {
-            Logger.getLogger(UpravljajInstruktorimaForma.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -420,11 +394,8 @@ public class UpravljajEvidencijamaKursaForma extends javax.swing.JDialog {
         for (Instruktor c : instruktori) {
             comboInstruktor.addItem(c);
         }
-        //comboDatum.removeAllItems();
-        //comboDatum.addItem("Bilo koji");
+
         ArrayList<EvidencijaKursa> evidencijekursa = Controller.getInstance().ucitajEvidencijeKursaIzBaze();
-        //for (EvidencijaKursa o : evidencijekursa) {
-        //    comboDatum.addItem(o.getDatumIzdavanja());
-        //}
+
     }
 }

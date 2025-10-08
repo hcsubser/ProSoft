@@ -5,7 +5,6 @@
 package thread;
 
 import controller.ServerController;
-import domain.TipCasa;
 import domain.Instruktor;
 import domain.Polaznik;
 import domain.Mesto;
@@ -76,26 +75,14 @@ public class ThreadClient extends Thread {
                     ulogovaniKorisnik = prijavljeni;
                     response.setData(prijavljeni);
                     break;
-                case Operation.DODAJ_INSTRUKTORA:
-                    ServerController.getInstance().dodajInstruktora((Instruktor) request.getData());
-                    break;
                 case Operation.KREIRAJ_EVIDENCIJU_KURSA:
                     ServerController.getInstance().kreirajEvidencijuKursa((EvidencijaKursa) request.getData());
-                    break;
-                case Operation.UBACI_STR_SPREMU:
-                    ServerController.getInstance().ubaciLicencu((Licenca) request.getData());
                     break;
                 case Operation.PROMENI_POLAZNIKA:
                     ServerController.getInstance().promeniPolaznika((Polaznik) request.getData());
                     break;
                 case Operation.OBRISI_POLAZNIKA:
                     ServerController.getInstance().obrisiPolaznika((Polaznik) request.getData());
-                    break;
-                case Operation.PROMENI_INSTRUKTORA:
-                    ServerController.getInstance().promeniInstruktora((Instruktor) request.getData());
-                    break;
-                case Operation.OBRISI_INSTRUKTORA:
-                    ServerController.getInstance().obrisiInstruktora((Instruktor) request.getData());
                     break;
                 case Operation.VRATI_LISTU_SVI_POLAZNICI:
                     response.setData(ServerController.getInstance().ucitajPolaznikeIzBaze());
@@ -109,23 +96,8 @@ public class ThreadClient extends Thread {
                 case Operation.KREIRAJ_POLAZNIKA:
                     ServerController.getInstance().dodajPolaznika((Polaznik) request.getData());
                     break;
-                case Operation.KREIRAJ_TIPCASA:
-                    ServerController.getInstance().dodajTipCasa((TipCasa) request.getData());
-                    break;
-                case Operation.OBRISI_TIPCASA:
-                    ServerController.getInstance().obrisiTipCasa((TipCasa) request.getData());
-                    break;
-                case Operation.PROMENI_TIPCASA:
-                    ServerController.getInstance().promeniTipCasa((TipCasa) request.getData());
-                    break;
                 case Operation.KREIRAJ_MESTO:
                     ServerController.getInstance().dodajMesto((Mesto) request.getData());
-                    break;
-                case Operation.PROMENI_MESTO:
-                    ServerController.getInstance().promeniMesto((Mesto) request.getData());
-                    break;
-                case Operation.OBRISI_MESTO:
-                    ServerController.getInstance().obrisiMesto((Mesto) request.getData());
                     break;
                 case Operation.VRATI_LISTU_SVI_MESTO:
                     response.setData(ServerController.getInstance().ucitajMestaIzBaze());
@@ -144,15 +116,6 @@ public class ThreadClient extends Thread {
                     break;
                 case Operation.VRATI_LISTU_STAVKI_EVIDENCIJE_KURSA:
                     response.setData(ServerController.getInstance().ucitajStavkeEvidencijeKursaIzBaze((EvidencijaKursa) request.getData()));
-                    break;
-                case Operation.PROMENI_LICENCA:
-                    ServerController.getInstance().promeniLicencu((Licenca) request.getData());
-                    break;
-                case Operation.OBRISI_LICENCA:
-                    ServerController.getInstance().obrisiLicenca((Licenca) request.getData());
-                    break;
-                case Operation.VRATI_LISTU_SVI_LICENCA:
-                    response.setData(ServerController.getInstance().ucitajLicenceIzBaze());
                     break;
                 case Operation.DODAJ_LICENCA:
                     ServerController.getInstance().dodajLicenca((Licenca) request.getData());

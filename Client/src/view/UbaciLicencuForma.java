@@ -10,7 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import tableModel.TableModelLicenca;
 
 /**
  *
@@ -19,7 +18,6 @@ import tableModel.TableModelLicenca;
 public class UbaciLicencuForma extends javax.swing.JFrame {
 
     Licenca l;
-    UpravljajLicencamaForma ulf;
     /**
      * Creates new form UbaciStrucnuSpremuForma
      */
@@ -31,18 +29,7 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
-    public UbaciLicencuForma(JFrame parent, Licenca licenca) {
-        initComponents();
-        setResizable(false);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        if(licenca!=null){
-            l=licenca;
-            ulf=(UpravljajLicencamaForma) parent;
-            popuniIzmenuLicenca(l);
-        }
 
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -170,72 +157,24 @@ public class UbaciLicencuForma extends javax.swing.JFrame {
             return;
         }
 
-        if(l==null){
         Licenca licenca = new Licenca(-1,txtNaziv.getText(), txtKategorija.getText());
-            try {
-                //throw new RuntimeException("Simulacija greske");
-                Controller.getInstance().ubaciLicenca(licenca);
-                JOptionPane.showMessageDialog(this, "Sistem je sacuvao licencu!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                this.dispose();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva licencu!", "Greska", JOptionPane.ERROR_MESSAGE);
-            }
-        }else{
-            l.setNaziv(txtNaziv.getText());
-            l.setKategorija(txtKategorija.getText());
-            try {
-                Controller.getInstance().promeniLicencu(l);
-                JOptionPane.showMessageDialog(this, "Sistem je uspenso izmenio licencu!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
-                ulf.getTblLicenca().setModel(new TableModelLicenca());
-                this.dispose();
-            } catch (Exception ex) {
-                Logger.getLogger(UbaciLicencuForma.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        try {
+            //throw new RuntimeException("Simulacija greske");
+            Controller.getInstance().ubaciLicenca(licenca);
+            JOptionPane.showMessageDialog(this, "Sistem je sacuvao licencu!", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+            this.dispose();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva licencu!", "Greska", JOptionPane.ERROR_MESSAGE);
         }
+
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void onWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_onWindowClosed
-        UpravljajLicencamaForma f= new UpravljajLicencamaForma();
-        f.setVisible(true);
+        //UpravljajLicencamaForma f= new UpravljajLicencamaForma();
+        //f.setVisible(true);
     }//GEN-LAST:event_onWindowClosed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UbaciLicencuForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UbaciLicencuForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UbaciLicencuForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UbaciLicencuForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UbaciLicencuForma().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;

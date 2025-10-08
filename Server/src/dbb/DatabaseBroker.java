@@ -5,9 +5,7 @@
  */
 package dbb;
 
-import com.mysql.cj.jdbc.exceptions.CommunicationsException;
-import validator.PasswordHash;
-import domain.Instruktor;
+
 import domain.OpstiDomenskiObjekat;
 import java.io.FileInputStream;
 import java.sql.*;
@@ -40,7 +38,6 @@ public class DatabaseBroker {
                 throw new Exception("Greska! Konekcija sa bazom nije uspesno uspostavljena!");
         // ex.printStackTrace();
             }
-            updatePasswordsToHashed();
         } catch (SQLException ex) {
         }
     }
@@ -51,59 +48,6 @@ public class DatabaseBroker {
 
         }
         return instance;
-    }
-
-    public void updatePasswordsToHashed() throws SQLException {
-        String query = "SELECT id, lozinka FROM instruktor";
-        System.out.println(query);
-        Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery(query);
-
-        while (rs.next()) {
-            int id = rs.getInt("id");
-            String plainPassword = rs.getString("lozinka");
-            if (plainPassword.length() != 64) {
-                String hashedPassword = PasswordHash.hashPassword(plainPassword);
-
-                String updateQuery = "UPDATE instruktor SET lozinka=? WHERE id=?";
-                System.out.println(updateQuery);
-                PreparedStatement ps = connection.prepareStatement(updateQuery);
-                ps.setString(1, hashedPassword);
-                ps.setInt(2, id);
-                ps.executeUpdate();
-            }
-        }
-        connection.commit();
-        rs.close();
-        stmt.close();
-    }
-
-    public void updateNewPasswordToHash(Instruktor instruktorChange) throws SQLException {
-        String query = "SELECT lozinka FROM instruktor WHERE id=" + instruktorChange.getId();
-        Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery(query);
-        System.out.println(query);
-        System.out.println("usaooo");
-        while (rs.next()) {
-            String currentPass = rs.getString("lozinka");
-            System.out.println("current u bazi:" + currentPass);
-            System.out.println("sad kod instruktora:" + instruktorChange.getLozinka());
-            if (currentPass.length() == 64 && currentPass.length() == instruktorChange.getLozinka().length()) {
-                break;
-            }
-            System.out.println("usaooo22");
-            String hashedPassword = PasswordHash.hashPassword(instruktorChange.getLozinka());
-            System.out.println("nova hesirana:" + hashedPassword);
-            instruktorChange.setLozinka(hashedPassword);
-            String updateQuery = "UPDATE instruktor SET lozinka=? WHERE id=?";
-            PreparedStatement ps = connection.prepareStatement(updateQuery);
-            ps.setString(1, hashedPassword);
-            ps.setInt(2, instruktorChange.getId());
-            ps.executeUpdate();
-        }
-        connection.commit();
-        rs.close();
-        stmt.close();
     }
 
     public void connect() throws SQLException {
